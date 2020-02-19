@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Climbing Tracker</title>
+	<style>
+	</style>
+</head>
+<body>
+	<h2>Register New Climb</h2>
+	<form action="/action_page.php">
+		<label for="date">Date:</label><br>
+		<input type="text" id="date" name="date" value="01/01/2020"><br><br>
+
+		<label for="route">Route id:</label><br>
+		<input type="text" id="route" name="route" value="001"><br><br>
+
+		<label for="grade">Grade:</label><br>
+		<select id="grade" name="gradelist" form="gradeform">
+			<option value="5.8">5.8</option>
+			<option value="5.9">5.9</option>
+			<option value="5.10a">5.10a</option>
+			<option value="5.10b">5.10b</option>
+			<option value="5.10c">5.10c</option>
+			<option value="5.10d">5.10d</option>
+			<option value="5.11a">5.11a</option>
+			<option value="5.11b">5.11b</option>
+			<option value="5.11c">5.11c</option>
+			<option value="5.11d">5.11d</option>
+			<option value="5.121a">5.12a</option>
+			<option value="5.12b">5.12b</option>
+			<option value="5.12c">5.12c</option>
+			<option value="5.12d">5.12d</option>
+		</select><br><br>
+
+		<label for="attempt">Attempt:</label><br>
+		<input type="text" id="attempt" name="attempt" value="1"><br><br>
+
+		<label for="attempt">Status:</label><br>
+		<input type="radio" id="top" name="status" value="top">
+		<label for="top">Top</label><br>
+		<input type="radio" id="fall" name="status" value="fall">
+		<label for="fall">Fall</label><br><br>
+
+		<input type="submit" value="Add Climb">
+	</form>
+</body>
+</html>
