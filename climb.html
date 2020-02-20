@@ -6,16 +6,16 @@
 	</style>
 </head>
 <body>
-	<h2>Register New Climb</h2>
-	<form action="/action_page.php">
-		<label for="date">Date:</label><br>
-		<input type="text" id="date" name="date" value="01/01/2020"><br><br>
+	<h2>Add New Climb</h2>
+	<form action="info.php" id="add" method="get">
+		<label for="session">Date:</label><br>
+		<input type="date" id="session" name="session"><br><br>
 
-		<label for="route">Route id:</label><br>
+		<label for="route">Route:</label><br>
 		<input type="text" id="route" name="route" value="001"><br><br>
 
 		<label for="grade">Grade:</label><br>
-		<select id="grade" name="gradelist" form="gradeform">
+		<select id="grade" name="grade" form="add">
 			<option value="5.8">5.8</option>
 			<option value="5.9">5.9</option>
 			<option value="5.10a">5.10a</option>
@@ -33,7 +33,7 @@
 		</select><br><br>
 
 		<label for="attempt">Attempt:</label><br>
-		<input type="text" id="attempt" name="attempt" value="1"><br><br>
+		<input type="number" id="attempt" name="attempt" min="1" step="1" value="1"><br><br>
 
 		<label for="attempt">Status:</label><br>
 		<input type="radio" id="top" name="status" value="top">
@@ -41,7 +41,8 @@
 		<input type="radio" id="fall" name="status" value="fall">
 		<label for="fall">Fall</label><br><br>
 
-		<input type="submit" value="Add Climb">
+		<input type="submit" value="Add Climb"><br>
+		<input type="reset">
 	</form>
 </body>
 </html>
