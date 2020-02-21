@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Climbing Tracker</title>
+	<title>Add New Climbing</title>
 	<style>
 	</style>
 </head>
 <body>
 	<h2>Add New Climb</h2>
-	<form action="info.php" id="add" method="get">
-		<label for="session">Date:</label><br>
-		<input type="date" id="session" name="session"><br><br>
+	<form action="add_climb.php" id="add" method="get" target="blank">
+		<label for="_date">Date:</label><br>
+		<input type="date" id="_date" name="_date" value="2020-01-01"><br><br>
 
-		<label for="route">Route:</label><br>
-		<input type="text" id="route" name="route" value="001"><br><br>
+		<label for="route_id">Route ID:</label><br>
+		<input type="text" id="route_id" name="route_id" value="001"><br><br>
 
 		<label for="grade">Grade:</label><br>
 		<select id="grade" name="grade" form="add">
@@ -26,7 +26,7 @@
 			<option value="5.11b">5.11b</option>
 			<option value="5.11c">5.11c</option>
 			<option value="5.11d">5.11d</option>
-			<option value="5.121a">5.12a</option>
+			<option value="5.12a">5.12a</option>
 			<option value="5.12b">5.12b</option>
 			<option value="5.12c">5.12c</option>
 			<option value="5.12d">5.12d</option>
