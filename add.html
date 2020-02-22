@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Add New Climbing</title>
 	<style>
 	</style>
 </head>
+
 <body>
 	<h2>Add New Climb</h2>
-	<form action="add_climb.php" id="add" method="get" target="blank">
+	<form action="add.php" id="add" method="get">
 		<label for="_date">Date:</label><br>
 		<input type="date" id="_date" name="_date" value="2020-01-01"><br><br>
 
 		<label for="route_id">Route ID:</label><br>
-		<input type="text" id="route_id" name="route_id" value="001"><br><br>
+		<input type="text" id="route_id" name="route_id" value="1"><br><br>
 
 		<label for="grade">Grade:</label><br>
-		<select id="grade" name="grade" form="add">
+		<select id="grade" name="grade">
 			<option value="5.8">5.8</option>
 			<option value="5.9">5.9</option>
 			<option value="5.10a">5.10a</option>
@@ -34,15 +36,15 @@
 
 		<label for="attempt">Attempt:</label><br>
 		<input type="number" id="attempt" name="attempt" min="1" step="1" value="1"><br><br>
+		
+		<label for="status">Status:</label><br>
+		<select id="status" name="status">
+			<option value="Top">Top</option>
+			<option value="Fall">Fall</option>
+		</select><br><br>
 
-		<label for="attempt">Status:</label><br>
-		<input type="radio" id="top" name="status" value="top">
-		<label for="top">Top</label><br>
-		<input type="radio" id="fall" name="status" value="fall">
-		<label for="fall">Fall</label><br><br>
-
-		<input type="submit" value="Add Climb"><br>
-		<input type="reset">
+		<input type="submit" value="Add Climb">
 	</form>
 </body>
+
 </html>
