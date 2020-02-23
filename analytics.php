@@ -18,27 +18,74 @@
 			<th>Tops</th>
 			<th>Distinct-Tops</th>
 		</tr>
-		<tr>
-			<td>5.8</td>
 	<?php
+	$gr = array("5.8", "5.9", "5.10a", "5.10b");
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
-	$result = mysqli_query($conn, "SELECT * FROM tb_luis");
-	
-	while ($row = mysqli_fetch_array($result))
+	$i = 0;
+	while ($gr[$i])
 	{
-		$field1 = $row[0];
-		$field2 = $row[1];
-		$field3 = $row[2];
-		$field4 = $row[3];
-		$field5 = $row[4];
-		echo 	'<tr>
-					<td>'.$field1.'</td>
-					<td>'.$field2.'</td>
-					<td>'.$field3.'</td>
-					<td>'.$field4.'</td>
-					<td>'.$field5.'</td>
-				</tr>';
+		$x = $gr[$i];
+		$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Grade = '$x'");
+		$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Grade = '$x' AND Status = 'Top'");
+		$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Grade = '$x'");
+		$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Grade = '$x' 
+			AND Status = 'Top'");
+
+		$row_c = mysqli_fetch_array($q_c);
+		$row_t = mysqli_fetch_array($q_t);
+		$row_dc = mysqli_fetch_array($q_dc);
+		$row_dt = mysqli_fetch_array($q_dt);
+
+		$efc = ($row_dt[0] / $row_dc[0]) * 100;
+		$efc = (int)$efc;
+		$efn = ($row_t[0] / $row_c[0]) * 100;
+		$efn = (int)$efn;
+		$clm = $row_c[0];
+		$dclm = $row_dc[0];
+		$top = $row_t[0];
+		$dtop = $row_dt[0];
+
+		echo	'<tr>';
+		echo	'<td>'.$x.'</td>';
+		echo	'<td>'.$efc.'%</td>';
+		echo	'<td>'.$efn.'%</td>';
+		echo	'<td>'.$clm.'</td>';
+		echo	'<td>'.$dclm.'</td>';
+		echo	'<td>'.$top.'</td>';
+		echo	'<td>'.$dtop.'</td>';
+		echo	'</tr>';
+		
+		$i = $i + 1;
 	}
+	$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis");
+	$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Status = 'Top'");
+	$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis");
+	$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Status = 'Top'");
+	
+	$row_c = mysqli_fetch_array($q_c);
+	$row_t = mysqli_fetch_array($q_t);
+	$row_dc = mysqli_fetch_array($q_dc);
+	$row_dt = mysqli_fetch_array($q_dt);
+
+	$efc = ($row_dt[0] / $row_dc[0]) * 100;
+	$efc = (int)$efc;
+	$efn = ($row_t[0] / $row_c[0]) * 100;
+	$efn = (int)$efn;
+	$clm = $row_c[0];
+	$dclm = $row_dc[0];
+	$top = $row_t[0];
+	$dtop = $row_dt[0];
+
+	echo	'<tr>';
+	echo	'<th>Totals</th>';
+	echo	'<th>'.$efc.'%</th>';
+	echo	'<th>'.$efn.'%</th>';
+	echo	'<th>'.$clm.'</th>';
+	echo	'<th>'.$dclm.'</th>';
+	echo	'<th>'.$top.'</th>';
+	echo	'<th>'.$dtop.'</th>';
+	echo	'</tr>';
+
 	mysqli_close($conn);
 	?>
 </body>
