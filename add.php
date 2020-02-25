@@ -18,7 +18,7 @@ $q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$
 $row_attempt = mysqli_fetch_array($q_attempt);
 $attempt = $row_attempt[0] + 1;
 
-if (mysqli_query($conn, "INSERT INTO $user (date, route_id, grade, attempt, status)
+if (mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status)
    	VALUES ('$_GET[_date]', '$_GET[route]',	'$grade', '$attempt', '$_GET[status]')"))
 	echo "Addition successfully";
 else
