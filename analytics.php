@@ -21,15 +21,18 @@
 	<?php
 	$gr = array("5.8", "5.9", "5.10a", "5.10b");
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
+	$user = "tb_luis";
 	$i = 0;
 	while ($gr[$i])
 	{
 		$x = $gr[$i];
-		$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Grade = '$x'");
-		$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Grade = '$x' AND Status = 'Top'");
-		$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Grade = '$x'");
-		$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Grade = '$x' 
-			AND Status = 'Top'");
+		$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE grade = '$x'");
+		$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE grade = '$x'
+		   	AND status = 'Top'");
+		$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT route_id) FROM $user
+		   	WHERE grade = '$x'");
+		$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT route_id) FROM $user
+		   	WHERE grade = '$x' AND status = 'Top'");
 
 		$row_c = mysqli_fetch_array($q_c);
 		$row_t = mysqli_fetch_array($q_t);
@@ -57,10 +60,10 @@
 		
 		$i = $i + 1;
 	}
-	$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis");
-	$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM tb_luis WHERE Status = 'Top'");
-	$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis");
-	$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT RouteID) FROM tb_luis WHERE Status = 'Top'");
+	$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
+	$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE status = 'Top'");
+	$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT route_id) FROM $user");
+	$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT route_id) FROM $user WHERE status = 'Top'");
 	
 	$row_c = mysqli_fetch_array($q_c);
 	$row_t = mysqli_fetch_array($q_t);

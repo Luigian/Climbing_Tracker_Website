@@ -17,7 +17,8 @@
 		echo "Connection failed";
 	echo '<br>';
 	*/
-	$result = mysqli_query($conn, "SELECT * FROM tb_luis");
+	$user = "tb_luis";
+	$result = mysqli_query($conn, "SELECT * FROM $user");
 	/*
 	if ($result)
 		echo "Selection successfully";
