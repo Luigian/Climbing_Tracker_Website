@@ -10,23 +10,8 @@
 	<h2>Climbing History</h2>
 	<?php
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
-	/*
-	if ($conn)
-		echo "Connection successfully";
-	else
-		echo "Connection failed";
-	echo '<br>';
-	*/
-//	$user = "tb_luis";
 	$user = "tb_julian";
-	$q_table = mysqli_query($conn, "SELECT * FROM $user");
-	/*
-	if ($result)
-		echo "Selection successfully";
-	else
-		echo "Selection failed";
-	echo '<br>';
-	*/
+	$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date, sequence");
 	echo '<table>
 			<tr>
 				<th>Date</th>

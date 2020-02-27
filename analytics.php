@@ -19,9 +19,10 @@
 			<th>Distinct-Tops</th>
 		</tr>
 	<?php
-	$gr = array("5.8", "5.9", "5.10a", "5.10b");
+	$gr = array("5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c", 
+	"5.11d", "5.12a", "5.12b", "5.12c", "5.12d");
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
-	$user = "tb_luis";
+	$user = "tb_julian";
 	$i = 0;
 	while ($gr[$i])
 	{
@@ -39,6 +40,8 @@
 		$row_dc = mysqli_fetch_array($q_dc);
 		$row_dt = mysqli_fetch_array($q_dt);
 
+		if ($row_c[0] == 0)
+			break;
 		$efc = ($row_dt[0] / $row_dc[0]) * 100;
 		$efc = (int)$efc;
 		$efn = ($row_t[0] / $row_c[0]) * 100;

@@ -1,29 +1,78 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add New Climbing</title>
+	<style>
+		.error {color: #FF0000;}
+	</style>
+</head>
 
-$conn = mysqli_connect("localhost", "root", "root", "db_climb");
-if ($conn)
-	echo "Connection successfully";
-else
-	echo "Connection failed";
-echo '<br>';
+<body>
+	<?php
+	$dateErr = "";
+	$add = "";
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		if (empty($_POST['_date']))
+			$dateErr = "Date is required";
+		else
+			add_to_database($add);
+	}
 
-$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_GET[route]'");
-$row_grade = mysqli_fetch_array($q_grade);
-$grade = $row_grade[0];
+	function add_to_database(&$add)
+	{	
+		$conn = mysqli_connect("localhost", "root", "root", "db_climb");
+		$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
+		$row_grade = mysqli_fetch_array($q_grade);
+		$grade = $row_grade[0];
+		$user = "tb_julian";
+		$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_POST[route]'");
+		$row_attempt = mysqli_fetch_array($q_attempt);
+		$att = $row_attempt[0] + 1;
+		$q_sequence = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE climb_date = '$_POST[_date]'");
+		$row_sequence = mysqli_fetch_array($q_sequence);
+		$seq = $row_sequence[0] + 1;
+		if (mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence)
+	   	VALUES ('$_POST[_date]', '$_POST[route]',	'$grade', '$att', '$_POST[status]', '$seq')"))
+			$add = "Addition successfully";
+		else
+			$add = "Addition failed";
+		mysqli_close($conn);
+	}
+ 	?>
+	<h2>Add New Climb</h2>
+	<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="add" method="post">
+		<label for="_date">Date:</label><br>
+		<input type="date" id="_date" name="_date">* <?php echo $dateErr;?><br><br>
 
-//$user = "tb_luis";
-$user = "tb_julian";
+		<label for="route">Route:</label><br>
+		<select id="route" name="route">
+			<option value="10">5.8 Purple</option>
+			<option value="5">5.9 Red</option>
+			<option value="1">5.10a Orange</option>
+			<option value="12">5.10b Yellow</option>
+			<option value="8">5.10c Blue</option>
+			<option value="14">5.10d Blue</option>
+			<option value="4">5.11a Green</option>
+			<option value="7">5.11a Orange</option>
+			<option value="11">5.11a Red</option>
+			<option value="2">5.11b Yellow</option>
+			<option value="3">5.11c Purple</option>
+			<option value="6">5.11d Blue</option>
+			<option value="13">5.11d Green</option>
+			<option value="9">5.12a Green</option>
+		</select><br><br>
 
-$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_GET[route]'");
-$row_attempt = mysqli_fetch_array($q_attempt);
-$attempt = $row_attempt[0] + 1;
+		<label for="status">Status:</label><br>
+		<select id="status" name="status">
+			<option value="Top">Top</option>
+			<option value="Fall">Fall</option>
+		</select><br><br>
 
-if (mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status)
-   	VALUES ('$_GET[_date]', '$_GET[route]',	'$grade', '$attempt', '$_GET[status]')"))
-	echo "Addition successfully";
-else
-	echo "Addition failed";
-echo '<br>';
+		<input type="submit" value="Add Climb"><br><br>
+		<?php echo $add;?>
+	</form>
 
-mysqli_close($conn);
-?>
+</body>
+</html>
