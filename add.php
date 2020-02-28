@@ -3,23 +3,24 @@
 <head>
 	<title>Add New Climbing</title>
 	<style>
-		.error {color: #FF0000;}
 	</style>
 </head>
 
 <body>
 	<?php
-	$dateErr = "";
 	$add = "";
-	
-	if ($_SERVER["REQUEST_METHOD"] == "POST")
+
+	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if (empty($_POST['_date']))
-			$dateErr = "Date is required";
+			$add = "Date is required";
 		else
 			add_to_database($add);
+		echo '<script language="javascript">';
+		echo 'alert("'.$add.'")';
+		echo '</script>';
 	}
-
+	
 	function add_to_database(&$add)
 	{	
 		$conn = mysqli_connect("localhost", "root", "root", "db_climb");
@@ -35,17 +36,17 @@
 		$seq = $row_sequence[0] + 1;
 		if (mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence)
 	   	VALUES ('$_POST[_date]', '$_POST[route]',	'$grade', '$att', '$_POST[status]', '$seq')"))
-			$add = "Addition successfully";
+			$add = "Climb added";
 		else
 			$add = "Addition failed";
 		mysqli_close($conn);
 	}
  	?>
-	<h2>Add New Climb</h2>
-	<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="add" method="post">
-		<label for="_date">Date:</label><br>
-		<input type="date" id="_date" name="_date">* <?php echo $dateErr;?><br><br>
 
+	<h2>Add New Climb</h2>
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
+		<label for="_date">Date:</label><br>
+		<input type="date" id="_date" name="_date"><br><br>
 		<label for="route">Route:</label><br>
 		<select id="route" name="route">
 			<option value="10">5.8 Purple</option>
@@ -63,16 +64,18 @@
 			<option value="13">5.11d Green</option>
 			<option value="9">5.12a Green</option>
 		</select><br><br>
-
 		<label for="status">Status:</label><br>
 		<select id="status" name="status">
 			<option value="Top">Top</option>
 			<option value="Fall">Fall</option>
 		</select><br><br>
-
 		<input type="submit" value="Add Climb"><br><br>
-		<?php echo $add;?>
 	</form>
-
 </body>
+	
+<script>
+	if (window.history.replaceState) 
+		  window.history.replaceState( null, null, window.location.href );
+</script>
+
 </html>
