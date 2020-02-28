@@ -3,13 +3,23 @@
 <head>
 	<title>Add New Climbing</title>
 	<style>
+	body
+	{
+		text-align: center;
+	}
+	h2, form
+	{
+		font-family: arial, sans-serif;
+	}
+	form
+	{
+		display: inline-block;
+	}
 	</style>
 </head>
 
-<body>
 	<?php
 	$add = "";
-
 	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if (empty($_POST['_date']))
@@ -20,7 +30,6 @@
 		echo 'alert("'.$add.'")';
 		echo '</script>';
 	}
-	
 	function add_to_database(&$add)
 	{	
 		$conn = mysqli_connect("localhost", "root", "root", "db_climb");
@@ -43,7 +52,8 @@
 	}
  	?>
 
-	<h2>Add New Climb</h2>
+<body>
+	<h2>Add New Climb</h2><br>
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
 		<label for="_date">Date:</label><br>
 		<input type="date" id="_date" name="_date"><br><br>
@@ -68,7 +78,7 @@
 		<select id="status" name="status">
 			<option value="Top">Top</option>
 			<option value="Fall">Fall</option>
-		</select><br><br>
+		</select><br><br><br>
 		<input type="submit" value="Add Climb"><br><br>
 	</form>
 </body>

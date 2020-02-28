@@ -3,7 +3,22 @@
 <head>
 	<title>Climbing Analytics</title>
 	<style>
-	</style>
+table, h2
+	{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	td, th
+	{
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	tr:nth-child(even)
+	{
+		background-color: #dddddd;
+	}	</style>
 </head>
 
 <body>
@@ -14,9 +29,9 @@
 			<th>Efficacy</th>
 			<th>Efficiency</th>
 			<th>Climbs</th>
-			<th>Distinct-Climbs</th>
+			<th>Distinct Climbs</th>
 			<th>Tops</th>
-			<th>Distinct-Tops</th>
+			<th>Distinct Tops</th>
 		</tr>
 	<?php
 	$gr = array("5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c", 
