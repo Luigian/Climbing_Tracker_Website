@@ -32,11 +32,11 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		if ($_POST['delbutton'] > 151)
+		if ($_POST['delbutton'] > 155)
 			$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_POST[delbutton]");
 	}
 
-	$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date, sequence");
+	$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date DESC, sequence DESC");
 	echo	'<tr>
 				<th>Date</th>
 				<th>Route</th>

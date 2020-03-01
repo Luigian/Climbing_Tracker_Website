@@ -4,11 +4,39 @@
 	<title>Add New Climbing</title>
 	<style>
 
-	.head-container {
+	img {
+	max-width: 100%;
+	height: auto;
+	}
+
+	.container {
+	width: 960px;
+	max-width: 100%;
+	padding: 20px;
+	margin: 0 auto;
+	}
+
+	.main-header .container {
 	display: flex;
-	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	}
 	
+	.main-nav ul {
+	margin: 1em 0 .5em;
+	text-align: center;
+	}
+
+	.main-nav li {
+	display: inline;
+	}
+
+	.main-nav a {
+	display: inline-block;
+	padding: .5em 1.5em;
+	}	
+
 	body
 	{
 		text-align: center;
@@ -62,16 +90,26 @@
 
 <body>
 	
-	<div class="head-container">
-		<div class="logo">
-			<img src="logo.png" width="170" height="95" alt="Flexbox.ninja">
-		</div>	
-		<div class="navi">
-			<a href="#">Add</a>
-			<a href="#">History</a>
-			<a href="#">Analytics</a>
+	<header class="main-header">
+		<div class="container">
+			<h1 class="mh-logo">
+				<img src="http://flexbox.ninja/assets/images/logo.svg" width="170" height="95" alt="Flexbox.ninja">
+			</h1>
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li>
+						<a href="#">Add</a>
+					</li>
+					<li>
+						<a href="#">History</a>
+					</li>
+					<li>
+						<a href="#">Analytics</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
-	</div>
+	</header>
 
 
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
