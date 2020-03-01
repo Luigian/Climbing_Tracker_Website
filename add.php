@@ -4,23 +4,42 @@
 	<title>Add New Climbing</title>
 	<style>
 
-	.head-container {
+	.main-container .head-container {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	}
+	
+	.head-container {
+	max-width: 100%;
+	width: 1000px;
+	margin: 0 auto;
+	padding: 20px;
 	}
 	
 	body
 	{
 		text-align: center;
 	}
-	h2, form
+	h2, form, a
 	{
 		font-family: arial, sans-serif;
+		color: black;
 	}
 	form
 	{
 		display: inline-block;
 	}
+	a:link {
+	text-decoration: none;
+	}
+	a:hover {
+	font-weight: bold;
+	}
+
+
 	</style>
 </head>
 
@@ -62,6 +81,7 @@
 
 <body>
 	
+	<div class="main-container">
 	<div class="head-container">
 		<div class="logo">
 			<img src="logo.png" width="170" height="95" alt="Flexbox.ninja">
@@ -71,6 +91,7 @@
 			<a href="#">History</a>
 			<a href="#">Analytics</a>
 		</div>
+	</div>
 	</div>
 
 
