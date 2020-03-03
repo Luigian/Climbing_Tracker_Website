@@ -2,45 +2,7 @@
 <html>
 <head>
 	<title>Add New Climbing</title>
-	<style>
-
-	.main-container .head-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-	}
-	
-	.head-container {
-	max-width: 100%;
-	width: 1000px;
-	margin: 0 auto;
-	padding: 20px;
-	}
-	
-	body
-	{
-		text-align: center;
-	}
-	h2, form, a
-	{
-		font-family: arial, sans-serif;
-		color: black;
-	}
-	form
-	{
-		display: inline-block;
-	}
-	a:link {
-	text-decoration: none;
-	}
-	a:hover {
-	font-weight: bold;
-	}
-
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="add.css">
 </head>
 
 	<?php
@@ -82,41 +44,49 @@
 <body>
 	
 	<div class="main-container">
-	<div class="head-container">
-		<div class="logo">
-			<img src="logo.png" width="170" height="95" alt="Flexbox.ninja">
-		</div>	
-		<div class="navi">
-			<a href="#">Add</a>
-			<a href="#">History</a>
-			<a href="#">Analytics</a>
+		<div class="head-container">
+			<div class="logo">
+				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/add.php">
+					<img  src="logo_1.png" height="70" alt="Panic.bear">
+				</a>
+			</div>	
+			<div class="navi">
+				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/add.php">ADD</a>
+				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/history.php">HISTORY</a>
+				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/analytics.php">ANALYTICS</a>
+				<a id="log">( )</a>
+			</div>
 		</div>
 	</div>
+
+<div class="mid-container">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
+	<div class="inside">
+		<div><input type="date" id="_date" name="_date"></div>
+		<div><select id="route" name="route">
+			<?php
+			while ($row_menu = mysqli_fetch_array($q_menu))
+			{
+				echo '<option value="'.$row_menu[0].'">'.$row_menu[1].' '.$row_menu[2].'</option>';
+			}
+			mysqli_close($conn);
+			?>
+		</select></div>
+		<div><select id="status" name="status">
+			<option id="top" value="Top">Top</option>
+			<option value="Fall">Fall</option>
+		</select></div><br>
+		<div><input id="submit" type="submit" value="ADD CLIMB"></div>
+	</div>
+	</form>
+</div>
+
+	<div class="foot-main-container">
+		<div class="foot-container">
+			<p>Copyright © 2020 Panic Bear</p>
+		</div>
 	</div>
 
-
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
-		<label for="_date">Date:</label><br>
-		<input type="date" id="_date" name="_date"><br><br>
-		<label for="route">Route:</label><br>
-		<select id="route" name="route">
-
-		<?php
-		while ($row_menu = mysqli_fetch_array($q_menu))
-		{
-			echo '<option value="'.$row_menu[0].'">'.$row_menu[1].' '.$row_menu[2].'</option>';
-		}
-		mysqli_close($conn);
-		?>
-	
-		</select><br><br>
-		<label for="status">Status:</label><br>
-		<select id="status" name="status">
-			<option value="Top">Top</option>
-			<option value="Fall">Fall</option>
-		</select><br><br><br>
-		<input type="submit" value="Add Climb"><br><br>
-	</form>
 </body>
 	
 <script>

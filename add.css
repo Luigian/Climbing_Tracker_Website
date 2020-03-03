@@ -1,0 +1,131 @@
+
+body {
+/*display: flex;
+flex-direction: column;
+justify-content: center;*/
+}
+
+.main-container {
+/*background-color: green;*/
+}
+
+.head-container {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+max-width: 100%;
+width: 1000px;
+margin: 0 auto;
+padding: 20px;
+/*background-color: yellow;*/
+}
+
+.logo {
+}
+
+.navi {
+width: 200px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+h2, form, a, p {
+font-family: arial, sans-serif;
+color: black;
+}
+
+a {
+color: grey;
+}
+
+.mid-container {
+display: flex;
+justify-content: center;
+ibackground-color: blue;
+}
+
+form {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 350px;
+height: 380px;
+margin-top: 100px;
+margin-bottom: 120px;
+border-color: lightgrey;
+border-style: solid;
+border-width: 0px;
+border-radius: 4px;
+ibackground-color: pink;
+}
+
+.inside {
+font-size: 12px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+height: 280px;
+ibackground-color: grey;
+}
+
+input, select, option {
+border-color: lightgrey;
+border-style: solid;
+border-width: 1px;
+-webkit-appearance: none;
+border-radius: 20px;
+height: 35px;
+text-align: center;
+text-align-last: center;
+font-size: 10px;
+}
+
+select {
+background-color: white;
+}
+
+#_date {
+text-indent: 20px;
+}
+
+#_date, #route, #status {
+width: 200px;
+}
+
+#submit {
+width: 90px;
+border-color: grey;
+border-width: 2px;
+}
+
+#submit:hover {
+background-color: black;
+color: white;
+}
+
+a:link {
+text-decoration: none;
+font-size: 12px;
+}
+
+a:hover {
+color: black;
+}
+
+.foot-main-container {
+height: 100px;
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+p {
+color: grey;
+font-size: 10px;
+}
