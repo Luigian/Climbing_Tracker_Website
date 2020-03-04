@@ -6,7 +6,7 @@ justify-content: center;*/
 }
 
 .main-container {
-/*background-color: green;*/
+ibackground-color: green;
 }
 
 .head-container {
@@ -16,20 +16,23 @@ flex-wrap: wrap;
 justify-content: space-around;
 align-items: center;
 max-width: 100%;
-width: 1000px;
+width: 1100px;
 margin: 0 auto;
-padding: 20px;
-/*background-color: yellow;*/
-}
-
-.logo {
+padding-top: 10px;
+ibackground-color: blue;
 }
 
 .navi {
-width: 200px;
+/*width: 320px;*/
 display: flex;
-justify-content: space-between;
-align-items: center;
+align-items: flex-start;
+justify-content: flex-end;
+margin-top: 50px;
+ibackground-color: yellow;
+}
+
+#history, #analytics, .dropdown {
+padding-left: 30px;
 }
 
 h2, form, a, p {
@@ -40,6 +43,39 @@ color: black;
 a {
 color: grey;
 }
+
+.dropdown {
+position: relative;
+top: -3px;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+min-width: 100px;
+}
+
+.dropdown-content a {
+color: grey;
+padding-top: 20px;
+display: block;
+}
+
+#login {
+position: relative;
+right: 18px;
+}
+
+#register {
+position: relative;
+right: 42px;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+
 
 .mid-container {
 display: flex;

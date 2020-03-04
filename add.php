@@ -42,7 +42,7 @@
 	?>
 
 <body>
-	
+
 	<div class="main-container">
 		<div class="head-container">
 			<div class="logo">
@@ -51,10 +51,16 @@
 				</a>
 			</div>	
 			<div class="navi">
-				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/add.php">ADD</a>
-				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/history.php">HISTORY</a>
-				<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/analytics.php">ANALYTICS</a>
-				<a id="log">( )</a>
+				<a id="add" href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/add.php">ADD</a>
+				<a id="history" href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/history.php">HISTORY</a>
+				<a id="analytics" href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/analytics.php">ANALYTICS</a>
+				<div class="dropdown">
+					<img class="dropbtn" src="cashew_icon.svg" height="20">
+					<div class="dropdown-content">
+						<a id="login" href="#">LOGIN</a>
+						<a id="register" href="#">REGISTER</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
