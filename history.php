@@ -1,30 +1,15 @@
-<html>
+<?php
+include("header.php");
+?>
 
+<html>
 <head>
 	<title>History</title>
-	<style>
-	table, h2
-	{
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width: 100%;
-	}
-	td, th
-	{
-		border: 1px solid #dddddd;
-		text-align: left;
-		padding: 8px;
-	}
-	tr:nth-child(even)
-	{
-		background-color: #dddddd;
-	}	
-	</style>
+	<link rel="stylesheet" type="text/css" href="history.css">	
 </head>
 
 <body>
-	<h2>Climbing History</h2>
-
+	<div class="history-container">
 	<table>
 	<?php
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
@@ -64,6 +49,7 @@
 	mysqli_close($conn);
 	?>
 	</table>
+	</div>
 </body>
 	
 <script>
@@ -72,3 +58,7 @@
 </script>
 
 </html>
+
+<?php
+include("footer.php");
+?>

@@ -5,7 +5,6 @@
 </head>
 
 <body>
-<div class="main-container">
 	<div class="head-container">
 		<div class="logo">
 			<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/home.php">
@@ -25,5 +24,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 </body>

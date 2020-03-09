@@ -1,0 +1,31 @@
+.history-container {
+margin-top: 130px;
+margin-bottom: 150px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+table {
+font-family: arial, sans-serif;
+font-size: 10px;
+border-collapse: collapse;
+width: 400px;
+max-width: 100%;
+ibackground-color: pink;
+}
+
+td, th {
+iborder: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+button {
+iwidth: 10px;
+}
