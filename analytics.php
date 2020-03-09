@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Climbing Analytics</title>
+	<title>Analytics</title>
 	<style>
 table, h2
 	{

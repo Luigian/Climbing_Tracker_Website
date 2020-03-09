@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Header</title>
 	<link rel="stylesheet" type="text/css" href="header.css">
 </head>
 
@@ -9,7 +8,7 @@
 <div class="main-container">
 	<div class="head-container">
 		<div class="logo">
-			<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/add.php">
+			<a href="http://e1z3r1p12.42.fr:8080/Vog_Wilcard/home.php">
 				<img  src="logo_1.png" height="70" alt="Panic.bear">
 			</a>
 		</div>

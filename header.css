@@ -16,7 +16,6 @@ ibackground-color: blue;
 }
 
 .navi {
-/*width: 320px;*/
 display: flex;
 align-items: flex-start;
 justify-content: flex-end;
@@ -24,13 +23,13 @@ margin-top: 50px;
 ibackground-color: yellow;
 }
 
-#history, #analytics, .dropdown {
-padding-left: 30px;
-}
-
-a {
+.navi a {
 font-family: arial, sans-serif;
 color: grey;
+}
+
+#history, #analytics, .dropdown {
+padding-left: 30px;
 }
 
 .dropdown {
@@ -62,4 +61,13 @@ right: 42px;
 
 .dropdown:hover .dropdown-content {
 display: block;
+}
+
+a:link {
+text-decoration: none;
+font-size: 12px;
+}
+
+a:hover {
+color: black;
 }

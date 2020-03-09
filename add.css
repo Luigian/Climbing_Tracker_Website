@@ -1,19 +1,12 @@
-h2, form, a, p {
-font-family: arial, sans-serif;
-color: black;
-}
-
-a {
-color: grey;
-}
-
 .mid-container {
 display: flex;
 justify-content: center;
-background-color: blue;
+ibackground-color: blue;
 }
 
 form {
+font-family: arial, sans-serif;
+color: black;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -71,27 +64,4 @@ border-width: 2px;
 #submit:hover {
 background-color: black;
 color: white;
-}
-
-a:link {
-text-decoration: none;
-font-size: 12px;
-}
-
-a:hover {
-color: black;
-}
-
-.foot-main-container {
-height: 100px;
-background-color: black;
-display: flex;
-justify-content: center;
-align-items: center;
-
-}
-
-p {
-color: grey;
-font-size: 10px;
 }

@@ -1,0 +1,13 @@
+.foot-main-container {
+height: 100px;
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#text {
+font-family: arial, sans-serif;
+color: grey;
+font-size: 10px;
+}

@@ -5,7 +5,7 @@ include("header.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add New Climbing</title>
+	<title>Add</title>
 	<link rel="stylesheet" type="text/css" href="add.css">
 </head>
 
@@ -67,17 +67,14 @@ include("header.php");
 	</div>
 	</form>
 </div>
-
-	<div class="foot-main-container">
-		<div class="foot-container">
-			<p>Copyright © 2020 Panic Bear</p>
-		</div>
-	</div>
 </body>
 	
 <script>
 	if (window.history.replaceState) 
 		  window.history.replaceState( null, null, window.location.href );
 </script>
-
 </html>
+
+<?php
+include("footer.php");
+?>

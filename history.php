@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Climbing History</title>
+	<title>History</title>
 	<style>
 	table, h2
 	{
@@ -32,7 +32,7 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		if ($_POST['delbutton'] > 155)
+		if ($_POST['delbutton'] > 161)
 			$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_POST[delbutton]");
 	}
 
