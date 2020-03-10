@@ -1,28 +1,15 @@
-<html>
+<?php
+include("header.php");
+?>
 
+<html>
 <head>
 	<title>Analytics</title>
-	<style>
-table, h2
-	{
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width: 100%;
-	}
-	td, th
-	{
-		border: 1px solid #dddddd;
-		text-align: left;
-		padding: 8px;
-	}
-	tr:nth-child(even)
-	{
-		background-color: #dddddd;
-	}	</style>
+	<link rel="stylesheet" type="text/css" href="history.css">
 </head>
 
 <body>
-	<h2>Climbing Analytics</h2>
+	<div class="table-container">
 	<table>
 		<tr>
 			<th>Grade</th>
@@ -67,7 +54,7 @@ table, h2
 		$dtop = $row_dt[0];
 
 		echo	'<tr>';
-		echo	'<td>'.$x.'</td>';
+		echo	'<td class="analytics-row">'.$x.'</td>';
 		echo	'<td>'.$efc.'%</td>';
 		echo	'<td>'.$efn.'%</td>';
 		echo	'<td>'.$clm.'</td>';
@@ -109,5 +96,11 @@ table, h2
 
 	mysqli_close($conn);
 	?>
+	</table>
+	</div>
 </body>
 </html>
+
+<?php
+include("footer.php");
+?>

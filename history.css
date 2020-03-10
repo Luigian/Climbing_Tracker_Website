@@ -1,10 +1,11 @@
-.history-container {
-margin-top: 130px;
-margin-bottom: 150px;
+.table-container {
+padding-top: 100px;
+padding-bottom: 150px;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+ibackground-color: blue;
 }
 
 table {
@@ -18,8 +19,12 @@ ibackground-color: pink;
 
 td, th {
 iborder: 1px solid #dddddd;
-text-align: left;
+text-align: center;
 padding: 8px;
+}
+
+.analytics-row {
+padding: 13px;
 }
 
 tr:nth-child(even) {
@@ -27,5 +32,18 @@ background-color: #dddddd;
 }
 
 button {
-iwidth: 10px;
+border-color: #dddddd;
+border-style: solid;
+border-width: 1px;
+-webkit-appearance: none;
+border-radius: 20px;
+height: 20px;
+line-height: 1px;
+text-indent: 0px;
+font-size: 10px;
+}
+
+button:hover {
+background-color: black;
+color: white;
 }

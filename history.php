@@ -9,7 +9,7 @@ include("header.php");
 </head>
 
 <body>
-	<div class="history-container">
+	<div class="table-container">
 	<table>
 	<?php
 	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
@@ -40,7 +40,7 @@ include("header.php");
 				<td>'.$row_table[4].'</td>
 				<td>'.$row_table[5].'</td>
 				<td>
-					<form method="post">
+					<form class="but" method="post">
 					<button type="submit" name="delbutton" value='.$row_table[0].'>x</button>
 					</form>
 				</td>
@@ -56,7 +56,6 @@ include("header.php");
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
 </script>
-
 </html>
 
 <?php
