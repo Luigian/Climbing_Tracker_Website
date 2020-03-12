@@ -50,7 +50,7 @@ position: relative;
 right: 18px;
 }
 
-#signup {
+#register {
 position: relative;
 right: 30px;
 }

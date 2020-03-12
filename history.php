@@ -17,7 +17,7 @@ include("header.php");
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		if ($_POST['delbutton'] > 161)
+		if ($_POST['delbutton'] > 167)
 			$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_POST[delbutton]");
 	}
 

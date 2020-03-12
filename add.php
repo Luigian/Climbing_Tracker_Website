@@ -62,7 +62,8 @@ include("header.php");
 		<div><select id="status" name="status">
 			<option id="top" value="Top">Top</option>
 			<option value="Fall">Fall</option>
-		</select></div><br>
+		</select></div>
+		<br>
 		<div><input id="submit" type="submit" value="ADD CLIMB"></div>
 	</div>
 	</form>
