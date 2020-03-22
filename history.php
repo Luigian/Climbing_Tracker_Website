@@ -12,7 +12,7 @@ include("header.php");
 	<div class="table-container">
 	<table>
 	<?php
-	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	$user = "tb_julian";
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST")

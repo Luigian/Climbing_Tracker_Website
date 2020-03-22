@@ -23,7 +23,7 @@ include("header.php");
 	}
 	function add_to_database(&$add)
 	{	
-		$conn = mysqli_connect("localhost", "root", "root", "db_climb");
+		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 		$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
 		$row_grade = mysqli_fetch_array($q_grade);
 		$grade = $row_grade[0];
@@ -41,7 +41,7 @@ include("header.php");
 			$add = "Addition failed";
 		mysqli_close($conn);
 	}
-	$conn = mysqli_connect("localhost", "root", "root", "db_climb");
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	$q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE active = 1 ORDER BY line, route_id");
 	?>
 
