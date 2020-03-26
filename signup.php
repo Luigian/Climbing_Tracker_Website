@@ -11,11 +11,31 @@ include("header.php");
 
 <?php
 
-if ($_POST["username"] && $_POST["password"] && $_POST["submit"] == "SIGN UP")
+if ($_POST["submit"] == "SIGN UP")
 {
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
-	mysqli_query($conn, "INSERT INTO tb_users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
-	mysqli_close($conn);
+	if ($_POST["username"] && $_POST["password"])
+	{
+		$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
+		$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM tb_users WHERE username = '$_POST[username]'");
+		$row_username = mysqli_fetch_array($q_username);
+		if ($row_username[0] == '0')
+		{
+			mysqli_query($conn, "INSERT INTO tb_users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
+			$text = "User created";
+		}
+		else
+			$text = "Please choose another username";
+		mysqli_close($conn);
+	}
+	else if (!$_POST["username"] && !$_POST["password"])
+			$text = "Username and password are required";
+	else if (!$_POST["username"])
+			$text = "Username is required";
+	else if (!$_POST["password"])
+			$text = "Password is required";
+	echo "<script language='javascript'>";
+	echo "alert('$text')";
+	echo "</script>";
 }
 
 ?>

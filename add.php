@@ -10,7 +10,6 @@ include("header.php");
 </head>
 
 	<?php
-	$add = "";
 	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if (empty($_POST['_date']))
@@ -18,7 +17,7 @@ include("header.php");
 		else
 			add_to_database($add);
 		echo '<script language="javascript">';
-		echo 'alert("'.$add.'")';
+		echo "alert('$add')";
 		echo '</script>';
 	}
 	function add_to_database(&$add)
