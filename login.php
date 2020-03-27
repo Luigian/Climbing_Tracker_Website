@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+include("header_out.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ include("header.php");
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
 	<div class="signup-inside">
 		<div><input type="text" id="username" name="username" placeholder="User Name"></div>
-		<div><input type="password" id="pass" name="pass" placeholder="Password"></div>
+		<div><input type="password" id="password" name="password" placeholder="Password"></div>
 		<br>
 		<div><input type="submit" id="submit" value="LOGIN"></div>
 	</div>
