@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="header_in.css">
 </head>
 
 <body>
@@ -18,8 +18,7 @@
 			<div class="dropdown">
 				<img class="dropbtn" src="cashew_icon.svg" height="20">
 				<div class="dropdown-content">
-					<a id="login" href="login.php">LOGIN</a>
-					<a id="signup" href="signup.php">SIGN UP</a>
+					<a id="logout" href="home_out.php">LOGOUT</a>
 				</div>
 			</div>
 		</div>

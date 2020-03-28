@@ -28,11 +28,11 @@ if ($_POST["submit"] == "SIGN UP")
 			$text = "Username already taken";
 	}
 	else if (!$_POST["username"] && !$_POST["password"])
-			$text = "Username and password are required";
+		$text = "Username and password are required";
 	else if (!$_POST["username"])
-			$text = "Username is required";
+		$text = "Username is required";
 	else if (!$_POST["password"])
-			$text = "Password is required";
+		$text = "Password is required";
 	echo "<script type='text/javascript'>";
 	echo "alert('$text');";
 	if ($row_username[0] == '0')
@@ -49,7 +49,7 @@ if ($_POST["submit"] == "SIGN UP")
 		<div><input type="text" id="username" name="username" placeholder="User Name"></div>
 		<div><input type="password" id="password" name="password" placeholder="Password"></div>
 		<br>
-		<div><input type="submit" id="submit" name ="submit" value="SIGN UP"></div>
+		<div><input type="submit" id="submit" name="submit" value="SIGN UP"></div>
 	</div>
 	</form>
 </div>

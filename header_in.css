@@ -45,12 +45,7 @@ padding-top: 15px;
 display: block;
 }
 
-#login {
-position: relative;
-right: 18px;
-}
-
-#signup {
+#logout {
 position: relative;
 right: 30px;
 }
