@@ -2,12 +2,6 @@
 include("header_out.php");
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="login_signup.css">
-</head>
 <?php
 
 if ($_POST["submit"] == "LOGIN")
@@ -19,11 +13,17 @@ if ($_POST["submit"] == "LOGIN")
 		$q_userid_b = mysqli_query($conn, "SELECT user_id FROM tb_users WHERE password = '$_POST[password]'");
 		$row_userid_a = mysqli_fetch_array($q_userid_a);
 		$row_userid_b = mysqli_fetch_array($q_userid_b);
-		echo "<script type='text/javascript'>";
-		if ($row_userid_a[0] == $row_userid_b[0])
+		if ($row_userid_a[0] != '' && $row_userid_a[0] == $row_userid_b[0])
+		{
+			setcookie("user", $_POST["username"]);
+			echo "<script type='text/javascript'>";
 			echo "window.location.href = 'history.php';";
+		}
 		else
+		{
+			echo "<script type='text/javascript'>";
 			echo "alert('Username and/or password are invalid')";
+		}
 		echo "</script>";
 	}
 	else
@@ -41,6 +41,13 @@ if ($_POST["submit"] == "LOGIN")
 }
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="login_signup.css">
+</head>
 
 <body>
 <div class="signup-container">

@@ -1,4 +1,5 @@
 <?php
+setcookie("user", "empty");
 include("header_out.php");
 ?>
 

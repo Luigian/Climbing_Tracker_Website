@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+echo $_COOKIE["user"];
+?>
+
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="header_in.css">

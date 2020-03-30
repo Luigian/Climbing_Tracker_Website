@@ -1,3 +1,7 @@
+<?php
+echo $_COOKIE["user"];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
