@@ -19,7 +19,7 @@ margin-top: 50px;
 ibackground-color: yellow;
 }
 
-.navi a {
+.navi a, #logout{
 font-family: arial, sans-serif;
 color: grey;
 }
@@ -39,7 +39,7 @@ position: absolute;
 min-width: 100px;
 }
 
-.dropdown-content a {
+.dropdown-content a, #logout {
 color: grey;
 padding-top: 15px;
 display: block;
@@ -47,7 +47,11 @@ display: block;
 
 #logout {
 position: relative;
-right: 30px;
+right: 36px;
+text-decoration: none;
+font-size: 12px;
+border-width: 0px;
+background-color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -60,5 +64,9 @@ font-size: 12px;
 }
 
 a:hover {
+color: black;
+}
+
+#logout:hover {
 color: black;
 }

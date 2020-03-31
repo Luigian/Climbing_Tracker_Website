@@ -11,7 +11,7 @@ echo $_COOKIE["user"];
 <body>
 	<div class="head-container">
 		<div class="logo">
-			<a href="home_out.php">
+			<a href="home.php">
 				<img src="logo_1.png" height="70" alt="Panic.bear">
 			</a>
 		</div>
