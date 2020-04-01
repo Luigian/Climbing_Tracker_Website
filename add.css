@@ -4,7 +4,7 @@ justify-content: center;
 ibackground-color: blue;
 }
 
-form {
+#addform {
 font-family: arial, sans-serif;
 color: black;
 display: flex;
@@ -31,7 +31,7 @@ height: 280px;
 ibackground-color: grey;
 }
 
-input, select, option {
+.addinput, select, option {
 border-color: lightgrey;
 border-style: solid;
 border-width: 1px;

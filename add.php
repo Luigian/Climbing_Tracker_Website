@@ -46,9 +46,9 @@ include("header_in.php");
 
 <body>
 <div class="mid-container">
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="add" method="post">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">
 	<div class="inside">
-		<div><input type="date" id="_date" name="_date"></div>
+		<div><input type="date" class="addinput" id="_date" name="_date"></div>
 		<div><select id="route" name="route">
 			<?php
 			while ($row_menu = mysqli_fetch_array($q_menu))
@@ -63,7 +63,7 @@ include("header_in.php");
 			<option value="Fall">Fall</option>
 		</select></div>
 		<br>
-		<div><input id="submit" type="submit" value="ADD CLIMB"></div>
+		<div><input class="addinput" id="submit" type="submit" value="ADD CLIMB"></div>
 	</div>
 	</form>
 </div>

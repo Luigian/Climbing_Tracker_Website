@@ -30,7 +30,6 @@ if ($_POST["submit"] == "LOGOUT")
 			<div class="dropdown">
 				<img class="dropbtn" src="cashew_icon.svg" height="20">
 				<div class="dropdown-content">
-<!--					<a id="logout" href="home_out.php">LOGOUT</a>-->
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
 						<input type="submit" id="logout" name="submit" value="LOGOUT">
 					</form>

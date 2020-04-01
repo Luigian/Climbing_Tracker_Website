@@ -21,11 +21,14 @@ if ($_POST["submit"] == "SIGN UP")
 		if ($row_username[0] == '0')
 		{
 			mysqli_query($conn, "INSERT INTO tb_users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
+			$tb_name = "tb_".$_POST["username"];
+			mysqli_query($conn, "CREATE TABLE $tb_name (climb_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, climb_date DATE, route_id INT, grade VARCHAR(5), attempt INT, status VARCHAR(5), sequence INT)");
 			mysqli_close($conn);
+			setcookie("user", $_POST["username"]);
 			$text = "User created";
 		}
 		else
-			$text = "Username already taken";
+			$text = "Username already exists";
 	}
 	else if (!$_POST["username"] && !$_POST["password"])
 		$text = "Username and password are required";
