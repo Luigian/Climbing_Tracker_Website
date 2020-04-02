@@ -9,8 +9,19 @@ include("header_in.php");
 </head>
 
 <body>
+	
 	<div class="table-container">
 	<table>
+	<?php
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	$user = "tb_".$_COOKIE["user"];
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
+	$row_count = mysqli_fetch_array($q_count);
+	if ($row_count[0] == '0')
+		echo "<a id='addmessage' href='add.php'>Add your first climb</a>";
+	else
+	{
+	?>	
 		<tr>
 			<th>Grade</th>
 			<th>Efficacy</th>
@@ -23,8 +34,6 @@ include("header_in.php");
 	<?php
 	$gr = array("5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c", 
 	"5.11d", "5.12a", "5.12b", "5.12c", "5.12d");
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$user = "tb_julian";
 	$i = 0;
 	while ($gr[$i])
 	{
@@ -94,6 +103,7 @@ include("header_in.php");
 	echo	'<th>'.$dtop.'</th>';
 	echo	'</tr>';
 
+	}
 	mysqli_close($conn);
 	?>
 	</table>

@@ -1,3 +1,14 @@
+#addmessage {
+font-family: arial;
+font-size: 14px;
+color: grey;
+padding-top: 50px;
+padding-bottom: 50px;
+}
+
+#addmessage:hover {
+color: black;
+}
 .table-container {
 padding-top: 100px;
 padding-bottom: 150px;

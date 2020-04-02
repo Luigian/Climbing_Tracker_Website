@@ -26,7 +26,7 @@ include("header_in.php");
 		$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
 		$row_grade = mysqli_fetch_array($q_grade);
 		$grade = $row_grade[0];
-		$user = "tb_julian";
+		$user = "tb_".$_COOKIE["user"];
 		$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_POST[route]'");
 		$row_attempt = mysqli_fetch_array($q_attempt);
 		$att = $row_attempt[0] + 1;
