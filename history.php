@@ -12,13 +12,30 @@ include("header_in.php");
 	<div class="table-container">
 	<table>
 	<?php
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	echo $_COOKIE["r"];
 	$user = "tb_".$_COOKIE["user"];
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
-		if ($_POST['delbutton'] > 73)
-			$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_POST[delbutton]");
+		setcookie("delbutton", $_POST["delbutton"]);
+		echo "<script>";
+		echo "var r = confirm('hola');";
+		echo "if (r == true){";
+		echo "document.cookie = 'r=1';";
+		echo "}";
+		echo "else {";
+		echo "document.cookie = 'r=0';";
+ 		echo "}";
+		echo "window.location.href = 'history.php';";
+		echo "</script>";
+ 	}
+	echo $_COOKIE["r"];
+	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
+	{
+		$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_COOKIE[delbutton]");
+		setcookie("r", "0");		
 	}
+	echo $_COOKIE["r"];
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
