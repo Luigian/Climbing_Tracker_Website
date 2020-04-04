@@ -1,9 +1,16 @@
-#addmessage {
+#firstmsg {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding-top: 40px;
+padding-bottom: 35px;
+}
+
+#addmessage, #welmessage {
 font-family: arial;
 font-size: 14px;
 color: grey;
-padding-top: 50px;
-padding-bottom: 50px;
 }
 
 #addmessage:hover {
