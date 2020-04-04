@@ -12,14 +12,13 @@ include("header_in.php");
 	<div class="table-container">
 	<table>
 	<?php
-	echo $_COOKIE["r"];
 	$user = "tb_".$_COOKIE["user"];
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		setcookie("delbutton", $_POST["delbutton"]);
 		echo "<script>";
-		echo "var r = confirm('hola');";
+		echo "var r = confirm('Are you sure to delete this climb?');";
 		echo "if (r == true){";
 		echo "document.cookie = 'r=1';";
 		echo "}";
@@ -29,17 +28,20 @@ include("header_in.php");
 		echo "window.location.href = 'history.php';";
 		echo "</script>";
  	}
-	echo $_COOKIE["r"];
 	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
 	{
 		$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_COOKIE[delbutton]");
 		setcookie("r", "0");		
 	}
-	echo $_COOKIE["r"];
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
-		echo "<a id='addmessage' href='add.php'>Add your first climb</a>";
+	{
+		echo "<div id='firstmsg'>";
+		echo "<p id='welmessage'>Welcome $_COOKIE[user] !</p>";
+		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
+		echo "</div>";
+	}
 	else
 	{
 		$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date DESC, sequence DESC");

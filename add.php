@@ -13,14 +13,15 @@ include("header_in.php");
 	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		if (empty($_POST['_date']))
-			$add = "Date is required";
+		{
+			echo '<script language="javascript">';
+			echo "alert('Date is required')";
+			echo '</script>';
+		}
 		else
-			add_to_database($add);
-		echo '<script language="javascript">';
-		echo "alert('$add')";
-		echo '</script>';
+			add_to_database();
 	}
-	function add_to_database(&$add)
+	function add_to_database()
 	{	
 		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 		$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
@@ -33,12 +34,11 @@ include("header_in.php");
 		$q_sequence = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE climb_date = '$_POST[_date]'");
 		$row_sequence = mysqli_fetch_array($q_sequence);
 		$seq = $row_sequence[0] + 1;
-		if (mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence)
-	   	VALUES ('$_POST[_date]', '$_POST[route]',	'$grade', '$att', '$_POST[status]', '$seq')"))
-			$add = "Climb added";
-		else
-			$add = "Addition failed";
+		mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence) VALUES ('$_POST[_date]', '$_POST[route]', '$grade', '$att', '$_POST[status]', '$seq')");
 		mysqli_close($conn);
+		echo '<script language="javascript">';
+		echo "window.location.href = 'history.php';";
+		echo '</script>';
 	}
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	$q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE active = 1 ORDER BY line, route_id");

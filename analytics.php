@@ -18,7 +18,13 @@ include("header_in.php");
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
-		echo "<a id='addmessage' href='add.php'>Add your first climb</a>";
+	{
+		echo "<div id= 'firstmsg'>";
+		echo "<br>";
+		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
+		echo "<br>";
+		echo "</div>";
+	}
 	else
 	{
 	?>	
@@ -51,27 +57,27 @@ include("header_in.php");
 		$row_dc = mysqli_fetch_array($q_dc);
 		$row_dt = mysqli_fetch_array($q_dt);
 
-		if ($row_c[0] == 0)
-			break;
-		$efc = ($row_dt[0] / $row_dc[0]) * 100;
-		$efc = (int)$efc;
-		$efn = ($row_t[0] / $row_c[0]) * 100;
-		$efn = (int)$efn;
-		$clm = $row_c[0];
-		$dclm = $row_dc[0];
-		$top = $row_t[0];
-		$dtop = $row_dt[0];
+		if ($row_c[0] != 0)
+		{	
+			$efc = ($row_dt[0] / $row_dc[0]) * 100;
+			$efc = (int)$efc;
+			$efn = ($row_t[0] / $row_c[0]) * 100;
+			$efn = (int)$efn;
+			$clm = $row_c[0];
+			$dclm = $row_dc[0];
+			$top = $row_t[0];
+			$dtop = $row_dt[0];
 
-		echo	'<tr>';
-		echo	'<td class="analytics-row">'.$x.'</td>';
-		echo	'<td>'.$efc.'%</td>';
-		echo	'<td>'.$efn.'%</td>';
-		echo	'<td>'.$clm.'</td>';
-		echo	'<td>'.$dclm.'</td>';
-		echo	'<td>'.$top.'</td>';
-		echo	'<td>'.$dtop.'</td>';
-		echo	'</tr>';
-		
+			echo	'<tr>';
+			echo	'<td class="analytics-row">'.$x.'</td>';
+			echo	'<td>'.$efc.'%</td>';
+			echo	'<td>'.$efn.'%</td>';
+			echo	'<td>'.$clm.'</td>';
+			echo	'<td>'.$dclm.'</td>';
+			echo	'<td>'.$top.'</td>';
+			echo	'<td>'.$dtop.'</td>';
+			echo	'</tr>';
+		}
 		$i = $i + 1;
 	}
 	$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
