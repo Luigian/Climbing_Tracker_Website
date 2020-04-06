@@ -1,9 +1,7 @@
 <?php
-echo $_COOKIE["user"];
-
 if ($_POST["submit"] == "LOGOUT")
 {
-	setcookie("user", "empty");
+	setcookie("user", "");
 	echo "<script type='text/javascript'>";
 	echo "window.location.href = 'home.php';";
 	echo "</script>";
@@ -28,7 +26,7 @@ if ($_POST["submit"] == "LOGOUT")
 			<a id="history" href="history.php">HISTORY</a>
 			<a id="analytics" href="analytics.php">ANALYTICS</a>
 			<div class="dropdown">
-				<img class="dropbtn" src="cashew_icon.svg" height="20">
+				<img class="dropbtn" src="cashew_icon_black.png" height="20">
 				<div class="dropdown-content">
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
 						<input type="submit" id="logout" name="submit" value="LOGOUT">

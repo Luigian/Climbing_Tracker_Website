@@ -38,7 +38,7 @@ include("header_in.php");
 	if ($row_count[0] == '0')
 	{
 		echo "<div id='firstmsg'>";
-		echo "<p id='welmessage'>Welcome $_COOKIE[user] !</p>";
+//		echo "<p id='welmessage'>Welcome $_COOKIE[user] !</p>";
 		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
 		echo "</div>";
 	}

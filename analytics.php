@@ -20,9 +20,7 @@ include("header_in.php");
 	if ($row_count[0] == '0')
 	{
 		echo "<div id= 'firstmsg'>";
-		echo "<br>";
 		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
-		echo "<br>";
 		echo "</div>";
 	}
 	else

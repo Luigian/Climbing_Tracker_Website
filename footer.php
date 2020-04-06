@@ -7,7 +7,11 @@
 <body>
 	<div class="foot-main-container">
 		<div class="foot-container">
-			<p id="text">Copyright © 2020 Panic Bear</p>
+			<?php
+			echo "<i class='text'>$_COOKIE[user]</i>";
+			?>
+			<img id='cashew_white' src='cashew_icon_white.png' alt='cashew_white' height='10'>
+			<i class='text'>Panic Bear</i>
 		</div>
 	</div>
 </body>

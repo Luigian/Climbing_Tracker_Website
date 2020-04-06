@@ -2,12 +2,20 @@
 height: 100px;
 background-color: black;
 display: flex;
+flex-direction: row;
 justify-content: center;
 align-items: center;
 }
 
-#text {
+.text {
 font-family: arial, sans-serif;
 color: grey;
 font-size: 10px;
+}
+
+#cashew_white {
+position: relative;
+bottom: -1px;
+padding-right: 2px;
+padding-left: 3px;
 }

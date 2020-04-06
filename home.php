@@ -1,8 +1,8 @@
 <?php
-if ($_COOKIE["user"] === "empty")
-	include("header_out.php");
-else
+if (isset($_COOKIE["user"]))
 	include("header_in.php");
+else
+	include("header_out.php");
 ?>
 
 <html>
