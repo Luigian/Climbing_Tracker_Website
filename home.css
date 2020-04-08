@@ -1,15 +1,20 @@
+.all {
+min-height: 100%;
+}
+
 .home-container {
 display: flex;
+iflex-grow: 1;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding-top: 70px;
-padding-bottom: 10%;
+ipadding-top: 70px;
+ipadding-bottom: 10px;
 padding-left: 5%;
 padding-right: 5%;
 ipadding-top: 100px;
 ipadding-bottom: 120px;
-ibackground-color: pink;
+background-color: pink;
 }
 
 #pic {
