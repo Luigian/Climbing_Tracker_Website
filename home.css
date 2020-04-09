@@ -1,5 +1,5 @@
-.all {
-min-height: 100%;
+body {
+iheight: 100%;
 }
 
 .home-container {
@@ -12,9 +12,10 @@ ipadding-top: 70px;
 ipadding-bottom: 10px;
 padding-left: 5%;
 padding-right: 5%;
-ipadding-top: 100px;
+padding-top: 100px;
 ipadding-bottom: 120px;
-background-color: pink;
+ibackground-color: pink;
+iheight: 100%;
 }
 
 #pic {
