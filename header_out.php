@@ -7,12 +7,12 @@
 	<div class="head-container">
 		<div class="logo">
 			<a href="home.php">
-				<img src="logo_1.png" height="70" alt="Panic.bear">
+				<img id="imglogo" src="logo_1.png" alt="Panic.bear">
 			</a>
 		</div>
 		<div class="navi">
 			<div class="dropdown">
-				<img class="dropbtn" src="cashew_icon_black.png" height="20">
+				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a id="login" href="login.php">LOGIN</a>
 					<a id="signup" href="signup.php">SIGN UP</a>

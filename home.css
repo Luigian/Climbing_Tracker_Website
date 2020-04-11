@@ -3,22 +3,30 @@ iheight: 100%;
 }
 
 .home-container {
-display: flex;
+idisplay: flex;
 iflex-grow: 1;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+iflex-direction: column;
+ijustify-content: center;
+ialign-items: center;
 ipadding-top: 70px;
 ipadding-bottom: 10px;
-padding-left: 5%;
-padding-right: 5%;
-padding-top: 100px;
+ipadding-left: 5%;
+ipadding-right: 5%;
+ipadding-top: 100px;
 ipadding-bottom: 120px;
 ibackground-color: pink;
-iheight: 100%;
+height: 80%;
+}
+
+.photo {
+position: relative;
+left: 20%;
+width: 0;
+ipadding: 5%;
+imax-height: 80%;
 }
 
 #pic {
-width: 100%;
-max-width: 600px;
+height: 80%;
+imax-height: 80%;
 }
