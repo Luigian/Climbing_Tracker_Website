@@ -13,7 +13,7 @@ else
 ?>
 	<div class="home-container">
 		<div class="photo">
-			<img id="pic" src="betamonkeys.jpeg" alt="betamonkeys">
+			<img id="pic" src="betamonkeys.jpeg" alt="betamonkeys"/>
 		</div>
 	</div>
 <?php
