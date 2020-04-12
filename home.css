@@ -14,19 +14,49 @@ ipadding-left: 5%;
 ipadding-right: 5%;
 ipadding-top: 100px;
 ipadding-bottom: 120px;
-ibackground-color: pink;
-height: 80%;
+background-color: pink;
+height: calc(100% - 140px);
+min-height: 300px;
+idisplay: inline-block;
+ipadding: 10%;
 }
 
 .photo {
-position: relative;
-left: 20%;
-width: 0;
+idisplay: flex;
+iflex-grow: 1;
+iflex-direction: column;
+ijustify-content: center;
+ialign-items: center;
+iposition: relative;
+ileft: 20%;
+iwidth: 0;
+text-align: center;
+idisplay: table-cell;
 ipadding: 5%;
 imax-height: 80%;
+imargin-top: 5%;
+imargin-bottom: 5%;
+ibackground: url(betamonkeys.jpg) center center no-repeat;
+}
+
+photo td {
+text-align: center;
+vertical-align: middle;
+height: 80%;
 }
 
 #pic {
-height: 80%;
+iposition: absolute;
+itop: 18%;
+ileft: calc(50% - 50%);
+itext-align: center;
+height: 300; 
+imax-height: 400px;
+idisplay: block;
+margin-top: calc(((100% - 140px) - 300) / 2);
+imargin-left: -36%;
+ivertical-align: middle;
 imax-height: 80%;
+idisplay: block;
+imargin: 0 auto;
 }
