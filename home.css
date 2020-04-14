@@ -16,7 +16,7 @@ ipadding-top: 100px;
 ipadding-bottom: 120px;
 background-color: pink;
 height: calc(100% - 140px);
-min-height: 300px;
+min-height: 400px;
 idisplay: inline-block;
 ipadding: 10%;
 }
@@ -39,13 +39,12 @@ imargin-bottom: 5%;
 ibackground: url(betamonkeys.jpg) center center no-repeat;
 }
 
-photo td {
-text-align: center;
-vertical-align: middle;
-height: 80%;
+.photo {
+ipadding: 50px;
 }
 
 #pic {
+iposition: relative;
 iposition: absolute;
 itop: 18%;
 ileft: calc(50% - 50%);
@@ -53,9 +52,12 @@ itext-align: center;
 height: 300; 
 imax-height: 400px;
 idisplay: block;
-margin-top: calc(((100% - 140px) - 300) / 2);
+itop: calc(100% - 70px - ((100% - 440px) / 2) - 300px);
+imargin-top: calc(100% - 227px - 300px);
+itop: calc(100%);
+ileft: 10;
 imargin-left: -36%;
-ivertical-align: middle;
+vertical-align: middle;
 imax-height: 80%;
 idisplay: block;
 imargin: 0 auto;
