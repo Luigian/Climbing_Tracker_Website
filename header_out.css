@@ -1,36 +1,19 @@
 .head-container {
-idisplay: flex;
-iflex-direction: row;
-iflex-wrap: wrap;
-ijustify-content: space-around;
-ialign-items: center;
-imax-width: 100%;
 width: 100%;
 height: 70px;
-imargin: 0 auto;
-ipadding-top: 10px;
-background-color: blue;
-}
-
-.logo {
-position: relative;
-left: 10%;
-width: 0;
+ibackground-color: blue;
 }
 
 #imglogo {
 height: 100%;
+position: relative;
+left: 50px;
 }
 
 .navi {
 position: relative;
 bottom: 30%;
-
-idisplay: flex;
-ialign-items: flex-start;
-ijustify-content: flex-end;
-imargin-top: 50px;
-ibackground-color: yellow;
+ibackground-color: gray;
 }
 
 .navi a {
@@ -40,10 +23,10 @@ color: grey;
 
 .dropdown {
 position: relative;
-itop: -3px;
-left: 88%;
-background-color: yellow;
-width: 0;
+left: calc(100% - 100px);
+width: 50px;
+text-align: right;
+ibackground-color: green;
 }
 
 .dropbtn {
@@ -52,24 +35,12 @@ height: 30%;
 
 .dropdown-content {
 display: none;
-position: absolute;
-min-width: 100px;
+ibackground-color: yellow;
 }
 
 .dropdown-content a {
-color: grey;
-padding-top: 15px;
+padding-top: 10px;
 display: block;
-}
-
-#login {
-position: relative;
-right: 18px;
-}
-
-#signup {
-position: relative;
-right: 30px;
 }
 
 .dropdown:hover .dropdown-content {

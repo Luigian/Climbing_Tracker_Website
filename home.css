@@ -1,64 +1,12 @@
-body {
-iheight: 100%;
-}
-
 .home-container {
-idisplay: flex;
-iflex-grow: 1;
-iflex-direction: column;
-ijustify-content: center;
-ialign-items: center;
-ipadding-top: 70px;
-ipadding-bottom: 10px;
-ipadding-left: 5%;
-ipadding-right: 5%;
-ipadding-top: 100px;
-ipadding-bottom: 120px;
-background-color: pink;
 height: calc(100% - 140px);
 min-height: 400px;
-idisplay: inline-block;
-ipadding: 10%;
-}
-
-.photo {
-idisplay: flex;
-iflex-grow: 1;
-iflex-direction: column;
-ijustify-content: center;
-ialign-items: center;
-iposition: relative;
-ileft: 20%;
-iwidth: 0;
-text-align: center;
-idisplay: table-cell;
-ipadding: 5%;
-imax-height: 80%;
-imargin-top: 5%;
-imargin-bottom: 5%;
-ibackground: url(betamonkeys.jpg) center center no-repeat;
-}
-
-.photo {
-ipadding: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+ibackground-color: pink;
 }
 
 #pic {
-iposition: relative;
-iposition: absolute;
-itop: 18%;
-ileft: calc(50% - 50%);
-itext-align: center;
-height: 300; 
-imax-height: 400px;
-idisplay: block;
-itop: calc(100% - 70px - ((100% - 440px) / 2) - 300px);
-imargin-top: calc(100% - 227px - 300px);
-itop: calc(100%);
-ileft: 10;
-imargin-left: -36%;
-vertical-align: middle;
-imax-height: 80%;
-idisplay: block;
-imargin: 0 auto;
+height: 300px; 
 }
