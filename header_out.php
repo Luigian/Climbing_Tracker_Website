@@ -11,7 +11,7 @@
 			</a>
 		</div>
 		<div class="navi">
-			<div clas="dropdown">
+			<div class="dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a id="login" href="login.php">LOGIN</a>

@@ -10,7 +10,7 @@
 			<?php
 			echo "<i class='text'>$_COOKIE[user]</i>";
 			?>
-			<img id='cashew_white' src='cashew_icon_white.png' alt='cashew_white' height='10'>
+			<img id='cashew_white' src='cashew_icon_white.png' alt='cashew_white'>
 			<i class='text'>Panic Bear</i>
 		</div>
 	</div>
