@@ -1,4 +1,4 @@
-.signup-container {
+.login-container, .signup-container {
 display: flex;
 justify-content: center;
 ibackground-color: blue;
@@ -21,7 +21,7 @@ border-radius: 4px;
 ibackground-color: pink;
 }
 
-.signup-inside {
+.login-inside, .signup-inside {
 font-size: 12px;
 display: flex;
 flex-direction: column;
@@ -31,7 +31,7 @@ height: 280px;
 ibackground-color: grey;
 }
 
-input {
+.login-inside input, .signup-inside input {
 border-color: lightgrey;
 border-style: solid;
 border-width: 1px;

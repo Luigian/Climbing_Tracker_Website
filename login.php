@@ -46,18 +46,15 @@ if ($_POST["submit"] == "LOGIN")
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="login_signup.css">
+	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
 <body>
-<div class="signup-container">
+<div class="login-container">
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginform" method="post">
-	<div class="signup-inside">
-		<div><input type="text" id="username" name="username" placeholder="User Name"></div>
-		<div><input type="password" id="password" name="password" placeholder="Password"></div>
-		<br>
-		<div><input type="submit" id="submit" name="submit" value="LOGIN"></div>
-	</div>
+		<div><input type="text" id="log_user" name="username" placeholder="User Name"></div>
+		<div><input type="password" id="log_pass" name="password" placeholder="Password"></div>
+		<div><input type="submit" id="log_submit" name="submit" value="LOGIN"></div>
 	</form>
 </div>
 </body>
