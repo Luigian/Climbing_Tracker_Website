@@ -6,7 +6,7 @@ include("header_out.php");
 <html>
 <head>
 	<title>Sign Up</title>
-	<link rel="stylesheet" type="text/css" href="login_signup.css">
+	<link rel="stylesheet" type="text/css" href="signup.css">
 </head>
 
 <?php
@@ -48,12 +48,9 @@ if ($_POST["submit"] == "SIGN UP")
 <body>
 <div class="signup-container">
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="signform" method="post">
-	<div class="signup-inside">
-		<div><input type="text" id="username" name="username" placeholder="User Name"></div>
-		<div><input type="password" id="password" name="password" placeholder="Password"></div>
-		<br>
-		<div><input type="submit" id="submit" name="submit" value="SIGN UP"></div>
-	</div>
+		<div><input type="text" id="sign_user" name="username" placeholder="User Name"></div>
+		<div><input type="password" id="sign_pass" name="password" placeholder="Password"></div>
+		<div><input type="submit" id="sign_submit" name="submit" value="SIGN UP"></div>
 	</form>
 </div>
 </body>
