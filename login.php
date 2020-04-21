@@ -3,7 +3,6 @@ include("header_out.php");
 ?>
 
 <?php
-
 if ($_POST["submit"] == "LOGIN")
 {
 	if ($_POST["username"] && $_POST["password"])
@@ -39,7 +38,6 @@ if ($_POST["submit"] == "LOGIN")
 		echo "</script>";
 	}
 }
-
 ?>
 
 <!DOCTYPE html>

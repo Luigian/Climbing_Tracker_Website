@@ -2,6 +2,41 @@
 include("header_in.php");
 ?>
 
+<?php
+if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
+{
+	if (empty($_POST['_date']))
+	{
+		echo '<script language="javascript">';
+		echo "alert('Date is required')";
+		echo '</script>';
+	}
+	else
+		add_to_database();
+}
+function add_to_database()
+{	
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
+	$row_grade = mysqli_fetch_array($q_grade);
+	$grade = $row_grade[0];
+	$user = "tb_".$_COOKIE["user"];
+	$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_POST[route]'");
+	$row_attempt = mysqli_fetch_array($q_attempt);
+	$att = $row_attempt[0] + 1;
+	$q_sequence = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE climb_date = '$_POST[_date]'");
+	$row_sequence = mysqli_fetch_array($q_sequence);
+	$seq = $row_sequence[0] + 1;
+	mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence) VALUES ('$_POST[_date]', '$_POST[route]', '$grade', '$att', '$_POST[status]', '$seq')");
+	mysqli_close($conn);
+	echo '<script language="javascript">';
+	echo "window.location.href = 'history.php';";
+	echo '</script>';
+}
+$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+$q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE active = 1 ORDER BY line, route_id");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,47 +44,11 @@ include("header_in.php");
 	<link rel="stylesheet" type="text/css" href="add.css">
 </head>
 
-	<?php
-	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
-	{
-		if (empty($_POST['_date']))
-		{
-			echo '<script language="javascript">';
-			echo "alert('Date is required')";
-			echo '</script>';
-		}
-		else
-			add_to_database();
-	}
-	function add_to_database()
-	{	
-		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-		$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
-		$row_grade = mysqli_fetch_array($q_grade);
-		$grade = $row_grade[0];
-		$user = "tb_".$_COOKIE["user"];
-		$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_POST[route]'");
-		$row_attempt = mysqli_fetch_array($q_attempt);
-		$att = $row_attempt[0] + 1;
-		$q_sequence = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE climb_date = '$_POST[_date]'");
-		$row_sequence = mysqli_fetch_array($q_sequence);
-		$seq = $row_sequence[0] + 1;
-		mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence) VALUES ('$_POST[_date]', '$_POST[route]', '$grade', '$att', '$_POST[status]', '$seq')");
-		mysqli_close($conn);
-		echo '<script language="javascript">';
-		echo "window.location.href = 'history.php';";
-		echo '</script>';
-	}
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE active = 1 ORDER BY line, route_id");
-	?>
-
 <body>
-<div class="mid-container">
+<div class="add-container">
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">
-	<div class="inside">
-		<div><input type="date" class="addinput" id="_date" name="_date"></div>
-		<div><select id="route" name="route">
+		<div><input type="date" id="add_date" name="_date"></div>
+		<div><select id="add_route" name="route">
 			<?php
 			while ($row_menu = mysqli_fetch_array($q_menu))
 			{
@@ -58,13 +57,11 @@ include("header_in.php");
 			mysqli_close($conn);
 			?>
 		</select></div>
-		<div><select id="status" name="status">
-			<option id="top" value="Top">Top</option>
+		<div><select id="add_status" name="status">
+			<option id="add_top" value="Top">Top</option>
 			<option value="Fall">Fall</option>
 		</select></div>
-		<br>
-		<div><input class="addinput" id="submit" type="submit" value="ADD CLIMB"></div>
-	</div>
+		<div><input id="add_submit" type="submit" value="ADD CLIMB"></div>
 	</form>
 </div>
 </body>

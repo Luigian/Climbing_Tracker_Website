@@ -1,67 +1,71 @@
-.mid-container {
+html, body {
+height: 100%;
+}
+
+.add-container {
+height: calc(100% - 140px);
+imin-height: 350px;
+iheight: 100%;
 display: flex;
 justify-content: center;
-ibackground-color: blue;
+align-items: center;
+background-color: blue;
 }
 
 #addform {
+height: 242px;
 font-family: arial, sans-serif;
 color: black;
-display: flex;
-justify-content: center;
-align-items: center;
-width: 350px;
-height: 380px;
-margin-top: 100px;
-margin-bottom: 120px;
-border-color: lightgrey;
-border-style: solid;
-border-width: 0px;
-border-radius: 4px;
-ibackground-color: pink;
-}
 
-.inside {
-font-size: 12px;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 align-items: center;
-height: 280px;
-ibackground-color: grey;
+background-color: pink;
 }
 
-.addinput, select, option {
-border-color: lightgrey;
-border-style: solid;
-border-width: 1px;
--webkit-appearance: none;
-border-radius: 20px;
+
+#addform input, select, option {
 height: 35px;
+-webkit-appearance: none;
 text-align: center;
 text-align-last: center;
 font-size: 10px;
+border-color: lightgrey;
+border-style: solid;
+border-width: 1px;
+border-radius: 20px;
 }
 
-select {
+#addform select {
 background-color: white;
 }
 
-#_date {
+#add_date {
 text-indent: 20px;
-}
-
-#_date, #route, #status {
 width: 200px;
 }
 
-#submit {
+#add_route {
+position: relative;
+top: 20px;
+width: 200px;
+}
+
+#add_status {
+position: relative;
+top: 40px;
+width: 200px;
+}
+
+#add_submit {
+position: relative;
+top: 100px;
 width: 90px;
 border-color: grey;
 border-width: 2px;
 }
 
-#submit:hover {
+#add_submit:hover {
 background-color: black;
 color: white;
 }
