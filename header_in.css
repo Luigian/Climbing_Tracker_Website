@@ -1,51 +1,48 @@
-.head-container {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-around;
-align-items: center;
-max-width: 100%;
-width: 1100px;
-margin: 0 auto;
-padding-top: 10px;
+/*
+.hi-container {
+width: 100%;
+height: 70px;
 ibackground-color: blue;
 }
 
-.navi {
-display: flex;
-align-items: flex-start;
-justify-content: flex-end;
-margin-top: 50px;
+#hi_logo {
+height: 100%;
+position: relative;
+left: 50px;
+}
+
+.hi-navi {
+position: relative;
+bottom: 30%;
 ibackground-color: yellow;
 }
 
-.navi a, #logout{
+.hi-navi a, #hi_logout{
 font-family: arial, sans-serif;
 color: grey;
 }
 
-#history, #analytics, .dropdown {
+#hi_history, #hi_analytics, .hi-dropdown {
 padding-left: 30px;
 }
 
-.dropdown {
+.hi-dropdown {
 position: relative;
-top: -3px;
+left: calc(100% - 100px);
+width: 50px;
+text-align: right;
+background-color: green;
 }
 
-.dropdown-content {
+.hi-dropbtn {
+height: 30%;
+}*/
+/*
+.hi-dropdown-content {
 display: none;
-position: absolute;
-min-width: 100px;
 }
 
-.dropdown-content a, #logout {
-color: grey;
-padding-top: 15px;
-display: block;
-}
-
-#logout {
+#hi_logout {
 position: relative;
 right: 36px;
 text-decoration: none;
@@ -54,19 +51,19 @@ border-width: 0px;
 background-color: white;
 }
 
-.dropdown:hover .dropdown-content {
+.hi-dropdown:hover .hi-dropdown-content {
 display: block;
 }
 
-a:link {
+.hi-navi a:link {
 text-decoration: none;
 font-size: 12px;
 }
 
-a:hover {
+.hi-navi a:hover {
 color: black;
 }
-
-#logout:hover {
+/*
+#hi_logout:hover {
 color: black;
-}
+}*/

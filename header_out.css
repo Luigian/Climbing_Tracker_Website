@@ -1,32 +1,50 @@
-.head-container {
+.header-container {
 width: 100%;
 height: 70px;
-ibackground-color: blue;
+background-color: blue;
 }
 
-#imglogo {
+#header_logo {
 height: 100%;
 position: relative;
 left: 50px;
 }
 
 .navi {
-position: relative;
-bottom: 30%;
-ibackground-color: gray;
+iposition: relative;
+ibottom: 30%;
+background-color: lightgray;
 }
 
-.navi a {
+#outmenu {
+display: inline-block;
+vertical-align: top;
+}
+
+#outmenu a {
+position: relative;
 font-family: arial, sans-serif;
 color: grey;
+text-decoration: none;
+font-size: 12px;
 }
 
-.dropdown {
-position: relative;
-left: calc(100% - 100px);
-width: 50px;
+#outmenu a:hover {
+color: black;
+}
+
+#h_history, #h_analytics {
+padding-left: 30px;
+}
+
+.header-dropdown {
+display: inline-block;
+vertical-align: top;
+iposition: relative;
+ileft: calc(100% - 100px);
+itop: -18px;
 text-align: right;
-ibackground-color: green;
+background-color: green;
 }
 
 .dropbtn {
@@ -34,24 +52,32 @@ height: 30%;
 }
 
 .dropdown-content {
-display: none;
-ibackground-color: yellow;
+idisplay: none;
+text-align: right;
+background-color: yellow;
 }
 
-.dropdown-content a {
+.header-dropdown:hover .dropdown-content {
+display: block;
+}
+
+.inmenu {
+font-family: arial, sans-serif;
+color: grey;
 padding-top: 10px;
 display: block;
-}
-
-.dropdown:hover .dropdown-content {
-display: block;
-}
-
-a:link {
 text-decoration: none;
 font-size: 12px;
 }
 
-a:hover {
+#logoutform input {
+padding-right: 0px;
+text-decoration: none;
+font-size: 12px;
+border-width: 0px;
+background-color: white;
+}
+
+.inmenu:hover {
 color: black;
 }
