@@ -5,13 +5,13 @@
 
 <body>
 	<div class="header-container">
-	<!--	<div class="logo">-->
+		<div class="logo">
 			<a href="home.php">
 				<img id="header_logo" src="logo_1.png" alt="Panic.bear">
 			</a>
-<!--		</div>-->
+		</div>
 		<div class="navi">
-			<div class="header-dropdown">
+			<div class="out-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a class="inmenu" href="login.php">LOGIN</a>

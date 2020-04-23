@@ -16,18 +16,18 @@ if ($_POST["submit"] == "LOGOUT")
 
 <body>
 	<div class="header-container">
-<!--		<div class="logo">-->
+		<div class="logo">
 			<a href="home.php">
 				<img id="header_logo" src="logo_1.png" alt="Panic.bear">
 			</a>
-<!--		</div>-->
+		</div>
 		<div class="navi">
 			<div id="outmenu">
 				<a id="h_add" href="add.php">ADD</a>
 				<a id="h_history" href="history.php">HISTORY</a>
 				<a id="h_analytics" href="analytics.php">ANALYTICS</a>
 			</div>
-			<div class="header-dropdown">
+			<div class="in-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
