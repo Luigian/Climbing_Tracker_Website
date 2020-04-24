@@ -1,26 +1,24 @@
 html, body {
-height: 100%;
+height: 98.6%;
 }
 
 .add-container {
 height: calc(100% - 140px);
-imin-height: 350px;
-iheight: 100%;
+min-height: 405px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: blue;
+ibackground-color: blue;
 }
 
 #addform {
 height: 242px;
 font-family: arial, sans-serif;
 color: black;
-
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: pink;
+ibackground-color: pink;
 }
 
 
