@@ -11,7 +11,7 @@ if ($_POST["submit"] == "LOGOUT")
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="header_out.css">
+	<link rel="stylesheet" type="text/css" href="header_in.css">
 </head>
 
 <body>
@@ -23,9 +23,9 @@ if ($_POST["submit"] == "LOGOUT")
 		</div>
 		<div class="navi">
 			<div id="outmenu">
-				<a id="h_add" href="add.php">ADD</a>
-				<a id="h_history" href="history.php">HISTORY</a>
-				<a id="h_analytics" href="analytics.php">ANALYTICS</a>
+				<a id="add" href="add.php">ADD</a>
+				<a id="history" href="history.php">HISTORY</a>
+				<a id="analytics" href="analytics.php">ANALYTICS</a>
 			</div>
 			<div class="in-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">

@@ -5,8 +5,10 @@ ibackground-color: blue;
 }
 
 .logo {
-position: relative;
-left: 50px;
+height: 100%;
+width: 117px;
+margin-left: 50px;
+ibackground-color: lightgray;
 }
 
 #header_logo {
@@ -15,55 +17,20 @@ height: 100%;
 
 .navi {
 position: relative;
-ileft: calc(100% - 317px);
 bottom: 26%;
-iwidth: 0px;
-itext-align: right;
 ibackground-color: lightgray;
-}
-
-#outmenu {
-position: relative;
-left: calc(100% - 275px);
-display: inline-block;
-vertical-align: top;
-ibackground-color: green;
-}
-
-#outmenu a {
-position: relative;
-font-family: arial, sans-serif;
-color: grey;
-text-decoration: none;
-font-size: 12px;
-}
-
-#outmenu a:hover {
-color: black;
-}
-
-#h_history, #h_analytics {
-padding-left: 15px;
 }
 
 .out-dropdown {
 width: 50px;
 position: relative;
 left: calc(100% - 100px);
-ibackground-color: green;
 text-align: right;
-}
-
-.in-dropdown {
-width: 21px;
-position: relative;
-left: calc(100% - 71px);
-top: -18px;
 ibackground-color: green;
 }
 
 .dropbtn {
-height: 30%;
+height: 21px;
 }
 
 .dropdown-content {
@@ -76,10 +43,6 @@ ibackground-color: yellow;
 display: block;
 }
 
-.in-dropdown:hover .dropdown-content {
-display: block;
-}
-
 .inmenu {
 font-family: arial, sans-serif;
 color: grey;
@@ -87,21 +50,6 @@ padding-top: 10px;
 display: block;
 text-decoration: none;
 font-size: 12px;
-}
-
-#logoutform {
-height: 5px;
-position: relative;
-right: 30px;
-}
-
-#logoutform input {
-padding-right: 0px;
-padding-left: 0px;
-text-decoration: none;
-font-size: 12px;
-border-width: 0px;
-background-color: white;
 }
 
 .inmenu:hover {
