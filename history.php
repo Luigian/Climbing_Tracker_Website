@@ -9,8 +9,6 @@ include("header_in.php");
 </head>
 
 <body>
-	<div class="table-container">
-	<table>
 	<?php
 	$user = "tb_".$_COOKIE["user"];
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
@@ -37,14 +35,15 @@ include("header_in.php");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
 	{
-		echo "<div id='firstmsg'>";
-//		echo "<p id='welmessage'>Welcome $_COOKIE[user] !</p>";
+		echo "<div class='msg-container'>";
 		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
 		echo "</div>";
 	}
 	else
 	{
 		$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date DESC, sequence DESC");
+		echo	'<div class="table-container">';
+		echo	'<table>';
 		echo	'<tr>
 				<th>Date</th>
 				<th>Route</th>
@@ -68,11 +67,11 @@ include("header_in.php");
 					</td>
 				</tr>';
 		}
+		echo '</table>';
+		echo '</div>';
 	}
 	mysqli_close($conn);
 	?>
-	</table>
-	</div>
 </body>
 	
 <script>
