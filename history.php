@@ -16,7 +16,7 @@ include("header_in.php");
 	{
 		setcookie("delbutton", $_POST["delbutton"]);
 		echo "<script>";
-		echo "var r = confirm('Are you sure to delete this climb?');";
+		echo "var r = confirm('Confirm to delete this climb');";
 		echo "if (r == true){";
 		echo "document.cookie = 'r=1';";
 		echo "}";
