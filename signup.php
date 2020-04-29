@@ -50,10 +50,6 @@ if ($_POST["submit"] == "SIGN UP")
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="signform" method="post">
 		<div><input type="text" id="sign_user" name="username" placeholder="User Name"></div>
 		<div><input type="password" id="sign_pass" name="password" placeholder="Password"></div>
-		<div><select id="sign_account" name="account">
-			<option id="sign_climber" value="climber">Climber</option>
-			<option id="sign_gym" value="gym">Gym</option>
-		</select></div>
 		<div><input type="submit" id="sign_submit" name="submit" value="SIGN UP"></div>
 	</form>
 </div>

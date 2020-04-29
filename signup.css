@@ -1,6 +1,6 @@
 .signup-container {
 height: calc(100% - 140px);
-min-height: 405px;
+min-height: 350px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -8,7 +8,7 @@ ibackground-color: blue;
 }
 
 #signform {
-height: 242px;
+height: 185px;
 font-family: arial, sans-serif;
 color: black;
 position: relative;
@@ -41,16 +41,10 @@ position: relative;
 top: 20px;
 }
 
-#sign_account {
-width: 200px;
-position: relative;
-top: 40px;
-}
-
 #sign_submit {
 width: 90px;
 position: relative;
-top: 100px;
+top: 80px;
 border-color: grey;
 border-width: 2px;
 }
