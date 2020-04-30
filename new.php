@@ -57,9 +57,29 @@ $q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE
 			mysqli_close($conn);
 			?>
 		</select></div>
-		<div><select id="add_status" name="status">
-			<option id="add_top" value="Top">Top</option>
-			<option value="Fall">Fall</option>
+		<div><select id="new_grade" name="grade">
+			<option value="5.8">5.8</option>
+			<option value="5.9">5.9</option>
+			<option value="5.10a">10a</option>
+			<option value="5.10b">10b</option>
+			<option value="5.10c">10c</option>
+			<option value="5.10d">10d</option>
+			<option value="5.11a">11a</option>
+			<option value="5.11b">11b</option>
+			<option value="5.11c">11c</option>
+			<option value="5.11d">11d</option>
+			<option value="5.12a">12a</option>
+			<option value="5.12b">12b</option>
+			<option value="5.12c">12c</option>
+			<option value="5.12d">12d</option>
+		</select></div>
+		<div><select id="new_color" name="color">
+			<option value="red">red</option>
+			<option value="green">green</option>
+			<option value="blue">blue</option>
+			<option value="yellow">yellow</option>
+			<option value="purple">purple</option>
+			<option value="orange">orange</option>
 		</select></div>
 		<div><input id="add_submit" type="submit" value="ADD CLIMB"></div>
 	</form>
