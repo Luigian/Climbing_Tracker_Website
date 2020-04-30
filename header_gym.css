@@ -23,7 +23,7 @@ ibackground-color: lightgray;
 
 #outmenu {
 position: relative;
-left: calc(100% - 273px);
+left: calc(100% - 283px);
 display: inline-block;
 vertical-align: top;
 ibackground-color: green;
@@ -41,14 +41,14 @@ font-size: 12px;
 color: black;
 }
 
-#history, #analytics {
+#routes, #dashboard {
 padding-left: 15px;
 }
 
 .in-dropdown {
-width: 50px;
+width: 55px;
 position: relative;
-left: calc(100% - 100px);
+left: calc(100% - 105px);
 text-align: right;
 top: -18px;
 ibackground-color: green;
@@ -80,7 +80,7 @@ font-size: 12px;
 #logoutform {
 height: 5px;
 position: relative;
-right: 0px;
+right: -5px;
 }
 
 #logoutform input {

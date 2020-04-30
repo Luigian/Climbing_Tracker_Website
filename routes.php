@@ -1,11 +1,11 @@
 <?php
-include("header_in.php");
+include("header_gym.php");
 ?>
 
 <html>
 <head>
 	<title>Routes</title>
-	<link rel="stylesheet" type="text/css" href="history.css">	
+	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
 
 <body>
@@ -17,19 +17,19 @@ include("header_in.php");
 	{
 		setcookie("delbutton", $_POST["delbutton"]);
 		echo "<script>";
-		echo "var r = confirm('Confirm to delete this climb');";
+		echo "var r = confirm('Do you want to delete this route?');";
 		echo "if (r == true){";
 		echo "document.cookie = 'r=1';";
 		echo "}";
 		echo "else {";
 		echo "document.cookie = 'r=0';";
  		echo "}";
-		echo "window.location.href = 'history.php';";
+		echo "window.location.href = 'routes.php';";
 		echo "</script>";
  	}
-	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
+	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 29) && $_COOKIE["r"] == "1")
 	{
-		$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_COOKIE[delbutton]");
+		$q_del = mysqli_query($conn, "DELETE FROM $gym WHERE route_id = $_COOKIE[delbutton]");
 		setcookie("r", "0");		
 	}
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $gym");
@@ -37,7 +37,7 @@ include("header_in.php");
 	if ($row_count[0] == '0')
 	{
 		echo "<div class='msg-container'>";
-		echo "<a id='addmessage' href='add.php'>Add your first climb here</a>";
+		echo "<a id='addmessage' href='add.php'>Add your first route here</a>";
 		echo "</div>";
 	}
 	else
@@ -54,9 +54,7 @@ include("header_in.php");
 			</tr>';
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
-		/*	$q_color = mysqli_query($conn, "SELECT color FROM tb_route WHERE route_id = '$row_table[2]'");
-			$row_color = mysqli_fetch_array($q_color);
-		 */	echo '<tr>
+			echo '<tr>
 					<td>'.$row_table[1].'</td>
 					<td>'.$row_table[2].'</td>
 					<td>'.$row_table[3].'</td>
