@@ -40,23 +40,13 @@ $q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add</title>
+	<title>New</title>
 	<link rel="stylesheet" type="text/css" href="new.css">
 </head>
 
 <body>
-<div class="add-container">
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">
-		<div><input type="date" id="add_date" name="_date"></div>
-		<div><select id="add_route" name="route">
-			<?php
-			while ($row_menu = mysqli_fetch_array($q_menu))
-			{
-				echo '<option value="'.$row_menu[0].'">'.$row_menu[1].' '.$row_menu[2].'</option>';
-			}
-			mysqli_close($conn);
-			?>
-		</select></div>
+<div class="new-container">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="newform" method="post">
 		<div><select id="new_grade" name="grade">
 			<option value="5.8">5.8</option>
 			<option value="5.9">5.9</option>
@@ -81,7 +71,18 @@ $q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE
 			<option value="purple">purple</option>
 			<option value="orange">orange</option>
 		</select></div>
-		<div><input id="add_submit" type="submit" value="ADD CLIMB"></div>
+		<div><select id="new_line" name="line">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+		</select></div>
+		<div><input type="date" id="new_date" name="_date"></div>
+		<div><input id="new_submit" type="submit" value="ADD ROUTE"></div>
 	</form>
 </div>
 </body>

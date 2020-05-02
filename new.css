@@ -2,17 +2,17 @@ html, body {
 height: 98.6%;
 }
 
-.add-container {
+.new-container {
 height: calc(100% - 140px);
-min-height: 405px;
+min-height: 440px;
 display: flex;
 justify-content: center;
 align-items: center;
 ibackground-color: blue;
 }
 
-#addform {
-height: 242px;
+#newform {
+height: 297px;
 font-family: arial, sans-serif;
 color: black;
 display: flex;
@@ -22,7 +22,7 @@ ibackground-color: pink;
 }
 
 
-#addform input, select, option {
+#newform input, select, option {
 height: 35px;
 -webkit-appearance: none;
 text-align: center;
@@ -34,36 +34,42 @@ border-width: 1px;
 border-radius: 20px;
 }
 
-#addform select {
+#newform select {
 background-color: white;
 }
 
-#add_date {
-text-indent: 20px;
+#new_grade {
 width: 200px;
 }
 
-#add_route {
+#new_color {
 position: relative;
 top: 20px;
 width: 200px;
 }
 
-#add_status {
+#new_line {
 position: relative;
 top: 40px;
 width: 200px;
 }
 
-#add_submit {
+#new_date {
 position: relative;
-top: 100px;
+top: 60px;
+width: 200px;
+text-indent: 20px;
+}
+
+#new_submit {
+position: relative;
+top: 120px;
 width: 90px;
 border-color: grey;
 border-width: 2px;
 }
 
-#add_submit:hover {
+#new_submit:hover {
 background-color: black;
 color: white;
 }
