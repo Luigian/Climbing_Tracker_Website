@@ -7,11 +7,20 @@ include("header_gym.php");
 	<title>Routes</title>
 	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
-
+<script>
+	function actFunction(id) {
+		alert("hello");
+		alert(id);
+	}
+</script>
 <body>
 	<?php
 	$user = "tb_".$_COOKIE["user"];
 	$gym = "tb_route";
+	
+	
+	
+	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -50,6 +59,7 @@ include("header_gym.php");
 				<th>Color</th>
 				<th>Line</th>
 				<th>Setting Date</th>
+				<th>Inactivate</th>
 				<th>Remove</th>
 			</tr>';
 		while ($row_table = mysqli_fetch_array($q_table))
@@ -58,12 +68,9 @@ include("header_gym.php");
 					<td>'.$row_table[1].'</td>
 					<td>'.$row_table[2].'</td>
 					<td>'.$row_table[3].'</td>
-					<td>'.$row_table[4].'</td>
-					<td>
-						<form class="but" method="post">
-							<button type="submit" name="delbutton" value='.$row_table[0].'>x</button>
-						</form>
-					</td>
+					<td>'.$row_table[4].'</td>';
+			echo		'<td><input onclick="actFunction('.$row_table[0].')" type="button" name="actbutton" value='.$row_table[0].'></button></td>
+					<td><input type="button" name="delbutton" value='.$row_table[0].'></button></td>
 				</tr>';
 		}
 		echo '</table>';
