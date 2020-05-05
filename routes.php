@@ -8,39 +8,39 @@ include("header_gym.php");
 	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
 <script>
-	function actFunction(id) {
-		alert("hello");
-		alert(id);
-	}
+function actFunction(id)
+{
+	var act_confirm = confirm('Do you want to inactivate this route?');
+	if (act_confirm == true)
+		document.cookie = 'inactivate=' + id;
+	else
+		document.cookie = 'inactivate=0';
+	alert(document.cookie);
+	window.location.href = 'routes.php';
+}
+function remFunction(id)
+{
+	var rem_confirm = confirm('Do you want to remove this route?');
+	if (rem_confirm == true)
+		document.cookie = 'remove=' + id;
+	else
+		document.cookie = 'remove=0';
+	alert(document.cookie);
+	window.location.href = 'routes.php';
+}
 </script>
 <body>
 	<?php
 	$user = "tb_".$_COOKIE["user"];
 	$gym = "tb_route";
-	
-	
-	
-	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	if ($_SERVER["REQUEST_METHOD"] == "POST")
-	{
-		setcookie("delbutton", $_POST["delbutton"]);
-		echo "<script>";
-		echo "var r = confirm('Do you want to delete this route?');";
-		echo "if (r == true){";
-		echo "document.cookie = 'r=1';";
-		echo "}";
-		echo "else {";
-		echo "document.cookie = 'r=0';";
- 		echo "}";
-		echo "window.location.href = 'routes.php';";
-		echo "</script>";
- 	}
-	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 29) && $_COOKIE["r"] == "1")
-	{
-		$q_del = mysqli_query($conn, "DELETE FROM $gym WHERE route_id = $_COOKIE[delbutton]");
-		setcookie("r", "0");		
-	}
+	if ($_COOKIE["inactivate"] != "0")
+		$q_inact = mysqli_query($conn, "UPDATE $gym SET active = 0 WHERE route_id = $_COOKIE[inactivate]");
+	if ($_COOKIE["remove"] != "0" && ($_COOKIE["user"] != "julian" || $_COOKIE["remove"] > "29"))
+		$q_remove = mysqli_query($conn, "DELETE FROM $gym WHERE route_id = $_COOKIE[remove]");
+	setcookie("inactivate", "0");
+	setcookie("remove", "0");
+		
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $gym");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
@@ -69,8 +69,8 @@ include("header_gym.php");
 					<td>'.$row_table[2].'</td>
 					<td>'.$row_table[3].'</td>
 					<td>'.$row_table[4].'</td>';
-			echo		'<td><input onclick="actFunction('.$row_table[0].')" type="button" name="actbutton" value='.$row_table[0].'></button></td>
-					<td><input type="button" name="delbutton" value='.$row_table[0].'></button></td>
+			echo		'<td><input src="trash.png" onclick="actFunction('.$row_table[0].')" type="image"></input></td>
+					<td><input src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 				</tr>';
 		}
 		echo '</table>';

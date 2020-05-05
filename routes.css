@@ -56,19 +56,6 @@ tr:nth-child(even) {
 background-color: #dddddd;
 }
 
-button {
-border-color: #dddddd;
-border-style: solid;
-border-width: 1px;
--webkit-appearance: none;
-border-radius: 20px;
+td input {
 height: 20px;
-line-height: 1px;
-text-indent: 0px;
-font-size: 10px;
-}
-
-button:hover {
-background-color: black;
-color: white;
 }
