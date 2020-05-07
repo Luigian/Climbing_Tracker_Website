@@ -33,6 +33,10 @@ align-items: center;
 ibackground-color: blue;
 }
 
+#all-button {
+height: 30px;
+}
+
 table {
 font-family: arial, sans-serif;
 font-size: 10px;

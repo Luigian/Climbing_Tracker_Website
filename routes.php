@@ -8,6 +8,12 @@ include("header_gym.php");
 	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
 <script>
+function allFunction()
+{
+	document.cookie = 'route_display=all' ;
+	alert(document.cookie);
+	window.location.href = 'routes.php';
+}
 function actFunction(id)
 {
 	var act_confirm = confirm('Do you want to inactivate this route?');
@@ -51,8 +57,12 @@ function remFunction(id)
 	}
 	else
 	{
-		$q_table = mysqli_query($conn, "SELECT * FROM $gym WHERE active = 1 ORDER BY line ASC");
+		if ($_COOKIE["route_display"] == "all")
+			$q_table = mysqli_query($conn, "SELECT * FROM $gym ORDER BY line ASC");
+		else
+			$q_table = mysqli_query($conn, "SELECT * FROM $gym WHERE active = 1 ORDER BY line ASC");
 		echo	'<div class="table-container">';
+		echo '<input id="all-button" src="trash.png" onclick="allFunction()" type="image"></input>';
 		echo	'<table>';
 		echo	'<tr>
 				<th>Grade</th>
@@ -64,13 +74,17 @@ function remFunction(id)
 			</tr>';
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
+			if ($row_table[5])
+				$color_button = "green-button.png";
+			else
+				$color_button = "red-button.png";
 			echo '<tr>
 					<td>'.$row_table[1].'</td>
 					<td>'.$row_table[2].'</td>
 					<td>'.$row_table[3].'</td>
-					<td>'.$row_table[4].'</td>';
-			echo		'<td><input src="trash.png" onclick="actFunction('.$row_table[0].')" type="image"></input></td>
-					<td><input src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
+					<td>'.$row_table[4].'</td>
+			 		<td><input src='.$color_button.' onclick="actFunction('.$row_table[0].')" type="image"></input></td>
+			 		<td><input src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 				</tr>';
 		}
 		echo '</table>';
