@@ -14,13 +14,14 @@ function allFunction()
 	alert(document.cookie);
 	window.location.href = 'routes.php';
 }
-function actFunction(id)
+function actFunction(id, act)
 {
-	var act_confirm = confirm('Do you want to inactivate this route?');
-	if (act_confirm == true)
+//	var act_confirm = confirm('Do you want to inactivate this route?');
+//	if (act_confirm == true)
+	if (act == 1)
 		document.cookie = 'inactivate=' + id;
 	else
-		document.cookie = 'inactivate=0';
+		document.cookie = 'activate=' + id;
 	alert(document.cookie);
 	window.location.href = 'routes.php';
 }
@@ -42,9 +43,12 @@ function remFunction(id)
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_COOKIE["inactivate"] != "0")
 		$q_inact = mysqli_query($conn, "UPDATE $gym SET active = 0 WHERE route_id = $_COOKIE[inactivate]");
+	if ($_COOKIE["activate"] != "0")
+		$q_act = mysqli_query($conn, "UPDATE $gym SET active = 1 WHERE route_id = $_COOKIE[activate]");
 	if ($_COOKIE["remove"] != "0" && ($_COOKIE["user"] != "julian" || $_COOKIE["remove"] > "29"))
 		$q_remove = mysqli_query($conn, "DELETE FROM $gym WHERE route_id = $_COOKIE[remove]");
 	setcookie("inactivate", "0");
+	setcookie("activate", "0");
 	setcookie("remove", "0");
 		
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $gym");
@@ -75,16 +79,16 @@ function remFunction(id)
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
 			if ($row_table[5])
-				$color_button = "green-button.png";
+				$color_button = "green-button-b.png";
 			else
-				$color_button = "red-button.png";
+				$color_button = "gray-button-b.png";
 			echo '<tr>
 					<td>'.$row_table[1].'</td>
 					<td>'.$row_table[2].'</td>
 					<td>'.$row_table[3].'</td>
 					<td>'.$row_table[4].'</td>
-			 		<td><input src='.$color_button.' onclick="actFunction('.$row_table[0].')" type="image"></input></td>
-			 		<td><input src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
+			 		<td><input id="actbutt" src='.$color_button.' onclick="actFunction('.$row_table[0].', '.$row_table[5].')" type="image"></input></td>
+			 		<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 				</tr>';
 		}
 		echo '</table>';

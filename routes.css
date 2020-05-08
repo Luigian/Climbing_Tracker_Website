@@ -60,6 +60,10 @@ tr:nth-child(even) {
 background-color: #dddddd;
 }
 
-td input {
-height: 20px;
+#actbutt {
+height: 15px;
+}
+
+#rembutt {
+height: 15px;
 }
