@@ -8,21 +8,23 @@ include("header_gym.php");
 	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
 <script>
-function allFunction()
+
+//document.cookie = "route_display=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+alert(document.cookie);
+function dispFunction(dispcode)
 {
-	document.cookie = 'route_display=all' ;
-	alert(document.cookie);
+	if (dispcode != "0")
+		document.cookie = 'display=0';
+	else
+		document.cookie = 'display=1';
 	window.location.href = 'routes.php';
 }
 function actFunction(id, act)
 {
-//	var act_confirm = confirm('Do you want to inactivate this route?');
-//	if (act_confirm == true)
 	if (act == 1)
 		document.cookie = 'inactivate=' + id;
 	else
 		document.cookie = 'activate=' + id;
-	alert(document.cookie);
 	window.location.href = 'routes.php';
 }
 function remFunction(id)
@@ -40,6 +42,7 @@ function remFunction(id)
 	<?php
 	$user = "tb_".$_COOKIE["user"];
 	$gym = "tb_route";
+	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_COOKIE["inactivate"] != "0")
 		$q_inact = mysqli_query($conn, "UPDATE $gym SET active = 0 WHERE route_id = $_COOKIE[inactivate]");
@@ -61,27 +64,27 @@ function remFunction(id)
 	}
 	else
 	{
-		if ($_COOKIE["route_display"] == "all")
+		echo '<div class="table-container">';
+		echo '<input id="disp-button" src="trash.png" onclick="dispFunction('.$_COOKIE["display"].')" type="image"></input>';
+		echo '<table>';
+		echo '<tr>
+			 <th>Grade</th>
+			 <th>Color</th>
+			 <th>Line</th>
+			 <th>Setting Date</th>
+			 <th>On / Off</th>
+			 <th>Remove</th>
+			 </tr>';
+		if ($_COOKIE["display"] == "1")
 			$q_table = mysqli_query($conn, "SELECT * FROM $gym ORDER BY line ASC");
 		else
 			$q_table = mysqli_query($conn, "SELECT * FROM $gym WHERE active = 1 ORDER BY line ASC");
-		echo	'<div class="table-container">';
-		echo '<input id="all-button" src="trash.png" onclick="allFunction()" type="image"></input>';
-		echo	'<table>';
-		echo	'<tr>
-				<th>Grade</th>
-				<th>Color</th>
-				<th>Line</th>
-				<th>Setting Date</th>
-				<th>Inactivate</th>
-				<th>Remove</th>
-			</tr>';
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
 			if ($row_table[5])
-				$color_button = "green-button-b.png";
+				$color_button = "green-button.png";
 			else
-				$color_button = "gray-button-b.png";
+				$color_button = "gray-button.png";
 			echo '<tr>
 					<td>'.$row_table[1].'</td>
 					<td>'.$row_table[2].'</td>

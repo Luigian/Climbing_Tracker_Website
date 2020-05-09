@@ -2,6 +2,7 @@
 if ($_POST["submit"] == "LOGOUT")
 {
 	setcookie("user", "");
+	setcookie("display", "0");
 	echo "<script type='text/javascript'>";
 	echo "window.location.href = 'home.php';";
 	echo "</script>";
