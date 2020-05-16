@@ -10,7 +10,7 @@ include("header_gym.php");
 <script>
 
 //document.cookie = "route_display=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-alert(document.cookie);
+//alert(document.cookie);
 function dispFunction(dispcode)
 {
 	if (dispcode != "0")
@@ -34,7 +34,7 @@ function remFunction(id)
 		document.cookie = 'remove=' + id;
 	else
 		document.cookie = 'remove=0';
-	alert(document.cookie);
+	// alert(document.cookie);
 	window.location.href = 'routes.php';
 }
 </script>
@@ -65,7 +65,13 @@ function remFunction(id)
 	else
 	{
 		echo '<div class="table-container">';
-		echo '<input id="disp-button" src="trash.png" onclick="dispFunction('.$_COOKIE["display"].')" type="image"></input>';
+		if ($_COOKIE["display"] == 1)
+			$button_text = "See Only On";
+		else
+			$button_text = "See Also Off";
+		echo '<div id="disp-div">
+			  <button id="disp-button" onclick="dispFunction('.$_COOKIE["display"].')">'.$button_text.'</button>
+			  </div>';
 		echo '<table>';
 		echo '<tr>
 			 <th>Grade</th>
