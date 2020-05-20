@@ -8,8 +8,8 @@ if ($_POST["submit"] == "LOGIN")
 	if ($_POST["username"] && $_POST["password"])
 	{
 		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-		$q_userid_a = mysqli_query($conn, "SELECT user_id FROM tb_users WHERE username = '$_POST[username]'");
-		$q_userid_b = mysqli_query($conn, "SELECT user_id FROM tb_users WHERE password = '$_POST[password]'");
+		$q_userid_a = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
+		$q_userid_b = mysqli_query($conn, "SELECT id FROM users WHERE password = '$_POST[password]'");
 		$row_userid_a = mysqli_fetch_array($q_userid_a);
 		$row_userid_b = mysqli_fetch_array($q_userid_b);
 		if ($row_userid_a[0] != '' && $row_userid_a[0] == $row_userid_b[0])
