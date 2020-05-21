@@ -10,7 +10,7 @@ include("header_in.php");
 
 <body>
 	<?php
-	$user = "tb_".$_COOKIE["user"];
+	//$user = "tb_".$_COOKIE["user"];
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -26,12 +26,12 @@ include("header_in.php");
 		echo "window.location.href = 'history.php';";
 		echo "</script>";
  	}
-	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
+/*	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
 	{
 		$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_COOKIE[delbutton]");
 		setcookie("r", "0");		
 	}
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $user");
+*/	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs LEFT JOIN users ON users.id = climbs.userId WHERE users.username = '$_COOKIE[user]'");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
 	{
@@ -41,7 +41,7 @@ include("header_in.php");
 	}
 	else
 	{
-		$q_table = mysqli_query($conn, "SELECT * FROM $user ORDER BY climb_date DESC, sequence DESC");
+		$q_table = mysqli_query($conn, "SELECT * FROM climbs LEFT JOIN users ON users.id = climbs.userId WHERE users.username = '$_COOKIE[user]' ORDER BY climbDate DESC");
 		echo	'<div class="table-container">';
 		echo	'<table>';
 		echo	'<tr>
@@ -77,6 +77,7 @@ include("header_in.php");
 <script>
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
+alert(document.cookie);
 </script>
 </html>
 

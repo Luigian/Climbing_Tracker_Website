@@ -16,19 +16,20 @@ if ($_POST["submit"] == "SIGN UP")
 	if ($_POST["username"] && $_POST["password"])
 	{
 		$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
-		$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM tb_users WHERE username = '$_POST[username]'");
+		$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
 		$row_username = mysqli_fetch_array($q_username);
 		if ($row_username[0] == '0')
 		{
-			mysqli_query($conn, "INSERT INTO tb_users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
-			$tb_name = "tb_".$_POST["username"];
-			mysqli_query($conn, "CREATE TABLE $tb_name (climb_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, climb_date DATE, route_id INT, grade VARCHAR(5), attempt INT, status VARCHAR(5), sequence INT)");
-			mysqli_close($conn);
+			mysqli_query($conn, "INSERT INTO users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
+			//$tb_name = "tb_".$_POST["username"];
+			//mysqli_query($conn, "CREATE TABLE $tb_name (climb_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, climb_date DATE, route_id INT, grade VARCHAR(5), attempt INT, status VARCHAR(5), sequence INT)");
 			setcookie("user", $_POST["username"]);
 			$text = "User created";
 		}
 		else
 			$text = "Username already exists";
+		mysqli_close($conn);
+		
 	}
 	else if (!$_POST["username"] && !$_POST["password"])
 		$text = "Username and password are required";
