@@ -31,7 +31,10 @@ include("header_in.php");
 		$q_del = mysqli_query($conn, "DELETE FROM $user WHERE climb_id = $_COOKIE[delbutton]");
 		setcookie("r", "0");		
 	}
-*/	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs LEFT JOIN users ON users.id = climbs.userId WHERE users.username = '$_COOKIE[user]'");
+*/	
+	$q_userId = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_COOKIE[user]'");
+	$row_userId = mysqli_fetch_array($q_userId);
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$row_userId[0]'");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
 	{
@@ -41,25 +44,29 @@ include("header_in.php");
 	}
 	else
 	{
-		$q_table = mysqli_query($conn, "SELECT * FROM climbs LEFT JOIN users ON users.id = climbs.userId WHERE users.username = '$_COOKIE[user]' ORDER BY climbDate DESC");
+		$q_table = mysqli_query($conn, "SELECT id, climbDate, routeId, status FROM climbs WHERE userId = '$row_userId[0]' ORDER BY climbDate DESC, id DESC");
 		echo	'<div class="table-container">';
 		echo	'<table>';
 		echo	'<tr>
 				<th>Date</th>
+				<th>Gym</th>
 				<th>Route</th>
-				<th>Attempt</th>
 				<th>Status</th>
+				<th>Attempt</th>
 				<th>Remove</th>
 			</tr>';
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
-			$q_color = mysqli_query($conn, "SELECT color FROM tb_route WHERE route_id = '$row_table[2]'");
-			$row_color = mysqli_fetch_array($q_color);
+			$q_route_info = mysqli_query($conn, "SELECT routes.grade, routes.color, gyms.name FROM routes LEFT JOIN gyms ON gyms.id = routes.gymId WHERE routes.id = '$row_table[2]'");
+			$row_route_info = mysqli_fetch_array($q_route_info);
+			$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE routeId = '$row_table[2]' AND userId = '$row_userId[0]' AND id <= '$row_table[0]' AND climbDate <= '$row_table[1]'");
+			$row_attempt = mysqli_fetch_array($q_attempt);
 			echo '<tr>
 					<td>'.$row_table[1].'</td>
-					<td>'.$row_table[3].' '.$row_color[0].'</td>
-					<td>'.$row_table[4].'</td>
-					<td>'.$row_table[5].'</td>
+					<td>'.$row_route_info[2].'</td>
+					<td>'.$row_route_info[0].' '.$row_route_info[1].'</td>
+					<td>'.$row_table[3].'</td>
+					<td>'.$row_attempt[0].'</td>
 					<td>
 						<form class="but" method="post">
 							<button type="submit" name="delbutton" value='.$row_table[0].'>x</button>
