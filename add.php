@@ -17,24 +17,14 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 function add_to_database()
 {	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_grade = mysqli_query($conn, "SELECT grade FROM tb_route WHERE route_id = '$_POST[route]'");
-	$row_grade = mysqli_fetch_array($q_grade);
-	$grade = $row_grade[0];
-	$user = "tb_".$_COOKIE["user"];
-	$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE route_id = '$_POST[route]'");
-	$row_attempt = mysqli_fetch_array($q_attempt);
-	$att = $row_attempt[0] + 1;
-	$q_sequence = mysqli_query($conn, "SELECT COUNT(*) FROM $user WHERE climb_date = '$_POST[_date]'");
-	$row_sequence = mysqli_fetch_array($q_sequence);
-	$seq = $row_sequence[0] + 1;
-	mysqli_query($conn, "INSERT INTO $user (climb_date, route_id, grade, attempt, status, sequence) VALUES ('$_POST[_date]', '$_POST[route]', '$grade', '$att', '$_POST[status]', '$seq')");
+	mysqli_query($conn, "INSERT INTO climbs (climbDate, routeId, status, userId) VALUES ('$_POST[_date]', '$_POST[route]', '$_POST[status]', '$_COOKIE[userId]')");
 	mysqli_close($conn);
 	echo '<script language="javascript">';
 	echo "window.location.href = 'history.php';";
 	echo '</script>';
 }
 $conn = mysqli_connect("localhost", "luis", "", "db_climb");
-$q_menu = mysqli_query($conn, "SELECT route_id, grade, color FROM tb_route WHERE active = 1 ORDER BY line, route_id");
+$q_menu = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE active = 1 ORDER BY line, id");
 ?>
 
 <!DOCTYPE html>

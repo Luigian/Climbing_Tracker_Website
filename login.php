@@ -15,6 +15,7 @@ if ($_POST["submit"] == "LOGIN")
 		
 		if ($row_userid_a[0] != '' && $row_userid_a[0] == $row_userid_b[0])
 		{
+			setcookie("userId", $row_userid_a[0]);
 			setcookie("user", $row_userid_a[1]);
 			echo "<script type='text/javascript'>";
 			echo "window.location.href = 'history.php';";
