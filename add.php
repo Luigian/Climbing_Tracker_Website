@@ -24,7 +24,8 @@ function add_to_database()
 	echo '</script>';
 }
 $conn = mysqli_connect("localhost", "luis", "", "db_climb");
-$q_menu = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE active = 1 ORDER BY line, id");
+$q_gyms = mysqli_query($conn, "SELECT * FROM gyms");
+$q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId = '$_COOKIE[gym]' AND active = 1 ORDER BY line, id");
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +41,9 @@ $q_menu = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE active 
 		<div><input type="date" id="add_date" name="_date"></div>
 		<div><select id="add_route" name="route">
 			<?php
-			while ($row_menu = mysqli_fetch_array($q_menu))
+			while ($row_routes = mysqli_fetch_array($q_routes))
 			{
-				echo '<option value="'.$row_menu[0].'">'.$row_menu[1].' '.$row_menu[2].'</option>';
+				echo '<option value="'.$row_routes[0].'">'.$row_routes[1].' '.$row_routes[2].'</option>';
 			}
 			mysqli_close($conn);
 			?>
@@ -59,6 +60,8 @@ $q_menu = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE active 
 <script>
 	if (window.history.replaceState) 
 		  window.history.replaceState( null, null, window.location.href );
+	alert(document.cookie);
+
 </script>
 </html>
 

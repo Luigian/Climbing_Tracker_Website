@@ -24,7 +24,7 @@ if ($_POST["submit"] == "LOGOUT")
 		</div>
 		<div class="navi">
 			<div id="outmenu">
-				<a id="add" href="add.php">ADD</a>
+				<a id="add" href="gyms.php">ADD</a>
 				<a id="history" href="history.php">HISTORY</a>
 				<a id="analytics" href="analytics.php">ANALYTICS</a>
 			</div>
