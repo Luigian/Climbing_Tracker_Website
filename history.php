@@ -25,11 +25,14 @@ include("header_in.php");
 		echo "window.location.href = 'history.php';";
 		echo "</script>";
  	}
-	if (($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73) && $_COOKIE["r"] == "1")
+	if ($_COOKIE['delbutton'] || $_COOKIE['r'] == "1")
 	{
-		$q_del = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[delbutton]");
+		if ($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73)
+			$q_del = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[delbutton]");
 		setcookie("r", "0");		
+		setcookie("delbutton", "");		
 	}
+
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')

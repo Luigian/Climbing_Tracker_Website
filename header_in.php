@@ -3,6 +3,7 @@ if ($_POST["submit"] == "LOGOUT")
 {
 	setcookie("user", "");
 	setcookie("display", "0");
+	setcookie("gym", "");
 	echo "<script type='text/javascript'>";
 	echo "window.location.href = 'home.php';";
 	echo "</script>";
@@ -24,14 +25,19 @@ if ($_POST["submit"] == "LOGOUT")
 		</div>
 		<div class="navi">
 			<div id="outmenu">
-				<a id="add" href="gyms.php">ADD</a>
+				<?php
+				if ($_COOKIE["gym"])
+					echo '<a id="add" href="add.php">ADD</a>';
+				else	
+					echo '<a id="add" href="gyms.php">ADD</a>';
+				?>
 				<a id="history" href="history.php">HISTORY</a>
 				<a id="analytics" href="analytics.php">ANALYTICS</a>
 			</div>
 			<div class="in-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
-					<a class="inmenu" id="gym" href="routes.php">GYM</a>
+					<a class="inmenu" id="gyms" href="gyms.php">GYMS</a>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
 						<input type="submit" class="inmenu" name="submit" value="LOGOUT">
 					</form>
