@@ -26,6 +26,8 @@ function add_to_database()
 $conn = mysqli_connect("localhost", "luis", "", "db_climb");
 $q_gyms = mysqli_query($conn, "SELECT * FROM gyms");
 $q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId = '$_COOKIE[gym]' AND active = 1 ORDER BY line, id");
+$q_gym = mysqli_query($conn, "SELECT name FROM gyms WHERE id = $_COOKIE[gym]");
+$row_gym = mysqli_fetch_array($q_gym);
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +39,11 @@ $q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId
 
 <body>
 <div class="add-container">
+	<?php
+		echo '<div id="change-div">
+			<button id="change-button" onclick="changeFunction()">'.$row_gym[0].'</button>
+			</div>';
+	?>
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">
 		<div><input type="date" id="add_date" name="_date"></div>
 		<div><select id="add_route" name="route">
@@ -58,9 +65,14 @@ $q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId
 </body>
 	
 <script>
+
 	if (window.history.replaceState) 
 		  window.history.replaceState( null, null, window.location.href );
 	alert(document.cookie);
+	function changeFunction()
+	{
+		window.location.href = 'gyms.php';
+	}
 
 </script>
 </html>

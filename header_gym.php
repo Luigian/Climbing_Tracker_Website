@@ -31,7 +31,7 @@ if ($_POST["submit"] == "LOGOUT")
 			<div class="in-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
-					<a class="inmenu" id="climber" href="history.php">CLIMBER</a>
+					<a class="inmenu" id="climber" href="history.php">CLIMBS</a>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
 						<input type="submit" class="inmenu" name="submit" value="LOGOUT">
 					</form>

@@ -10,7 +10,8 @@ align-items: center;
 
 .text {
 font-family: arial, sans-serif;
-color: grey;
+color: lightgrey;
+font-style: italic;
 font-size: 10px;
 }
 
