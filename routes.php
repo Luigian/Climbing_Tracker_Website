@@ -40,21 +40,19 @@ function remFunction(id)
 </script>
 <body>
 	<?php
-	$user = "tb_".$_COOKIE["user"];
-	$gym = "tb_route";
 	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_COOKIE["inactivate"] != "0")
-		$q_inact = mysqli_query($conn, "UPDATE $gym SET active = 0 WHERE route_id = $_COOKIE[inactivate]");
+		$q_inact = mysqli_query($conn, "UPDATE routes SET active = 0 WHERE id = $_COOKIE[inactivate]");
 	if ($_COOKIE["activate"] != "0")
-		$q_act = mysqli_query($conn, "UPDATE $gym SET active = 1 WHERE route_id = $_COOKIE[activate]");
-	if ($_COOKIE["remove"] != "0" && ($_COOKIE["user"] != "julian" || $_COOKIE["remove"] > "29"))
-		$q_remove = mysqli_query($conn, "DELETE FROM $gym WHERE route_id = $_COOKIE[remove]");
+		$q_act = mysqli_query($conn, "UPDATE routes SET active = 1 WHERE id = $_COOKIE[activate]");
+	if ($_COOKIE["remove"] != "0" && $_COOKIE["remove"] > "29")
+		$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[remove]");
 	setcookie("inactivate", "0");
 	setcookie("activate", "0");
 	setcookie("remove", "0");
 		
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM $gym");
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gym]");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
 	{
@@ -82,9 +80,9 @@ function remFunction(id)
 			 <th>Remove</th>
 			 </tr>';
 		if ($_COOKIE["display"] == "1")
-			$q_table = mysqli_query($conn, "SELECT * FROM $gym ORDER BY line ASC");
+			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gym] ORDER BY line ASC, settingDate ASC");
 		else
-			$q_table = mysqli_query($conn, "SELECT * FROM $gym WHERE active = 1 ORDER BY line ASC");
+			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gym] AND active = 1 ORDER BY line ASC, settingDate ASC");
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
 			if ($row_table[5])
@@ -114,5 +112,5 @@ function remFunction(id)
 </html>
 
 <?php
-include("footer.php");
+include("footer_gym.php");
 ?>

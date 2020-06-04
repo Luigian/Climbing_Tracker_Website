@@ -1,0 +1,24 @@
+.foot-main-container {
+width: 100%;
+height: 70px;
+background-color: black;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.text {
+font-family: arial, sans-serif;
+color: lightgrey;
+font-style: italic;
+font-size: 10px;
+}
+
+#cashew_white {
+height: 10px;
+position: relative;
+bottom: -1px;
+padding-right: 3px;
+padding-left: 4px;
+}
