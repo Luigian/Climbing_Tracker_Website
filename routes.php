@@ -51,7 +51,9 @@ function remFunction(id)
 	setcookie("inactivate", "0");
 	setcookie("activate", "0");
 	setcookie("remove", "0");
-		
+	
+	
+	
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gym]");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')

@@ -21,9 +21,9 @@ if ($_POST["submit"] == "SIGN UP")
 		if ($row_username[0] == '0')
 		{
 			mysqli_query($conn, "INSERT INTO users (username, password) VALUES ('$_POST[username]', '$_POST[password]')");
-			$q_userid_a = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
-			$row_userid_a = mysqli_fetch_array($q_userid_a);
-			setcookie("userId", $row_userid_a[0]);
+			$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
+			$row_userid = mysqli_fetch_array($q_userid);
+			setcookie("userId", $row_userid[0]);
 			setcookie("user", $_POST["username"]);
 			$text = "User created";
 		}

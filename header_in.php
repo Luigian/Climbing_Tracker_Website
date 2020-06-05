@@ -37,7 +37,12 @@ if ($_POST["submit"] == "LOGOUT")
 			<div class="in-dropdown">
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
-					<a class="inmenu" id="gymadmin" href="routes.php">GYM ADMIN</a>
+					<?php
+					if ($_COOKIE["gymAdmId"])
+						echo '<a class="inmenu" id="gymadmin" href="routes.php">GYM ADMIN</a>';
+					else	
+						echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
+					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
 						<input type="submit" class="inmenu" name="submit" value="LOGOUT">
 					</form>
