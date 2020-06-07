@@ -1,5 +1,5 @@
 <?php
-include("header_out.php");
+include("header_in.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +20,12 @@ if ($_POST["submit"] == "SIGN UP")
 		$row_gymname = mysqli_fetch_array($q_gymname);
 		if ($row_gymname[0] == '0')
 		{
-			mysqli_query($conn, "INSERT INTO gyms (name, location) VALUES ('$_POST[gymname]', '$_POST[gymlocation]')");
+			mysqli_query($conn, "INSERT INTO gyms (name, location, userId) VALUES ('$_POST[gymname]', '$_POST[gymlocation]', '$_COOKIE[userId]')");
 			$q_gymid = mysqli_query($conn, "SELECT id FROM gyms WHERE name = '$_POST[gymname]'");
 			$row_gymid = mysqli_fetch_array($q_gymid);
 			setcookie("gymAdmId", $row_gymid[0]);
 			setcookie("gymAdmName", $_POST["gymname"]);
-			$text = "Gym registered";
+			$text = "Gym succesfull registered";
 		}
 		else
 			$text = "Gym name already exists";

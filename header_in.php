@@ -1,9 +1,13 @@
 <?php
 if ($_POST["submit"] == "LOGOUT")
 {
-	setcookie("user", "");
+	setcookie("userName", "");
+	setcookie("userId", "");
+	setcookie("gymAdmId", "");
+	setcookie("gymAdmName", "");
+	setcookie("gymClimbId", "");
+	setcookie("gymClimbName", "");
 	setcookie("display", "0");
-	setcookie("gym", "");
 	echo "<script type='text/javascript'>";
 	echo "window.location.href = 'home.php';";
 	echo "</script>";
@@ -26,7 +30,7 @@ if ($_POST["submit"] == "LOGOUT")
 		<div class="navi">
 			<div id="outmenu">
 				<?php
-				if ($_COOKIE["gym"])
+				if ($_COOKIE["gymClimbId"])
 					echo '<a id="add" href="add.php">ADD</a>';
 				else	
 					echo '<a id="add" href="gyms.php">ADD</a>';
@@ -51,3 +55,9 @@ if ($_POST["submit"] == "LOGOUT")
 		</div>
 	</div>
 </body>
+
+<script>
+
+	alert(document.cookie);
+
+</script>

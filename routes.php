@@ -52,14 +52,12 @@ function remFunction(id)
 	setcookie("activate", "0");
 	setcookie("remove", "0");
 	
-	
-	
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gym]");
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
 	{
 		echo "<div class='msg-container'>";
-		echo "<a id='addmessage' href='add.php'>Add your first route here</a>";
+		echo "<a id='addmessage' href='new.php'>Add your first route here</a>";
 		echo "</div>";
 	}
 	else
@@ -82,9 +80,9 @@ function remFunction(id)
 			 <th>Remove</th>
 			 </tr>';
 		if ($_COOKIE["display"] == "1")
-			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gym] ORDER BY line ASC, settingDate ASC");
+			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
 		else
-			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gym] AND active = 1 ORDER BY line ASC, settingDate ASC");
+			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
 		while ($row_table = mysqli_fetch_array($q_table))
 		{
 			if ($row_table[5])

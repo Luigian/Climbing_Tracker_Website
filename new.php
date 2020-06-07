@@ -82,5 +82,5 @@ function add_to_database()
 </html>
 
 <?php
-include("footer.php");
+include("footer_gym.php");
 ?>

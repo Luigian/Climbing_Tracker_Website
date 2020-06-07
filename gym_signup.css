@@ -1,4 +1,8 @@
-.signup-container {
+html, body {
+height: 98.6%;
+}
+
+.gym_signup-container {
 height: calc(100% - 140px);
 min-height: 350px;
 display: flex;
@@ -7,8 +11,8 @@ align-items: center;
 ibackground-color: blue;
 }
 
-#signform {
-height: 185px;
+#gym_signform {
+height: 193px;
 font-family: arial, sans-serif;
 color: black;
 position: relative;
@@ -19,7 +23,7 @@ align-items: center;
 ibackground-color: pink;
 }
 
-#signform input, select, option {
+#gym_signform input, select, option {
 height: 35px;
 -webkit-appearance: none;
 text-align: center;
@@ -31,17 +35,17 @@ border-width: 1px;
 border-radius: 20px;
 }
 
-#sign_user {
+#sign_gym_name {
 width: 200px;
 }
 
-#sign_pass {
+#sign_gym_location {
 width: 200px;
 position: relative;
 top: 20px;
 }
 
-#sign_submit {
+#sign_gym_submit {
 width: 90px;
 position: relative;
 top: 80px;
@@ -49,7 +53,7 @@ border-color: grey;
 border-width: 2px;
 }
 
-#sign_submit:hover {
+#sign_gym_submit:hover {
 color: white;
 background-color: black;
 }

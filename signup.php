@@ -24,7 +24,7 @@ if ($_POST["submit"] == "SIGN UP")
 			$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
 			$row_userid = mysqli_fetch_array($q_userid);
 			setcookie("userId", $row_userid[0]);
-			setcookie("user", $_POST["username"]);
+			setcookie("userName", $_POST["username"]);
 			$text = "User created";
 		}
 		else

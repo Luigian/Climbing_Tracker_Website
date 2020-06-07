@@ -16,14 +16,11 @@ if ($_POST["submit"] == "LOGIN")
 		if ($row_userid_a[0] != '' && $row_userid_a[0] == $row_userid_b[0])
 		{
 			setcookie("userId", $row_userid_a[0]);
-			setcookie("user", $row_userid_a[1]);
-			$q_gym_adm = mysqli_query($conn, "SELECT id FROM gyms WHERE userId = $row_userid_a[0]");
+			setcookie("userName", $row_userid_a[1]);
+			$q_gym_adm = mysqli_query($conn, "SELECT id, name FROM gyms WHERE userId = $row_userid_a[0]");
 			$row_gym_adm = mysqli_fetch_array($q_gym_adm);
 			setcookie("gymAdmId", $row_gym_adm[0]);
-			
-			
-			
-			
+			setcookie("gymAdmName", $row_gym_adm[1]);
 			echo "<script type='text/javascript'>";
 			echo "window.location.href = 'history.php';";
 		}

@@ -13,7 +13,7 @@ $row_gym = mysqli_fetch_array($q_gym);
 	<div class="foot-main-container">
 		<div class="foot-container">
 			<?php
-			echo "<i class='text'>".$_COOKIE[user]."</i>";
+			echo "<i class='text'>".$_COOKIE["userName"]."</i>";
 			echo "<img id='cashew_white' src='cashew_icon_white.png' alt='cashew_white'>";
 			echo "<i class='text'>Panic Bear</i>";
 			?>
