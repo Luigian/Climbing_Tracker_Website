@@ -72,3 +72,7 @@ button:hover {
 background-color: black;
 color: white;
 }
+
+#rembutt {
+height: 15px;
+}

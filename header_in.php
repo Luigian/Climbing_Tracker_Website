@@ -1,21 +1,14 @@
 <?php
-if ($_POST["submit"] == "LOGOUT")
+if (isset($_COOKIE["userId"]) == 0)
 {
-	setcookie("userName", "");
-	setcookie("userId", "");
-	setcookie("gymAdmId", "");
-	setcookie("gymAdmName", "");
-	setcookie("gymClimbId", "");
-	setcookie("gymClimbName", "");
-	setcookie("display", "0");
 	echo "<script type='text/javascript'>";
 	echo "window.location.href = 'home.php';";
 	echo "</script>";
 }
 ?>
 
-<!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="header_in.css">
 </head>
@@ -47,9 +40,7 @@ if ($_POST["submit"] == "LOGOUT")
 					else	
 						echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
 					?>
-					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="logoutform" method="post">
-						<input type="submit" class="inmenu" name="submit" value="LOGOUT">
-					</form>
+					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
 				</div>
 			</div>
 		</div>
@@ -57,7 +48,22 @@ if ($_POST["submit"] == "LOGOUT")
 </body>
 
 <script>
-
-	alert(document.cookie);
-
+	function logoutFunction()
+	{
+		var logout_confirm = confirm('Do you want to logout?');
+		if (logout_confirm == true)
+		{
+			document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymAdmId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymClimbId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymClimbName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "displayRoutes=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "removeClimb=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+		}
+	}
 </script>

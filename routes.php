@@ -3,55 +3,31 @@ include("header_gym.php");
 ?>
 
 <html>
+	
 <head>
 	<title>Routes</title>
 	<link rel="stylesheet" type="text/css" href="routes.css">	
 </head>
-<script>
 
-//document.cookie = "route_display=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-//alert(document.cookie);
-function dispFunction(dispcode)
-{
-	if (dispcode != "0")
-		document.cookie = 'display=0';
-	else
-		document.cookie = 'display=1';
-	window.location.href = 'routes.php';
-}
-function actFunction(id, act)
-{
-	if (act == 1)
-		document.cookie = 'inactivate=' + id;
-	else
-		document.cookie = 'activate=' + id;
-	window.location.href = 'routes.php';
-}
-function remFunction(id)
-{
-	var rem_confirm = confirm('Do you want to remove this route?');
-	if (rem_confirm == true)
-		document.cookie = 'remove=' + id;
-	else
-		document.cookie = 'remove=0';
-	// alert(document.cookie);
-	window.location.href = 'routes.php';
-}
-</script>
 <body>
 	<?php
-	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	if ($_COOKIE["inactivate"] != "0")
-		$q_inact = mysqli_query($conn, "UPDATE routes SET active = 0 WHERE id = $_COOKIE[inactivate]");
-	if ($_COOKIE["activate"] != "0")
-		$q_act = mysqli_query($conn, "UPDATE routes SET active = 1 WHERE id = $_COOKIE[activate]");
-	if ($_COOKIE["remove"] != "0" && $_COOKIE["remove"] > "29")
-		$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[remove]");
-	setcookie("inactivate", "0");
-	setcookie("activate", "0");
-	setcookie("remove", "0");
-	
+	if ($_COOKIE["inactivateRoute"])
+	{
+		$q_inact = mysqli_query($conn, "UPDATE routes SET active = 0 WHERE id = $_COOKIE[inactivateRoute]");
+		setcookie("inactivateRoute", "");
+	}
+	if ($_COOKIE["activateRoute"])
+	{
+		$q_act = mysqli_query($conn, "UPDATE routes SET active = 1 WHERE id = $_COOKIE[activateRoute]");
+		setcookie("activateRoute", "");
+	}
+	if ($_COOKIE["removeRoute"] && $_COOKIE["removeRoute"] > "29")
+	{	
+		$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[removeRoute]");
+		setcookie("removeRoute", "");
+	}
+
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
 	$row_count = mysqli_fetch_array($q_count);
 	if ($row_count[0] == '0')
@@ -63,12 +39,12 @@ function remFunction(id)
 	else
 	{
 		echo '<div class="table-container">';
-		if ($_COOKIE["display"] == 1)
+		if ($_COOKIE["displayRoutes"])
 			$button_text = "See Only On";
 		else
 			$button_text = "See Also Off";
 		echo '<div id="disp-div">
-			  <button id="disp-button" onclick="dispFunction('.$_COOKIE["display"].')">'.$button_text.'</button>
+			  <button id="disp-button" onclick="dispFunction('.$_COOKIE["displayRoutes"].')">'.$button_text.'</button>
 			  </div>';
 		echo '<table>';
 		echo '<tr>
@@ -79,7 +55,7 @@ function remFunction(id)
 			 <th>On / Off</th>
 			 <th>Remove</th>
 			 </tr>';
-		if ($_COOKIE["display"] == "1")
+		if ($_COOKIE["displayRoutes"])
 			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
 		else
 			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
@@ -108,7 +84,32 @@ function remFunction(id)
 <script>
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
+
+	function dispFunction(dispcode)
+	{
+		if (dispcode)
+			document.cookie = 'displayRoutes=';
+		else
+			document.cookie = 'displayRoutes=1';
+		window.location.href = 'routes.php';
+	}
+	function actFunction(id, act)
+	{
+		if (act == 1)
+			document.cookie = 'inactivateRoute=' + id;
+		else
+			document.cookie = 'activateRoute=' + id;
+		window.location.href = 'routes.php';
+	}
+	function remFunction(id)
+	{
+		var rem_confirm = confirm('Do you want to remove this route?');
+		if (rem_confirm == true)
+			document.cookie = 'removeRoute=' + id;
+		window.location.href = 'routes.php';
+	}
 </script>
+
 </html>
 
 <?php

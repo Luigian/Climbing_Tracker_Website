@@ -3,6 +3,7 @@ include("header_in.php");
 ?>
 
 <html>
+
 <head>
 	<title>History</title>
 	<link rel="stylesheet" type="text/css" href="history.css">	
@@ -11,26 +12,11 @@ include("header_in.php");
 <body>
 	<?php
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	if ($_SERVER["REQUEST_METHOD"] == "POST")
+	if ($_COOKIE["removeClimb"])
 	{
-		setcookie("delbutton", $_POST["delbutton"]);
-		echo "<script>";
-		echo "var r = confirm('Do you want to delete this climb?');";
-		echo "if (r == true){";
-		echo "document.cookie = 'r=1';";
-		echo "}";
-		echo "else {";
-		echo "document.cookie = 'r=0';";
- 		echo "}";
-		echo "window.location.href = 'history.php';";
-		echo "</script>";
- 	}
-	if ($_COOKIE['delbutton'] || $_COOKIE['r'] == "1")
-	{
-		if ($_COOKIE["user"] != "julian" || $_COOKIE['delbutton'] > 73)
-			$q_del = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[delbutton]");
-		setcookie("r", "0");		
-		setcookie("delbutton", "");		
+		if ($_COOKIE["removeClimb"] > "73")
+			$q_remove = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[removeClimb]");
+		setcookie("removeClimb", "");
 	}
 
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
@@ -66,11 +52,7 @@ include("header_in.php");
 					<td>'.$row_route_info[0].' '.$row_route_info[1].'</td>
 					<td>'.$row_table[3].'</td>
 					<td>'.$row_attempt[0].'</td>
-					<td>
-						<form class="but" method="post">
-							<button type="submit" name="delbutton" value='.$row_table[0].'>x</button>
-						</form>
-					</td>
+					<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 				</tr>';
 		}
 		echo '</table>';
@@ -83,8 +65,16 @@ include("header_in.php");
 <script>
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
-alert(document.cookie);
+
+	function remFunction(id)
+	{
+		var rem_confirm = confirm('Do you want to remove this climb?');
+		if (rem_confirm == true)
+			document.cookie = 'removeClimb=' + id;
+		window.location.href = 'history.php';
+	}
 </script>
+
 </html>
 
 <?php

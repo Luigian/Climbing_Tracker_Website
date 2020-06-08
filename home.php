@@ -6,7 +6,7 @@
 
 <body>
 <?php
-if (isset($_COOKIE["user"]))
+if (isset($_COOKIE["userId"]))
 	include "header_in.php";
 else
 	include "header_out.php";

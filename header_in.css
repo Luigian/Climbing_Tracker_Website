@@ -23,7 +23,7 @@ ibackground-color: lightgray;
 
 #outmenu {
 position: relative;
-left: calc(100% - 273px);
+left: calc(100% - 260px);
 display: inline-block;
 vertical-align: top;
 ibackground-color: green;
@@ -48,7 +48,7 @@ padding-left: 15px;
 .in-dropdown {
 width: 70px;
 position: relative;
-left: calc(100% - 100px);
+left: calc(100% - 110px);
 text-align: right;
 top: -18px;
 ibackground-color: green;
@@ -75,21 +75,6 @@ padding-top: 10px;
 display: block;
 text-decoration: none;
 font-size: 12px;
-}
-
-#logoutform {
-height: 5px;
-position: relative;
-right: -20px;
-}
-
-#logoutform input {
-padding-right: 0px;
-padding-left: 0px;
-text-decoration: none;
-font-size: 12px;
-border-width: 0px;
-background-color: white;
 }
 
 .inmenu:hover {

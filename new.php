@@ -17,8 +17,7 @@ if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
 function add_to_database()
 {	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$gym = "tb_route";
-	mysqli_query($conn, "INSERT INTO $gym (grade, color, line, setting_date, active) VALUES ('$_POST[newgrade]', '$_POST[newcolor]', '$_POST[newline]', '$_POST[newdate]', '1')");
+	mysqli_query($conn, "INSERT INTO routes (grade, color, line, settingDate, active, gymId) VALUES ('$_POST[newgrade]', '$_POST[newcolor]', '$_POST[newline]', '$_POST[newdate]', '1', '$_COOKIE[gymAdmId]')");
 	mysqli_close($conn);
 	echo '<script language="javascript">';
 	echo "window.location.href = 'routes.php';";
