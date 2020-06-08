@@ -1,16 +1,7 @@
 <?php
-include("header_gym.php");
-?>
+	include("header_gym.php");
+	setcookie("gymAdmOn", "1");
 
-<html>
-	
-<head>
-	<title>Routes</title>
-	<link rel="stylesheet" type="text/css" href="routes.css">	
-</head>
-
-<body>
-	<?php
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($_COOKIE["inactivateRoute"])
 	{
@@ -30,56 +21,67 @@ include("header_gym.php");
 
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
 	$row_count = mysqli_fetch_array($q_count);
-	if ($row_count[0] == '0')
-	{
-		echo "<div class='msg-container'>";
-		echo "<a id='addmessage' href='new.php'>Add your first route here</a>";
-		echo "</div>";
-	}
-	else
-	{
-		echo '<div class="table-container">';
-		if ($_COOKIE["displayRoutes"])
-			$button_text = "See Only On";
-		else
-			$button_text = "See Also Off";
-		echo '<div id="disp-div">
-			  <button id="disp-button" onclick="dispFunction('.$_COOKIE["displayRoutes"].')">'.$button_text.'</button>
-			  </div>';
-		echo '<table>';
-		echo '<tr>
-			 <th>Grade</th>
-			 <th>Color</th>
-			 <th>Line</th>
-			 <th>Setting Date</th>
-			 <th>On / Off</th>
-			 <th>Remove</th>
-			 </tr>';
-		if ($_COOKIE["displayRoutes"])
-			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
-		else
-			$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
-		while ($row_table = mysqli_fetch_array($q_table))
+?>
+
+<html>
+<head>
+	<title>Routes</title>
+	<link rel="stylesheet" type="text/css" href="routes.css">	
+</head>
+
+<body>
+	<?php
+		if ($row_count[0] == '0')
 		{
-			if ($row_table[5])
-				$color_button = "green-button.png";
-			else
-				$color_button = "gray-button.png";
-			echo '<tr>
-					<td>'.$row_table[1].'</td>
-					<td>'.$row_table[2].'</td>
-					<td>'.$row_table[3].'</td>
-					<td>'.$row_table[4].'</td>
-			 		<td><input id="actbutt" src='.$color_button.' onclick="actFunction('.$row_table[0].', '.$row_table[5].')" type="image"></input></td>
-			 		<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
-				</tr>';
+			echo "<div class='msg-container'>";
+			echo "<a id='addmessage' href='new.php'>Add your first route here</a>";
+			echo "</div>";
 		}
-		echo '</table>';
-		echo '</div>';
-	}
-	mysqli_close($conn);
-	?>
+		else
+		{
+			echo '<div class="table-container">';
+			if ($_COOKIE["displayRoutes"])
+				$button_text = "See Only On";
+			else
+				$button_text = "See Also Off";
+			echo '<div id="disp-div">
+				<button id="disp-button" onclick="dispFunction('.$_COOKIE["displayRoutes"].')">'.$button_text.'</button>
+				</div>';
+			echo '<table>';
+			echo '<tr>
+				<th>Grade</th>
+				<th>Color</th>
+				<th>Line</th>
+				<th>Setting Date</th>
+				<th>On / Off</th>
+				<th>Remove</th>
+				</tr>';
+			if ($_COOKIE["displayRoutes"])
+				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
+			else
+				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
+			while ($row_table = mysqli_fetch_array($q_table))
+			{
+				if ($row_table[5])
+					$color_button = "green-button.png";
+				else
+					$color_button = "gray-button.png";
+				echo '<tr>
+						<td>'.$row_table[1].'</td>
+						<td>'.$row_table[2].'</td>
+						<td>'.$row_table[3].'</td>
+						<td>'.$row_table[4].'</td>
+						<td><input id="actbutt" src='.$color_button.' onclick="actFunction('.$row_table[0].', '.$row_table[5].')" type="image"></input></td>
+						<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
+					</tr>';
+			}
+			echo '</table>';
+			echo '</div>';
+		}
+		mysqli_close($conn);
+	?>	
 </body>
+</html>
 	
 <script>
 	if (window.history.replaceState)
@@ -110,8 +112,6 @@ include("header_gym.php");
 	}
 </script>
 
-</html>
-
 <?php
-include("footer_gym.php");
+	include("footer_gym.php");
 ?>

@@ -1,5 +1,6 @@
 <?php
 include("header_in.php");
+setcookie("gymAdmOn", "");
 ?>
 
 <html>

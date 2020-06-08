@@ -1,14 +1,13 @@
 <?php
-if (isset($_COOKIE["userId"]) == 0)
-{
-	echo "<script type='text/javascript'>";
-	echo "window.location.href = 'home.php';";
-	echo "</script>";
-}
+	if (isset($_COOKIE["userId"]) == 0)
+	{
+		echo "<script type='text/javascript'>";
+		echo "window.location.href = 'home.php';";
+		echo "</script>";
+	}
 ?>
 
 <html>
-
 <head>
 	<link rel="stylesheet" type="text/css" href="header_gym.css">
 </head>
@@ -36,6 +35,7 @@ if (isset($_COOKIE["userId"]) == 0)
 		</div>
 	</div>
 </body>
+</html>
 
 <script>
 	function logoutFunction()
@@ -54,6 +54,7 @@ if (isset($_COOKIE["userId"]) == 0)
 			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}
 	}
 </script>
