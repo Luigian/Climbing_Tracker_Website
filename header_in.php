@@ -22,10 +22,10 @@
 		<div class="navi">
 			<div id="outmenu">
 				<?php
-				if ($_COOKIE["gymClimbId"])
-					echo '<a id="add" href="add.php">ADD</a>';
-				else	
-					echo '<a id="add" href="gyms.php">ADD</a>';
+					if ($_COOKIE["gymClimbId"])
+						echo '<a id="add" href="add.php">ADD</a>';
+					else	
+						echo '<a id="add" href="gyms.php">ADD</a>';
 				?>
 				<a id="history" href="history.php">HISTORY</a>
 				<a id="analytics" href="analytics.php">ANALYTICS</a>
@@ -34,10 +34,10 @@
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<?php
-					if ($_COOKIE["gymAdmId"])
-						echo '<a class="inmenu" id="gymadmin" href="routes.php">GYM ADMIN</a>';
-					else	
-						echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
+						if ($_COOKIE["gymAdmId"])
+							echo '<a class="inmenu" id="gymadmin" href="routes.php">GYM ADMIN</a>';
+						else	
+							echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
 					?>
 					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
 				</div>

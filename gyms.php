@@ -39,11 +39,11 @@
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="gymsform" method="post">
 			<div><select id="add_gym" name="gym">
 				<?php
-				while ($row_gyms = mysqli_fetch_array($q_gyms))
-				{
-					echo '<option value="'.$row_gyms[0].'">'.$row_gyms[1].'</option>';
-				}
-				mysqli_close($conn);
+					while ($row_gyms = mysqli_fetch_array($q_gyms))
+					{
+						echo '<option value="'.$row_gyms[0].'">'.$row_gyms[1].'</option>';
+					}
+					mysqli_close($conn);
 				?>
 			</select></div>
 			<div><input id="gyms_submit" type="submit" value="SELECT"></div>
