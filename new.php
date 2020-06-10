@@ -1,7 +1,7 @@
 <?php
 	include("header_gym.php");
 
-	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
+	if (isset($_POST["submit"]) && $_POST["submit"] == "ADD ROUTE")
 	{
 		if (empty($_POST['newdate']))
 		{
@@ -67,7 +67,7 @@
 				<option value="8">8</option>
 			</select></div>
 			<div><input type="date" id="new_date" name="newdate"></div>
-			<div><input id="new_submit" type="submit" value="ADD ROUTE"></div>
+			<div><input id="new_submit" type="submit" name="submit" value="ADD ROUTE"></div>
 		</form>
 	</div>
 </body>

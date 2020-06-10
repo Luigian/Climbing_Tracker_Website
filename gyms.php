@@ -1,7 +1,7 @@
 <?php
 	include("header_in.php");
 
-	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
+	if (isset($_POST["submit"]) && $_POST["submit"] == "SELECT")
 	{
 		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 		$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_POST[gym]");
@@ -46,7 +46,7 @@
 					mysqli_close($conn);
 				?>
 			</select></div>
-			<div><input id="gyms_submit" type="submit" value="SELECT"></div>
+			<div><input id="gyms_submit" type="submit" name="submit" value="SELECT"></div>
 		</form>
 	</div>
 </body>

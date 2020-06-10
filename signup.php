@@ -1,7 +1,7 @@
 <?php
 	include("header_out.php");
 
-	if ($_POST["submit"] == "SIGN UP")
+	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")
 	{
 		if ($_POST["username"] && $_POST["password"])
 		{

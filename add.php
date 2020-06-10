@@ -1,7 +1,7 @@
 <?php
 	include("header_in.php");
 
-	if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST")
+	if (isset($_POST["submit"]) && $_POST["submit"] == "ADD CLIMB")
 	{
 		if (empty($_POST['_date']))
 		{
@@ -53,7 +53,7 @@
 				<option id="add_top" value="Top">Top</option>
 				<option value="Fall">Fall</option>
 			</select></div>
-			<div><input id="add_submit" type="submit" value="ADD CLIMB"></div>
+			<div><input id="add_submit" type="submit" name="submit" value="ADD CLIMB"></div>
 		</form>
 	</div>
 </body>
