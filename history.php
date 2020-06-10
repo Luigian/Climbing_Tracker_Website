@@ -3,7 +3,7 @@
 	setcookie("gymAdmOn", "");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	if ($_COOKIE["removeClimb"])
+	if (isset($_COOKIE["removeClimb"]))
 	{
 		if ($_COOKIE["removeClimb"] > "73")
 			$q_remove = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[removeClimb]");

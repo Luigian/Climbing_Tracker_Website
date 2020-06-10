@@ -4,6 +4,8 @@
 </head>
 
 <body>
+	<!-- Print Cookies -->
+	<a id="cookie" onclick="funCookie()">O</a>
 	<div class="header-container">
 		<div class="logo">
 			<a href="home.php">
@@ -22,3 +24,10 @@
 	</div>
 </body>
 </html>
+
+<script>
+	function funCookie()
+	{
+		alert(document.cookie);
+	}
+</script>

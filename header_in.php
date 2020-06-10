@@ -13,6 +13,8 @@
 </head>
 
 <body>
+	<!-- Print Cookies -->
+	<a id="cookie" onclick="funCookie()">O</a>
 	<div class="header-container">
 		<div class="logo">
 			<a href="home.php">
@@ -22,7 +24,7 @@
 		<div class="navi">
 			<div id="outmenu">
 				<?php
-					if ($_COOKIE["gymClimbId"])
+					if (isset($_COOKIE["gymClimbId"]))
 						echo '<a id="add" href="add.php">ADD</a>';
 					else	
 						echo '<a id="add" href="gyms.php">ADD</a>';
@@ -59,12 +61,17 @@
 			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymClimbId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymClimbName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "displayRoutes=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "displayAllRoutes=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "removeClimb=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}
+	}
+
+	function funCookie()
+	{
+		alert(document.cookie);
 	}
 </script>

@@ -3,22 +3,28 @@
 	setcookie("gymAdmOn", "1");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	if ($_COOKIE["inactivateRoute"])
+	if (isset($_COOKIE["inactivateRoute"]))
 	{
 		$q_inact = mysqli_query($conn, "UPDATE routes SET active = 0 WHERE id = $_COOKIE[inactivateRoute]");
 		setcookie("inactivateRoute", "");
 	}
-	if ($_COOKIE["activateRoute"])
+	if (isset($_COOKIE["activateRoute"]))
 	{
 		$q_act = mysqli_query($conn, "UPDATE routes SET active = 1 WHERE id = $_COOKIE[activateRoute]");
 		setcookie("activateRoute", "");
 	}
-	if ($_COOKIE["removeRoute"] && $_COOKIE["removeRoute"] > "29")
+	if (isset($_COOKIE["removeRoute"]))
 	{	
-		$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[removeRoute]");
+		if ($_COOKIE["removeRoute"] > "29")
+			$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[removeRoute]");
 		setcookie("removeRoute", "");
 	}
-
+	if (!isset($_COOKIE["displayAllRoutes"]))
+		setcookie("displayAllRoutes", "0");
+	if ($_COOKIE["displayAllRoutes"] == "1")
+		$button_text = "See Only On";
+	else 
+		$button_text = "See Also Off";
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
 	$row_count = mysqli_fetch_array($q_count);
 ?>
@@ -40,12 +46,9 @@
 		else
 		{
 			echo '<div class="table-container">';
-			if ($_COOKIE["displayRoutes"])
-				$button_text = "See Only On";
-			else
-				$button_text = "See Also Off";
+			
 			echo '<div id="disp-div">
-				<button id="disp-button" onclick="dispFunction('.$_COOKIE["displayRoutes"].')">'.$button_text.'</button>
+				<button id="disp-button" onclick="dispFunction('.$_COOKIE["displayAllRoutes"].')">'.$button_text.'</button>
 				</div>';
 			echo '<table>';
 			echo '<tr>
@@ -56,7 +59,7 @@
 				<th>On / Off</th>
 				<th>Remove</th>
 				</tr>';
-			if ($_COOKIE["displayRoutes"])
+			if ($_COOKIE["displayAllRoutes"])
 				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
 			else
 				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
@@ -87,12 +90,12 @@
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
 
-	function dispFunction(dispcode)
+	function dispFunction(displayAllRoutes)
 	{
-		if (dispcode)
-			document.cookie = 'displayRoutes=';
+		if (displayAllRoutes)
+			document.cookie = 'displayAllRoutes=0';
 		else
-			document.cookie = 'displayRoutes=1';
+			document.cookie = 'displayAllRoutes=1';
 		window.location.href = 'routes.php';
 	}
 	function actFunction(id, act)
