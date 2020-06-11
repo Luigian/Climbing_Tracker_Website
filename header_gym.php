@@ -31,7 +31,7 @@
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a class="inmenu" id="climber" href="history.php">MY CLIMBS</a>
-					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
+					<a class="inmenu" id="logoutbutt" href="home.php" onclick="logoutFunction()">LOGOUT</a>
 				</div>
 			</div>
 		</div>

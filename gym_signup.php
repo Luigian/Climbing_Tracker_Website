@@ -1,9 +1,9 @@
 <?php
 	include("header_in.php");
 
-	if ($_POST["submit"] == "SIGN UP")
+	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")
 	{
-		if ($_POST["gymname"] && $_POST["gymlocation"])
+		if (isset($_POST["gymname"]) && isset($_POST["gymlocation"]))
 		{
 			$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
 			$q_gymname = mysqli_query($conn, "SELECT COUNT(*) FROM gyms WHERE name = '$_POST[gymname]'");
@@ -21,11 +21,11 @@
 				$text = "Gym name already exists";
 			mysqli_close($conn);
 		}
-		else if (!$_POST["gymname"] && !$_POST["gymlocation"])
+		else if (!isset($_POST["gymname"]) && !isset($_POST["gymlocation"]))
 			$text = "Gym name and location are required";
-		else if (!$_POST["gymname"])
+		else if (!isset($_POST["gymname"]))
 			$text = "Gym name is required";
-		else if (!$_POST["gymlocation"])
+		else if (!isset($_POST["gymlocation"]))
 			$text = "Location is required";
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";

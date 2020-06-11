@@ -12,7 +12,7 @@ ibackground-color: blue;
 }
 
 #newform {
-height: 297px;
+height: 279px;
 font-family: arial, sans-serif;
 color: black;
 display: flex;
@@ -20,7 +20,6 @@ flex-direction: column;
 align-items: center;
 ibackground-color: pink;
 }
-
 
 #newform input, select, option {
 height: 35px;

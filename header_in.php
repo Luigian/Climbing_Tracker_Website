@@ -1,5 +1,5 @@
 <?php
-	if (isset($_COOKIE["userId"]) == 0)
+	if (!isset($_COOKIE["userId"]))
 	{
 		echo "<script type='text/javascript'>";
 		echo "window.location.href = 'home.php';";
@@ -36,12 +36,12 @@
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<?php
-						if ($_COOKIE["gymAdmId"])
+						if (isset($_COOKIE["gymAdmId"]))
 							echo '<a class="inmenu" id="gymadmin" href="routes.php">GYM ADMIN</a>';
 						else	
 							echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
 					?>
-					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
+					<a class="inmenu" id="logoutbutt" href="home.php" onclick="logoutFunction()">LOGOUT</a>
 				</div>
 			</div>
 		</div>

@@ -39,8 +39,8 @@
 				</div>';
 		?>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">
-			<div><input type="date" id="add_date" name="_date"></div>
-			<div><select id="add_route" name="route">
+			<input type="date" id="add_date" name="_date"></input>
+			<select id="add_route" name="route">
 				<?php
 					while ($row_routes = mysqli_fetch_array($q_routes))
 					{
@@ -48,12 +48,12 @@
 					}
 					mysqli_close($conn);
 				?>
-			</select></div>
-			<div><select id="add_status" name="status">
+			</select>
+			<select id="add_status" name="status">
 				<option id="add_top" value="Top">Top</option>
 				<option value="Fall">Fall</option>
-			</select></div>
-			<div><input id="add_submit" type="submit" name="submit" value="ADD CLIMB"></div>
+			</select>
+			<input id="add_submit" type="submit" name="submit" value="ADD CLIMB"></input>
 		</form>
 	</div>
 </body>

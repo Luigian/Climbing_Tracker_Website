@@ -3,7 +3,7 @@
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "LOGIN")
 	{
-		if ($_POST["username"] && $_POST["password"])
+		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
 			$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 			$q_userid_a = mysqli_query($conn, "SELECT id, username FROM users WHERE username = '$_POST[username]'");
@@ -31,11 +31,11 @@
 		}
 		else
 		{
-			if (!$_POST["username"] && !$_POST["password"])
+			if (!isset($_POST["username"]) && !isset($_POST["password"]))
 				$text = "Username and password are required";
-			else if (!$_POST["username"])
+			else if (!isset($_POST["username"]))
 				$text = "Username is required";
-			else if (!$_POST["password"])
+			else if (!isset($_POST["password"]))
 				$text = "Password is required";
 			echo "<script type='text/javascript'>";
 			echo "alert('$text');";

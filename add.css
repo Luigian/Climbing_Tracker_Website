@@ -43,7 +43,7 @@ background-color: lightgray;
 }    
 
 #addform {
-height: 242px;
+height: 224px;
 font-family: arial, sans-serif;
 color: black;
 display: flex;
@@ -51,7 +51,6 @@ flex-direction: column;
 align-items: center;
 ibackground-color: pink;
 }
-
 
 #addform input, select, option {
 height: 35px;
