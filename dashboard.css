@@ -45,11 +45,17 @@ ibackground-color: pink;
 td, th {
 iborder: 1px solid #dddddd;
 text-align: center;
-padding: 8px;
+padding: 10px;
 }
 
-.dashboard-row {
-padding: 13px;
+#dash-totals {
+background-color: black;
+color: white;
+}
+
+.percent {
+color: grey;
+font-style: italic;
 }
 
 tr:nth-child(even) {
