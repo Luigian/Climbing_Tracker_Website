@@ -45,7 +45,7 @@ ibackground-color: pink;
 td, th {
 iborder: 1px solid #dddddd;
 text-align: center;
-padding: 10px;
+padding: 8px;
 }
 
 #dash-totals {
@@ -53,9 +53,13 @@ background-color: black;
 color: white;
 }
 
+.dash-row {
+padding: 13px;
+}
+
 .percent {
-color: grey;
-font-style: italic;
+icolor: grey;
+ifont-style: italic;
 }
 
 tr:nth-child(even) {

@@ -48,6 +48,11 @@ text-align: center;
 padding: 8px;
 }
 
+#analyt-totals {
+background-color: black;
+color: white;
+}
+
 .analytics-row {
 padding: 13px;
 }

@@ -23,6 +23,22 @@
 		}
 		else
 		{
+			$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
+			$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]' AND status = 'Top'");
+			$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT routeId) FROM climbs WHERE userId = '$_COOKIE[userId]'");
+			$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT routeId) FROM climbs WHERE userId = '$_COOKIE[userId]' AND status = 'Top'");
+			$row_c = mysqli_fetch_array($q_c);
+			$row_t = mysqli_fetch_array($q_t);
+			$row_dc = mysqli_fetch_array($q_dc);
+			$row_dt = mysqli_fetch_array($q_dt);
+			$efc = ($row_dt[0] / $row_dc[0]) * 100;
+			$efc = (int)$efc;
+			$efn = ($row_t[0] / $row_c[0]) * 100;
+			$efn = (int)$efn;
+			$clm = $row_c[0];
+			$top = $row_t[0];
+			$dclm = $row_dc[0];
+			$dtop = $row_dt[0];
 			echo
 			'<div class="table-container">
 				<table>
@@ -30,10 +46,19 @@
 						<th>Grade</th>
 						<th>Efficacy</th>
 						<th>Efficiency</th>
-						<th>Climbs</th>
 						<th>Distinct Climbs</th>
-						<th>Tops</th>
 						<th>Distinct Tops</th>
+						<th>Climbs</th>
+						<th>Tops</th>
+					</tr>
+					<tr id="analyt-totals">
+						<th>Totals</th>
+						<th>'.$efc.'%</th>
+						<th>'.$efn.'%</th>
+						<th>'.$dclm.'</th>
+						<th>'.$dtop.'</th>
+						<th>'.$clm.'</th>
+						<th>'.$top.'</th>
 					</tr>';
 		
 			$gr = array("5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c", "5.11d", "5.12a", "5.12b", "5.12c", "5.12d");
@@ -56,49 +81,24 @@
 					$efn = ($row_t[0] / $row_c[0]) * 100;
 					$efn = (int)$efn;
 					$clm = $row_c[0];
-					$dclm = $row_dc[0];
 					$top = $row_t[0];
+					$dclm = $row_dc[0];
 					$dtop = $row_dt[0];
 					echo
 					'<tr>
 						<td class="analytics-row">'.$x.'</td>
 						<td>'.$efc.'%</td>
 						<td>'.$efn.'%</td>
-						<td>'.$clm.'</td>
 						<td>'.$dclm.'</td>
-						<td>'.$top.'</td>
 						<td>'.$dtop.'</td>
+						<td>'.$clm.'</td>
+						<td>'.$top.'</td>
 					</tr>';
 				}
 				$i = $i + 1;
 			}
-			$q_c = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
-			$q_t = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]' AND status = 'Top'");
-			$q_dc = mysqli_query($conn, "SELECT COUNT(DISTINCT routeId) FROM climbs WHERE userId = '$_COOKIE[userId]'");
-			$q_dt = mysqli_query($conn, "SELECT COUNT(DISTINCT routeId) FROM climbs WHERE userId = '$_COOKIE[userId]' AND status = 'Top'");
-			$row_c = mysqli_fetch_array($q_c);
-			$row_t = mysqli_fetch_array($q_t);
-			$row_dc = mysqli_fetch_array($q_dc);
-			$row_dt = mysqli_fetch_array($q_dt);
-			$efc = ($row_dt[0] / $row_dc[0]) * 100;
-			$efc = (int)$efc;
-			$efn = ($row_t[0] / $row_c[0]) * 100;
-			$efn = (int)$efn;
-			$clm = $row_c[0];
-			$dclm = $row_dc[0];
-			$top = $row_t[0];
-			$dtop = $row_dt[0];
-					echo
-					'<tr>
-						<th>Totals</th>
-						<th>'.$efc.'%</th>
-						<th>'.$efn.'%</th>
-						<th>'.$clm.'</th>
-						<th>'.$dclm.'</th>
-						<th>'.$top.'</th>
-						<th>'.$dtop.'</th>
-					</tr>
-				</table>
+			echo
+				'</table>
 			</div>';
 		}
 		mysqli_close($conn);
