@@ -19,12 +19,24 @@
 			$q_remove = mysqli_query($conn, "DELETE FROM routes WHERE id = $_COOKIE[removeRoute]");
 		setcookie("removeRoute", "");
 	}
-	if (!isset($_COOKIE["displayAllRoutes"]))
-		setcookie("displayAllRoutes", "0");
-	if ($_COOKIE["displayAllRoutes"] == "1")
-		$button_text = "See Only On";
-	else 
-		$button_text = "See Also Off";
+	if (isset($_COOKIE["displayAllRoutes"]))
+	{
+		if ($_COOKIE["displayAllRoutes"] == "1")
+		{
+			$displayAll = 1;
+			$button_text = "Only Active";
+		}
+		else
+		{
+			$displayAll = 0;
+			$button_text = "Show Inactive";
+		}
+	}
+	else
+	{
+		$displayAll = 0;
+		$button_text = "Show Inactive";
+	}
 	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
 	$row_count = mysqli_fetch_array($q_count);
 ?>
@@ -48,7 +60,7 @@
 			echo '<div class="table-container">';
 			
 			echo '<div id="disp-div">
-				<button id="disp-button" onclick="dispFunction('.$_COOKIE["displayAllRoutes"].')">'.$button_text.'</button>
+				<button id="disp-button" onclick="dispFunction('.$displayAll.')">'.$button_text.'</button>
 				</div>';
 			echo '<table>';
 			echo '<tr>
@@ -56,10 +68,10 @@
 				<th>Color</th>
 				<th>Line</th>
 				<th>Setting Date</th>
-				<th>On / Off</th>
+				<th>Active</th>
 				<th>Remove</th>
 				</tr>';
-			if ($_COOKIE["displayAllRoutes"])
+			if ($displayAll)
 				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
 			else
 				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
@@ -90,9 +102,9 @@
 	if (window.history.replaceState)
 		  window.history.replaceState( null, null, window.location.href );
 
-	function dispFunction(displayAllRoutes)
+	function dispFunction(displayAll)
 	{
-		if (displayAllRoutes)
+		if (displayAll)
 			document.cookie = 'displayAllRoutes=0';
 		else
 			document.cookie = 'displayAllRoutes=1';

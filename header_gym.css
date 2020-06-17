@@ -46,9 +46,9 @@ padding-left: 15px;
 }
 
 .in-dropdown {
-width: 66px;
+width: 22px;
 position: relative;
-left: calc(100% - 106px);
+left: calc(100% - 62px);
 text-align: right;
 top: -18px;
 ibackground-color: blue;
@@ -59,6 +59,9 @@ height: 21px;
 }
 
 .dropdown-content {
+width: 66px;
+position: relative;
+left: calc(100% - 66px);
 display: none;
 text-align: right;
 ibackground-color: yellow;
