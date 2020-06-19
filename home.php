@@ -1,13 +1,36 @@
 <?php
-	if (isset($_COOKIE["userId"]))
-	{	
-		if (isset($_COOKIE["gymAdmOn"]))
-			include "header_gym.php";
+	if (isset($_COOKIE["logoutCancel"]) && $_COOKIE["logoutCancel"] == "1")
+	{
+		echo "<script type='text/javascript'>";
+		setcookie("logoutCancel", "0");
+		if ($_COOKIE["actualPage"] == "homein")
+			$previousPage = "home";
 		else
-			include "header_in.php";
+			$previousPage = $_COOKIE["actualPage"];
+		echo "window.location.href = '$previousPage.php';";
+		echo "</script>";
 	}
 	else
-		include "header_out.php";
+	{
+		if (isset($_COOKIE["userId"]))
+		{	
+			if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics")
+			{
+				include "header_in.php";
+				setcookie("actualPage", "homein");
+			}
+			else
+			{
+				include "header_gym.php";
+				setcookie("actualPage", "homegym");
+			}
+		}
+		else
+		{
+			include "header_out.php";
+			// setcookie("actualPage", "homeout");
+		}
+	}
 ?>
 
 <html>

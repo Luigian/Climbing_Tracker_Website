@@ -41,7 +41,7 @@
 						else	
 							echo '<a class="inmenu" id="gymadmin" href="gym_signup.php">GYM ADMIN</a>';
 					?>
-					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
+					<a class="inmenu" id="logoutbutt" href="home.php" onclick="logoutFunction()">LOGOUT</a>
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,11 @@
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}
+		else
+			document.cookie = 'logoutCancel=1';
 	}
 
 	function funCookie()

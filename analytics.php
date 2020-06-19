@@ -1,4 +1,5 @@
 <?php
+	setcookie("actualPage", "analytics");
 	include("header_in.php");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");

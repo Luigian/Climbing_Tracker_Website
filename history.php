@@ -1,5 +1,7 @@
 <?php
+	setcookie("actualPage", "history");
 	include("header_in.php");
+
 	setcookie("gymAdmOn", "");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
