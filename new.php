@@ -1,4 +1,5 @@
 <?php
+	setcookie("actualPage", "new");
 	include("header_gym.php");
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "ADD ROUTE")

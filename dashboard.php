@@ -1,4 +1,5 @@
 <?php
+	setcookie("actualPage", "dashboard");
 	include("header_gym.php");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");

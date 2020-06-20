@@ -1,9 +1,13 @@
 <?php
+	// echo "<script type='text/javascript'>";
+	// echo 'document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";';
+	// echo "</script>";
+	
 	if (isset($_COOKIE["logoutCancel"]) && $_COOKIE["logoutCancel"] == "1")
 	{
 		echo "<script type='text/javascript'>";
 		setcookie("logoutCancel", "0");
-		if ($_COOKIE["actualPage"] == "homein")
+		if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "homegym")
 			$previousPage = "home";
 		else
 			$previousPage = $_COOKIE["actualPage"];
@@ -12,24 +16,21 @@
 	}
 	else
 	{
-		if (isset($_COOKIE["userId"]))
+		if (isset($_COOKIE["actualPage"]))
 		{	
-			if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics")
+			if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics" || $_COOKIE["actualPage"] == "gymsignup")
 			{
 				include "header_in.php";
 				setcookie("actualPage", "homein");
 			}
-			else
+			else if ($_COOKIE["actualPage"] == "homegym" || $_COOKIE["actualPage"] == "new" || $_COOKIE["actualPage"] == "routes" || $_COOKIE["actualPage"] == "dashboard")
 			{
 				include "header_gym.php";
 				setcookie("actualPage", "homegym");
 			}
 		}
 		else
-		{
 			include "header_out.php";
-			// setcookie("actualPage", "homeout");
-		}
 	}
 ?>
 
@@ -49,8 +50,13 @@
 </html>
 
 <?php
-	if (isset($_COOKIE["gymAdmOn"]))
-		include "footer_gym.php";
+	if (isset($_COOKIE["actualPage"]))
+	{	
+		if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics" || $_COOKIE["actualPage"] == "gymsignup")
+			include "footer.php";
+		else if ($_COOKIE["actualPage"] == "homegym" || $_COOKIE["actualPage"] == "new" || $_COOKIE["actualPage"] == "routes" || $_COOKIE["actualPage"] == "dashboard")
+			include "footer_gym.php";
+	}
 	else
 		include "footer.php";
 ?>

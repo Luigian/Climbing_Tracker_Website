@@ -1,10 +1,10 @@
 <?php
-	if (isset($_COOKIE["userId"]) == 0)
-	{
-		echo "<script type='text/javascript'>";
-		echo "window.location.href = 'home.php';";
-		echo "</script>";
-	}
+	// if (!isset($_COOKIE["userId"]))
+	// {
+	// 	echo "<script type='text/javascript'>";
+	// 	echo "window.location.href = 'home.php';";
+	// 	echo "</script>";
+	// }
 ?>
 
 <html>
@@ -31,7 +31,7 @@
 				<img class="dropbtn" src="cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a class="inmenu" id="climber" href="history.php">MY CLIMBS</a>
-					<a class="inmenu" id="logoutbutt" href="" onclick="logoutFunction()">LOGOUT</a>
+					<a class="inmenu" id="logoutbutt" href="home.php" onclick="logoutFunction()">LOGOUT</a>
 				</div>
 			</div>
 		</div>
@@ -56,8 +56,11 @@
 			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}
+		else
+			document.cookie = 'logoutCancel=1';
 	}
 
 	function funCookie()

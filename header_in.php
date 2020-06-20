@@ -1,10 +1,10 @@
 <?php
-	if (!isset($_COOKIE["userId"]))
-	{
-		echo "<script type='text/javascript'>";
-		echo "window.location.href = 'home.php';";
-		echo "</script>";
-	}
+	// if (!isset($_COOKIE["userId"]))
+	// {
+	// 	echo "<script type='text/javascript'>";
+	// 	echo "window.location.href = 'home.php';";
+	// 	echo "</script>";
+	// }
 ?>
 
 <html>
@@ -66,7 +66,6 @@
 			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}

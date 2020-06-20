@@ -1,4 +1,5 @@
 <?php
+	setcookie("actualPage", "gymsignup");
 	include("header_in.php");
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")

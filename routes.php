@@ -1,6 +1,6 @@
 <?php
+	setcookie("actualPage", "routes");
 	include("header_gym.php");
-	setcookie("gymAdmOn", "1");
 
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if (isset($_COOKIE["inactivateRoute"]))
