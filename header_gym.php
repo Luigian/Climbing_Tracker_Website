@@ -45,7 +45,7 @@
 		var logout_confirm = confirm('Do you want to logout?');
 		if (logout_confirm == true)
 		{
-			document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			// document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
@@ -58,6 +58,7 @@
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		}
 		else
 			document.cookie = 'logoutCancel=1';

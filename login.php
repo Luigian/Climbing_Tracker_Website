@@ -16,9 +16,15 @@
 				setcookie("userId", $row_userid_a[0]);
 				setcookie("userName", $row_userid_a[1]);
 				$q_gym_adm = mysqli_query($conn, "SELECT id, name FROM gyms WHERE userId = $row_userid_a[0]");
-				$row_gym_adm = mysqli_fetch_array($q_gym_adm);
-				setcookie("gymAdmId", $row_gym_adm[0]);
-				setcookie("gymAdmName", $row_gym_adm[1]);
+				if ($q_gym_adm) 
+				{
+					$row_gym_adm = mysqli_fetch_array($q_gym_adm);
+					setcookie("gymAdmId", $row_gym_adm[0]);
+					setcookie("gymAdmName", $row_gym_adm[1]);
+				}
+				$token = rand(1000, 9999);
+				mysqli_query($conn, "UPDATE users SET token = '$token' WHERE username = '$_POST[username]'");
+				setcookie("token", $token);
 				echo "<script type='text/javascript'>";
 				echo "window.location.href = 'history.php';";
 			}
