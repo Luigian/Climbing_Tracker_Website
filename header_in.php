@@ -5,6 +5,27 @@
 	// 	echo "window.location.href = 'home.php';";
 	// 	echo "</script>";
 	// }
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	if (isset($_COOKIE["userId"]) && isset($_COOKIE["token"]))
+	{
+		$q_auth = mysqli_query($conn, "SELECT token FROM users WHERE id = $_COOKIE[userId]");
+		$row_auth = mysqli_fetch_array($q_auth);
+		if (!$row_auth[0] == $_COOKIE["token"])
+			unauthorized();
+	}
+	else
+		unauthorized();
+	
+	 function unauthorized()
+	{
+		echo hola;
+		echo '<script language="javascript">';
+		// echo 'alert("Authentication required. Please signup or login.")';
+	//	echo 'window.location.href = "home.php";';
+		echo '</script>';
+	}
+
+
 ?>
 
 <html>

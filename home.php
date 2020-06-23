@@ -31,10 +31,13 @@
 		}
 		else
 		{
-			$token = rand(1000, 9999);
-			$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-			mysqli_query($conn, "UPDATE users SET token = '$token' WHERE id = '$_COOKIE[userId]'");
-			setcookie("userId", "", time() - 3600);
+			if (isset($_COOKIE["userId"]))
+			{
+				$token = rand(1000, 9999);
+				$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+				mysqli_query($conn, "UPDATE users SET token = '$token' WHERE id = '$_COOKIE[userId]'");
+				setcookie("userId", "", time() - 3600);
+			}
 			include "header_out.php";
 		}
 	}

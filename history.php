@@ -1,8 +1,27 @@
 <?php
-	setcookie("actualPage", "history");
-	include("header_in.php");
-
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	// if (isset($_COOKIE["userId"]) && isset($_COOKIE["token"]))
+	// {
+	// 	$q_auth = mysqli_query($conn, "SELECT token FROM users WHERE id = $_COOKIE[userId]");
+	// 	$row_auth = mysqli_fetch_array($q_auth);
+	// 	if (!$row_auth[0] == $_COOKIE["token"])
+	// 		unauthorized();
+	// }
+	// else
+	// 	unauthorized();
+	
+	// function unauthorized()
+	// {
+	// 	echo hola;
+	// 	echo '<script language="javascript">';
+	// 	// echo 'alert("Authentication required. Please signup or login.")';
+	// 	echo 'window.location.href = "home.php";';
+	// 	echo '</script>';
+	// }
+	
+	include("header_in.php");
+	setcookie("actualPage", "history");
+
 	if (isset($_COOKIE["removeClimb"]))
 	{
 		if ($_COOKIE["removeClimb"] > "73")
