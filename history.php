@@ -1,35 +1,25 @@
 <?php
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	// if (isset($_COOKIE["userId"]) && isset($_COOKIE["token"]))
-	// {
-	// 	$q_auth = mysqli_query($conn, "SELECT token FROM users WHERE id = $_COOKIE[userId]");
-	// 	$row_auth = mysqli_fetch_array($q_auth);
-	// 	if (!$row_auth[0] == $_COOKIE["token"])
-	// 		unauthorized();
-	// }
-	// else
-	// 	unauthorized();
+	require_once("authentication.php");
+	authentication();
 	
-	// function unauthorized()
-	// {
-	// 	echo hola;
-	// 	echo '<script language="javascript">';
-	// 	// echo 'alert("Authentication required. Please signup or login.")';
-	// 	echo 'window.location.href = "home.php";';
-	// 	echo '</script>';
-	// }
-	
-	include("header_in.php");
 	setcookie("actualPage", "history");
+	include("header_in.php");
 
+	if (isset($_COOKIE["userId"]))
+		$userId = $_COOKIE["userId"];
+	else
+		$userId = "";
+
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$userId'");
+	$row_count = mysqli_fetch_array($q_count);
+	
 	if (isset($_COOKIE["removeClimb"]))
 	{
 		if ($_COOKIE["removeClimb"] > "73")
 			$q_remove = mysqli_query($conn, "DELETE FROM climbs WHERE id = $_COOKIE[removeClimb]");
 		setcookie("removeClimb", "");
 	}
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
-	$row_count = mysqli_fetch_array($q_count);
 ?>
 
 <html>
@@ -48,7 +38,7 @@
 		}
 		else
 		{
-			$q_table = mysqli_query($conn, "SELECT id, climbDate, routeId, status FROM climbs WHERE userId = '$_COOKIE[userId]' ORDER BY climbDate DESC, id DESC");
+			$q_table = mysqli_query($conn, "SELECT id, climbDate, routeId, status FROM climbs WHERE userId = '$userId' ORDER BY climbDate DESC, id DESC");
 			echo	'<div class="table-container">';
 			echo	'<table>';
 			echo	'<tr>
@@ -63,7 +53,7 @@
 			{
 				$q_route_info = mysqli_query($conn, "SELECT routes.grade, routes.color, gyms.name FROM routes LEFT JOIN gyms ON gyms.id = routes.gymId WHERE routes.id = '$row_table[2]'");
 				$row_route_info = mysqli_fetch_array($q_route_info);
-				$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE routeId = '$row_table[2]' AND userId = '$_COOKIE[userId]' AND id <= '$row_table[0]' AND climbDate <= '$row_table[1]'");
+				$q_attempt = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE routeId = '$row_table[2]' AND userId = '$userId' AND id <= '$row_table[0]' AND climbDate <= '$row_table[1]'");
 				$row_attempt = mysqli_fetch_array($q_attempt);
 				echo '<tr>
 						<td>'.$row_table[1].'</td>

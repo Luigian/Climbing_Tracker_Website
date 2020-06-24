@@ -1,9 +1,17 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+
 	setcookie("actualPage", "analytics");
 	include("header_in.php");
-
+	
+	if (isset($_COOKIE["userId"]))
+		$userId = $_COOKIE["userId"];
+	else
+		$userId = "";
+	
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$_COOKIE[userId]'");
+	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM climbs WHERE userId = '$userId'");
 	$row_count = mysqli_fetch_array($q_count);
 ?>
 

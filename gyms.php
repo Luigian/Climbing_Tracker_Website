@@ -1,7 +1,13 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+	
 	setcookie("actualPage", "gyms");
 	include("header_in.php");
 
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	$q_gyms = mysqli_query($conn, "SELECT * FROM gyms");
+	
 	if (isset($_POST["submit"]) && $_POST["submit"] == "SELECT")
 	{
 		$conn = mysqli_connect("localhost", "luis", "", "db_climb");
@@ -19,14 +25,11 @@
 			$q_gym = mysqli_query($conn, "SELECT name FROM gyms WHERE id = $_POST[gym]");
 			$row_gym = mysqli_fetch_array($q_gym);
 			setcookie("gymClimbName", $row_gym[0]);
-			
 			echo '<script language="javascript">';
 			echo "window.location.href = 'add.php';";
 			echo '</script>';
 		}
 	}
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_gyms = mysqli_query($conn, "SELECT * FROM gyms");
 ?>
 
 <html>

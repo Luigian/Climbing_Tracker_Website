@@ -1,6 +1,21 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+	
 	setcookie("actualPage", "add");
 	include("header_in.php");
+
+	if (isset($_COOKIE["gymClimbId"]))
+		$gymClimbId = $_COOKIE["gymClimbId"];
+	else
+		$gymClimbId = "";
+	if (isset($_COOKIE["gymClimbName"]))
+		$gymClimbName = $_COOKIE["gymClimbName"];
+	else
+		$gymClimbName = "";
+
+	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	$q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId = '$gymClimbId' AND active = 1 ORDER BY line, id");
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "ADD CLIMB")
 	{
@@ -22,8 +37,6 @@
 		echo "window.location.href = 'history.php';";
 		echo '</script>';
 	}
-	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_routes = mysqli_query($conn, "SELECT id, grade, color FROM routes WHERE gymId = '$_COOKIE[gymClimbId]' AND active = 1 ORDER BY line, id");
 ?>
 
 <html>
@@ -36,7 +49,7 @@
 	<div class="add-container">
 		<?php
 			echo '<div id="change-div">
-				<button id="change-button" onclick="changeFunction()">'.$_COOKIE["gymClimbName"].'</button>
+				<button id="change-button" onclick="changeFunction()">'.$gymClimbName.'</button>
 				</div>';
 		?>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="addform" method="post">

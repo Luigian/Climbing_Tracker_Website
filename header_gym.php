@@ -1,10 +1,5 @@
 <?php
-	// if (!isset($_COOKIE["userId"]))
-	// {
-	// 	echo "<script type='text/javascript'>";
-	// 	echo "window.location.href = 'home.php';";
-	// 	echo "</script>";
-	// }
+
 ?>
 
 <html>
