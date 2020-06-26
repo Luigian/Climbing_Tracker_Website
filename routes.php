@@ -1,8 +1,20 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+	admin_authentication();
+	
 	setcookie("actualPage", "routes");
 	include("header_gym.php");
 
+	if (isset($_COOKIE["gymAdmId"]))
+		$gymAdmId = $_COOKIE["gymAdmId"];
+	else
+		$gymAdmId = "";
+
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	if ($q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $gymAdmId"))
+		$row_count = mysqli_fetch_array($q_count);
+	
 	if (isset($_COOKIE["inactivateRoute"]))
 	{
 		$q_inact = mysqli_query($conn, "UPDATE routes SET active = 0 WHERE id = $_COOKIE[inactivateRoute]");
@@ -37,8 +49,6 @@
 		$displayAll = 0;
 		$button_text = "Show Inactive";
 	}
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
-	$row_count = mysqli_fetch_array($q_count);
 ?>
 
 <html>
@@ -49,7 +59,7 @@
 
 <body>
 	<?php
-		if ($row_count[0] == '0')
+		if (!$row_count[0])
 		{
 			echo "<div class='msg-container'>";
 			echo "<a id='addmessage' href='new.php'>Add your first route here</a>";
@@ -72,9 +82,9 @@
 				<th>Remove</th>
 				</tr>';
 			if ($displayAll)
-				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] ORDER BY line ASC, settingDate ASC");
+				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $gymAdmId ORDER BY line ASC, settingDate ASC");
 			else
-				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $_COOKIE[gymAdmId] AND active = 1 ORDER BY line ASC, settingDate ASC");
+				$q_table = mysqli_query($conn, "SELECT * FROM routes WHERE gymId = $gymAdmId AND active = 1 ORDER BY line ASC, settingDate ASC");
 			while ($row_table = mysqli_fetch_array($q_table))
 			{
 				if ($row_table[5])

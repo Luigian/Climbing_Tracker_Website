@@ -12,6 +12,20 @@
         else
             unauthorized();
     }
+    
+    function admin_authentication()
+    {
+        $conn = mysqli_connect("localhost", "luis", "", "db_climb");
+        if (isset($_COOKIE["userId"]) && isset($_COOKIE["gymAdmId"]) && isset($_COOKIE["token"]))
+        {
+            $q_adm_auth = mysqli_query($conn, "SELECT users.token FROM users LEFT JOIN gyms ON gyms.userId = users.id WHERE gyms.id = $_COOKIE[gymAdmId]");
+            $row_adm_auth = mysqli_fetch_array($q_adm_auth);
+            if (!$row_adm_auth[0] == $_COOKIE["token"])
+                admin_unauthorized();
+        }
+        else
+            admin_unauthorized();
+    }
         
     function unauthorized()
     {
@@ -19,6 +33,15 @@
         // echo 'alert("Authentication required. Please signup or login.")';
         echo 'document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";';
         echo 'window.location.href = "login.php";';
+        echo '</script>';
+    }
+    
+    function admin_unauthorized()
+    {
+        echo '<script language="javascript">';
+        // echo 'alert("Authentication required. Please signup or login.")';
+        //echo 'document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";';
+        echo 'window.location.href = "gym_signup.php";';
         echo '</script>';
     }
 ?>
