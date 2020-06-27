@@ -1,6 +1,7 @@
 <?php
 	require_once("authentication.php");
 	authentication();
+	admin_authentication();
 	
 	setcookie("actualPage", "new");
 	include("header_gym.php");

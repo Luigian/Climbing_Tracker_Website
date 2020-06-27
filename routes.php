@@ -14,6 +14,8 @@
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
 	if ($q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $gymAdmId"))
 		$row_count = mysqli_fetch_array($q_count);
+	else
+		$row_count = NULL;
 	
 	if (isset($_COOKIE["inactivateRoute"]))
 	{

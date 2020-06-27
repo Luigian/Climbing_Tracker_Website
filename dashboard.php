@@ -1,10 +1,21 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+	admin_authentication();
+
 	setcookie("actualPage", "dashboard");
 	include("header_gym.php");
 
+	if (isset($_COOKIE["gymAdmId"]))
+		$gymAdmId = $_COOKIE["gymAdmId"];
+	else
+		$gymAdmId = "";
+
 	$conn = mysqli_connect("localhost", "luis", "", "db_climb");
-	$q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $_COOKIE[gymAdmId]");
-	$row_count = mysqli_fetch_array($q_count);
+	if ($q_count = mysqli_query($conn, "SELECT COUNT(*) FROM routes WHERE gymId = $gymAdmId"))
+		$row_count = mysqli_fetch_array($q_count);
+	else
+		$row_count = NULL;
 ?>
 
 <html>
@@ -15,7 +26,7 @@
 
 <body>
 	<?php
-		if ($row_count[0] == '0')
+		if (!$row_count[0])
 		{
 			echo
 			"<div class='dash-msg-container'>
@@ -71,19 +82,28 @@
 				if ($row_s[0] != 0)
 				{	
 					$active = $row_a[0];
-					$active_percent = ($active / $active_totals) * 100;
+					if ($active_totals)
+						$active_percent = ($active / $active_totals) * 100;
+					else
+						$active_percent = 0;
 					if ($active_percent - (int)$active_percent > .49)
 						$active_percent += .5;
 					$active_percent = (int)$active_percent;
 
 					$setted = $row_s[0];
-					$setted_percent = ($setted / $setted_totals) * 100;
+					if ($setted_totals)
+						$setted_percent = ($setted / $setted_totals) * 100;
+					else
+						$setted_percent = 0;
 					if ($setted_percent - (int)$setted_percent > .49)
 						$setted_percent += .5;
 					$setted_percent = (int)$setted_percent;
 					
 					$climbs = $row_c[0];
-					$climbs_percent = ($climbs / $climbs_totals) * 100;
+					if ($climbs_totals)
+						$climbs_percent = ($climbs / $climbs_totals) * 100;
+					else
+						$climbs_percent = 0;	
 					if ($climbs_percent - (int)$climbs_percent > .49)
 						$climbs_percent += .5;
 					$climbs_percent = (int)$climbs_percent;

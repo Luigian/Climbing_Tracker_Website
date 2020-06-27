@@ -1,4 +1,8 @@
 <?php
+	require_once("authentication.php");
+	authentication();
+	new_admin_authentication();
+	
 	setcookie("actualPage", "gymsignup");
 	include("header_in.php");
 
