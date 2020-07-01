@@ -1,6 +1,7 @@
 <?php
 	require_once("authentication.php");
 	authentication();
+	gym_climb_authentication();
 	
 	setcookie("actualPage", "add");
 	include("header_in.php");

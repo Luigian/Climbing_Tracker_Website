@@ -40,6 +40,20 @@
         else
             new_admin_unauthorized();
     }
+
+    function gym_climb_authentication()
+    {
+        if (isset($_COOKIE["gymClimbId"]))
+        {
+            $conn = mysqli_connect("localhost", "luis", "", "db_climb");
+            $q_gym_climb_auth = mysqli_query($conn, "SELECT COUNT(*) FROM gyms WHERE id = $_COOKIE[gymClimbId]");
+            $row_gym_climb_auth = mysqli_fetch_array($q_gym_climb_auth);
+            if ($row_gym_climb_auth[0] == "0")
+                gym_climb_unauthorized();        
+        }
+        else
+            gym_climb_unauthorized();        
+    }
         
     function unauthorized()
     {
@@ -60,6 +74,13 @@
     {
         echo '<script language="javascript">';
         echo 'window.location.href = "routes.php";';
+        echo '</script>';
+    }
+    
+    function gym_climb_unauthorized()
+    {
+        echo '<script language="javascript">';
+        echo 'window.location.href = "gyms.php";';
         echo '</script>';
     }
 ?>
