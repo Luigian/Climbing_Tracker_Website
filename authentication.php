@@ -13,6 +13,18 @@
             unauthorized();
     }
     
+    function unauthentication()
+    {
+        if (isset($_COOKIE["userId"]) && isset($_COOKIE["token"]))
+        {
+            $conn = mysqli_connect("localhost", "luis", "", "db_climb");
+            $q_auth = mysqli_query($conn, "SELECT token FROM users WHERE id = $_COOKIE[userId]");
+            $row_auth = mysqli_fetch_array($q_auth);
+            if ($row_auth[0] == $_COOKIE["token"])
+                authorized();
+        }
+    }
+    
     function admin_authentication()
     {
         $conn = mysqli_connect("localhost", "luis", "", "db_climb");
@@ -60,6 +72,13 @@
         echo '<script language="javascript">';
         echo 'document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";';
         echo 'window.location.href = "login.php";';
+        echo '</script>';
+    }
+
+    function authorized()
+    {
+        echo '<script language="javascript">';
+        echo 'window.location.href = "home.php";';
         echo '</script>';
     }
     

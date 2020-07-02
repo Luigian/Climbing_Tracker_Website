@@ -1,4 +1,7 @@
 <?php
+	require_once("authentication.php");
+	unauthentication();
+	
 	include("header_out.php");
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")
