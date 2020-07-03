@@ -1,4 +1,39 @@
 <?php
+    function new_authentication()
+    {
+        if (isset($_COOKIE["userId"]) && isset($_COOKIE["token"]))
+        {
+            $conn = mysqli_connect("localhost", "luis", "", "db_climb");
+            $q_auth = mysqli_query($conn, "SELECT token FROM users WHERE id = $_COOKIE[userId]");
+            $row_auth = mysqli_fetch_array($q_auth);
+            if ($row_auth[0] == $_COOKIE["token"])
+                return 1;
+            else
+                return 0;
+        }
+        else
+            return 0;
+    }
+    
+    function logout()
+    {
+        echo '<script language="javascript">
+			document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymAdmId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymClimbId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "gymClimbName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "displayAllRoutes=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "removeClimb=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            </script>';
+    }
+
     function authentication()
     {
         $conn = mysqli_connect("localhost", "luis", "", "db_climb");

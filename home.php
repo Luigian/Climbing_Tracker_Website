@@ -1,18 +1,25 @@
 <?php
-	// echo "<script type='text/javascript'>";
-	// echo 'document.cookie = "gymAdmOn=; expires=Thu, 01 Jan 1970 00:00:00 UTC";';
-	// echo "</script>";
-	
-	if (isset($_COOKIE["logoutCancel"]) && $_COOKIE["logoutCancel"] == "1")
+	require_once("authentication.php");
+	if (new_authentication())
+		echo "hola";
+	else
+		echo "holo";
+
+
+	if (isset($_COOKIE["logout"]))
 	{
-		echo "<script type='text/javascript'>";
-		setcookie("logoutCancel", "0");
-		if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "homegym")
-			$previousPage = "home";
-		else
-			$previousPage = $_COOKIE["actualPage"];
-		echo "window.location.href = '$previousPage.php';";
-		echo "</script>";
+		if ($_COOKIE["logout"] == "cancel")
+		{
+			echo '<script type="text/javascript">
+				document.cookie = "logout=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+				</script>';
+			if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "homegym")
+				$previousPage = "home";
+			else
+				$previousPage = $_COOKIE["actualPage"];
+			echo '<script type="text/javascript">
+				window.location.href = '$previousPage.php';
+				</script>';
 	}
 	else
 	{
@@ -41,6 +48,44 @@
 			include "header_out.php";
 		}
 	}
+	// if (isset($_COOKIE["logoutCancel"]) && $_COOKIE["logoutCancel"] == "1")
+	// {
+	// 	echo "<script type='text/javascript'>";
+	// 	setcookie("logoutCancel", "0");
+	// 	if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "homegym")
+	// 		$previousPage = "home";
+	// 	else
+	// 		$previousPage = $_COOKIE["actualPage"];
+	// 	echo "window.location.href = '$previousPage.php';";
+	// 	echo "</script>";
+	// }
+	// else
+	// {
+	// 	if (isset($_COOKIE["actualPage"]))
+	// 	{	
+	// 		if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics" || $_COOKIE["actualPage"] == "gymsignup")
+	// 		{
+	// 			include "header_in.php";
+	// 			setcookie("actualPage", "homein");
+	// 		}
+	// 		else if ($_COOKIE["actualPage"] == "homegym" || $_COOKIE["actualPage"] == "new" || $_COOKIE["actualPage"] == "routes" || $_COOKIE["actualPage"] == "dashboard")
+	// 		{
+	// 			include "header_gym.php";
+	// 			setcookie("actualPage", "homegym");
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		if (isset($_COOKIE["userId"]))
+	// 		{
+	// 			$token = rand(1000, 9999);
+	// 			$conn = mysqli_connect("localhost", "luis", "", "db_climb");
+	// 			mysqli_query($conn, "UPDATE users SET token = '$token' WHERE id = '$_COOKIE[userId]'");
+	// 			setcookie("userId", "", time() - 3600);
+	// 		}
+	// 		include "header_out.php";
+	// 	}
+	// }
 ?>
 
 <html>
