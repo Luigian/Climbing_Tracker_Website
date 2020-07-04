@@ -17,7 +17,16 @@
     
     function logout()
     {
+        if (new_authentication())
+        {
+            $token = rand(1000, 9999);
+		    $conn = mysqli_connect("localhost", "luis", "", "db_climb");
+		    mysqli_query($conn, "UPDATE users SET token = '$token' WHERE id = '$_COOKIE[userId]'");
+            // setcookie("userId", "", time() - 3600);
+        }
+
         echo '<script language="javascript">
+			document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
@@ -28,7 +37,7 @@
 			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			document.cookie = "logout=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
             </script>';
