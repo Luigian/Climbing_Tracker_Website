@@ -1,6 +1,10 @@
 <?php
 	require_once("authentication.php");
-	authentication();
+	if (!user_authentication())
+	{
+		logout();
+		relocate("login.php");
+	}
 
 	setcookie("actualPage", "analytics");
 	include("header_in.php");

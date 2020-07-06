@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <html>
@@ -39,24 +38,9 @@
 	{
 		var logout_confirm = confirm('Do you want to logout?');
 		if (logout_confirm == true)
-		{
-			// document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymAdmId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymAdmName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymClimbId=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "gymClimbName=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "displayAllRoutes=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "removeClimb=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "removeRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "activateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "inactivateRoute=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "logoutCancel=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "actualPage=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-		}
+			document.cookie = 'logout=true';
 		else
-			document.cookie = 'logoutCancel=1';
+			document.cookie = 'logout=cancel';
 	}
 
 	function funCookie()

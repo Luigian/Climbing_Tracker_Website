@@ -1,6 +1,7 @@
 <?php
 	require_once("authentication.php");
-	unauthentication();
+	if (user_authentication())
+		relocate("home.php");
 	
 	include("header_out.php");
 

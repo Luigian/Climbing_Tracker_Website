@@ -1,8 +1,7 @@
 <?php
 	require_once("authentication.php");
-	if (new_authentication())
+	if (user_authentication())
 	{
-		// echo "good";
 		if (isset($_COOKIE["logout"]))
 		{
 			if ($_COOKIE["logout"] == "cancel")
@@ -59,7 +58,7 @@
 </html>
 
 <?php
-	if (new_authentication())
+	if (user_authentication())
 	{	
 		if ($_COOKIE["actualPage"] == "homein" || $_COOKIE["actualPage"] == "gyms" || $_COOKIE["actualPage"] == "add" || $_COOKIE["actualPage"] == "history" || $_COOKIE["actualPage"] == "analytics" || $_COOKIE["actualPage"] == "gymsignup")
 			include "footer.php";

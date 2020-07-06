@@ -1,7 +1,12 @@
 <?php
 	require_once("authentication.php");
-	authentication();
-	gym_climb_authentication();
+	if (!user_authentication())
+	{
+		logout();
+		relocate("login.php");
+	}
+	if (!gym_climb_authentication())
+		relocate("gyms.php");
 	
 	setcookie("actualPage", "add");
 	include("header_in.php");

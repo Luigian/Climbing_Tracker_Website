@@ -48,9 +48,7 @@
 	{
 		var logout_confirm = confirm('Do you want to logout?');
 		if (logout_confirm == true)
-		{
 			document.cookie = 'logout=true';
-		}
 		else
 			document.cookie = 'logout=cancel';
 	}

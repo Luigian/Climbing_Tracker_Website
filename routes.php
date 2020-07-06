@@ -1,7 +1,12 @@
 <?php
 	require_once("authentication.php");
-	authentication();
-	admin_authentication();
+	if (!user_authentication())
+	{
+		logout();
+		relocate("login.php");
+	}
+	if (!admin_authentication())
+		relocate("gym_signup.php");
 	
 	setcookie("actualPage", "routes");
 	include("header_gym.php");
