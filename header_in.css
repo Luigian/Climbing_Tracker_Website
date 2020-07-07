@@ -59,12 +59,16 @@ height: 21px;
 }
 
 .dropdown-content {
-width: 70px;
+width: 73px;
 position: relative;
-left: calc(100% - 70px);
+left: calc(100% - 93px);
+top: 10px;
 display: none;
 text-align: right;
-ibackground-color: yellow;
+padding: 10px;
+padding-top: 5px;
+padding-bottom: 10px;
+background-color: black;
 }
 
 .in-dropdown:hover .dropdown-content {
@@ -73,15 +77,16 @@ display: block;
 
 .inmenu {
 font-family: arial, sans-serif;
-color: grey;
-padding-top: 10px;
+color: lightgrey;
+padding-top: 8px;
 display: block;
 text-decoration: none;
 font-size: 12px;
 }
 
 .inmenu:hover {
-color: black;
+color: white;
+font-style: normal;
 }
 
 #cookie {
