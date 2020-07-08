@@ -7,25 +7,42 @@
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")
 	{
+		$relocate = 0;
+		$text = "";
 		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
-			$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
-			$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
-			$row_username = mysqli_fetch_array($q_username);
-			if ($row_username[0] == '0')
-			{
-				$token = rand(1000, 9999);
-				mysqli_query($conn, "INSERT INTO users (username, password, token) VALUES ('$_POST[username]', '$_POST[password]', '$token')");
-				$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
-				$row_userid = mysqli_fetch_array($q_userid);
-				setcookie("userId", $row_userid[0]);
-				setcookie("userName", $_POST["username"]);
-				setcookie("token", $token);
-				$text = "User created";
-			}
+			if (!(strlen($_POST["username"]) >= 3 && strlen($_POST["username"]) <= 10))
+				$text = "Username must contain between 3 and 10 characters length";
 			else
-				$text = "Username already exists";
-			mysqli_close($conn);
+			{
+				$array = str_split($_POST["username"]);
+				foreach ($array as $char)
+				{
+					if ($char < 65 || $char > 90)
+						$text = "Username must contain only alphabetical characters";
+				}
+			}
+			if ($text == "")
+			{
+				$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
+				$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
+				$row_username = mysqli_fetch_array($q_username);
+				if ($row_username[0] == '0')
+				{
+					$relocate = 1;
+					$token = rand(1000, 9999);
+					mysqli_query($conn, "INSERT INTO users (username, password, token) VALUES ('$_POST[username]', '$_POST[password]', '$token')");
+					$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
+					$row_userid = mysqli_fetch_array($q_userid);
+					setcookie("userId", $row_userid[0]);
+					setcookie("userName", $_POST["username"]);
+					setcookie("token", $token);
+					$text = "User created";
+				}
+				else
+					$text = "Username already exists";
+				mysqli_close($conn);
+			}
 		}
 		else if (!isset($_POST["username"]) && !isset($_POST["password"]))
 			$text = "Username and password are required";
@@ -35,7 +52,7 @@
 			$text = "Password is required";
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";
-		if ($row_username[0] == '0')
+		if ($relocate)
 			echo "window.location.href = 'history.php';";
 		echo "</script>";
 	}
