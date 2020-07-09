@@ -36,7 +36,7 @@ height: 21px;
 .dropdown-content {
 width: 65px;
 position: relative;
-left: calc(100% - 90px);
+left: calc(100% - 85px);
 top: 10px;
 display: none;
 text-align: right;
