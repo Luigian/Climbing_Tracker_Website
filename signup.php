@@ -1,5 +1,6 @@
 <?php
 	require_once("authentication.php");
+	require_once("validation.php");
 	if (user_authentication())
 		relocate("home.php");
 	
@@ -9,50 +10,40 @@
 	{
 		$relocate = 0;
 		$text = "";
+		$testing = 1;
 		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
-			if (!(strlen($_POST["username"]) >= 3 && strlen($_POST["username"]) <= 10))
+			if (!len_between($_POST["username"], 3, 10))
 				$text = "Username must be between 3 and 10 characters long";
-			else if (!(strlen($_POST["password"]) >= 3 && strlen($_POST["password"]) <= 10))
+			else if (!len_between($_POST["password"], 3, 10))
 				$text = "Password must be between 3 and 10 characters long";
-			else
+			else if (!only_alpha($_POST["username"]))
+				$text = "Username must contain only alphabetical characters";
+			else if (!only_alphanum($_POST["password"]))
+				$text = "Password must contain only alphabetical characters and/or numbers";
+			
+			if ($text == "" && $testing)
+				$text = "User created";
+			else if ($text == "")
 			{
-				$array = str_split($_POST["username"]);
-				foreach ($array as $char)
+				$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
+				$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
+				$row_username = mysqli_fetch_array($q_username);
+				if ($row_username[0] == '0')
 				{
-					if (!(($char >= 'A' && $char <= 'Z') || ($char >= 'a' && $char <= 'z')))
-						$text = "Username must contain only alphabetical characters";
-				}
-			}
-			if ($text == "")
-			{
-				$array = str_split($_POST["password"]);
-				foreach ($array as $char)
-				{
-					if (!(($char >= 'A' && $char <= 'Z') || ($char >= 'a' && $char <= 'z') || ($char >= '0' && $char <= '9')))
-						$text = "Password must contain only alphabetical characters and numbers";
-				}
-			}
-			if ($text == "")
-			{
-				// $conn = mysqli_connect("localhost", "luis", "", "db_climb");	
-				// $q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
-				// $row_username = mysqli_fetch_array($q_username);
-				// if ($row_username[0] == '0')
-				// {
-				// 	$relocate = 1;
-				// 	$token = rand(1000, 9999);
-				// 	mysqli_query($conn, "INSERT INTO users (username, password, token) VALUES ('$_POST[username]', '$_POST[password]', '$token')");
-				// 	$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
-				// 	$row_userid = mysqli_fetch_array($q_userid);
-				// 	setcookie("userId", $row_userid[0]);
-				// 	setcookie("userName", $_POST["username"]);
-				// 	setcookie("token", $token);
+					$relocate = 1;
+					$token = rand(1000, 9999);
+					mysqli_query($conn, "INSERT INTO users (username, password, token) VALUES ('$_POST[username]', '$_POST[password]', '$token')");
+					$q_userid = mysqli_query($conn, "SELECT id FROM users WHERE username = '$_POST[username]'");
+					$row_userid = mysqli_fetch_array($q_userid);
+					setcookie("userId", $row_userid[0]);
+					setcookie("userName", $_POST["username"]);
+					setcookie("token", $token);
 					$text = "User created";
-				// }
-				// else
-				// 	$text = "Username already exists";
-				// mysqli_close($conn);
+				}
+				else
+					$text = "Username already exists";
+				mysqli_close($conn);
 			}
 		}
 		else if (!isset($_POST["username"]) && !isset($_POST["password"]))
