@@ -18,18 +18,17 @@
 			else if (!len_between($_POST["password"], 3, 10))
 				$text = "Password must be between 3 and 10 characters long";
 			else if (!only_alpha($_POST["username"]))
-				$text = "Username must contain only alphabetical characters";
-			else if (!only_alphanum($_POST["password"]))
-				$text = "Password must contain only alphabetical characters and/or numbers";
-			
-			if ($text == "" && $testing)
-				$text = "User created";
-			else if ($text == "")
+				$text = "Username can contain only letters";
+			else if (!only_alpha_num($_POST["password"]))
+				$text = "Password can contain only letters and numbers";
+			else
 			{
 				$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
 				$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
 				$row_username = mysqli_fetch_array($q_username);
-				if ($row_username[0] == '0')
+				if ($row_username[0] == '0' && $testing)
+					$text = "User created";
+				else if ($row_username[0] == '0')
 				{
 					$relocate = 1;
 					$token = rand(1000, 9999);

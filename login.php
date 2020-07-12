@@ -17,7 +17,7 @@
 				$text = "Password has a bad format";
 			else if (!only_alpha($_POST["username"]))
 				$text = "Username has a bad format";
-			else if (!only_alphanum($_POST["password"]))
+			else if (!only_alpha_num($_POST["password"]))
 				$text = "Password has a bad format";
 			else
 			{

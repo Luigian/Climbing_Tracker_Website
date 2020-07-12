@@ -1,5 +1,6 @@
 <?php
 	require_once("authentication.php");
+	require_once("validation.php");
 	if (!user_authentication())
 	{
 		logout();
@@ -13,23 +14,40 @@
 
 	if (isset($_POST["submit"]) && $_POST["submit"] == "SIGN UP")
 	{
+		$relocate = 0;
+		$text = "";
+		$testing = 1;
 		if (isset($_POST["gymname"]) && isset($_POST["gymlocation"]))
 		{
-			$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
-			$q_gymname = mysqli_query($conn, "SELECT COUNT(*) FROM gyms WHERE name = '$_POST[gymname]'");
-			$row_gymname = mysqli_fetch_array($q_gymname);
-			if ($row_gymname[0] == '0')
-			{
-				mysqli_query($conn, "INSERT INTO gyms (name, location, userId) VALUES ('$_POST[gymname]', '$_POST[gymlocation]', '$_COOKIE[userId]')");
-				$q_gymid = mysqli_query($conn, "SELECT id FROM gyms WHERE name = '$_POST[gymname]'");
-				$row_gymid = mysqli_fetch_array($q_gymid);
-				setcookie("gymAdmId", $row_gymid[0]);
-				setcookie("gymAdmName", $_POST["gymname"]);
-				$text = "Gym succesfull registered";
-			}
+			if (!len_between($_POST["gymname"], 1, 20))
+				$text = "Gym name must be between 1 and 20 characters long";
+			else if (!len_between($_POST["gymlocation"], 3, 20))
+				$text = "Location must be between 3 and 20 characters long";
+			else if (!only_alpha_space_num($_POST["gymname"]))
+				$text = "Gym name can contain only letters, numbers and spaces";
+			else if (!only_alpha_space($_POST["gymlocation"]))
+				$text = "Location can contain only letters and spaces";
 			else
-				$text = "Gym name already exists";
-			mysqli_close($conn);
+			{
+				$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
+				$q_gymname = mysqli_query($conn, "SELECT COUNT(*) FROM gyms WHERE name = '$_POST[gymname]'");
+				$row_gymname = mysqli_fetch_array($q_gymname);
+				if ($row_gymname[0] == '0' && $testing)
+					$text = "Gym succesfull registered";
+				else if ($row_gymname[0] == '0')
+				{
+					$relocate = 1;
+					mysqli_query($conn, "INSERT INTO gyms (name, location, userId) VALUES ('$_POST[gymname]', '$_POST[gymlocation]', '$_COOKIE[userId]')");
+					$q_gymid = mysqli_query($conn, "SELECT id FROM gyms WHERE name = '$_POST[gymname]'");
+					$row_gymid = mysqli_fetch_array($q_gymid);
+					setcookie("gymAdmId", $row_gymid[0]);
+					setcookie("gymAdmName", $_POST["gymname"]);
+					$text = "Gym succesfull registered";
+				}
+				else
+					$text = "Gym name already exists";
+				mysqli_close($conn);
+			}
 		}
 		else if (!isset($_POST["gymname"]) && !isset($_POST["gymlocation"]))
 			$text = "Gym name and location are required";
@@ -39,7 +57,7 @@
 			$text = "Location is required";
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";
-		if ($row_gymname[0] == '0')
+		if ($relocate)
 			echo "window.location.href = 'routes.php';";
 		echo "</script>";
 	}
