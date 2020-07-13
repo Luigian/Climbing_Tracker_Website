@@ -9,16 +9,18 @@
 	if (isset($_POST["submit"]) && $_POST["submit"] == "LOGIN")
 	{
 		$text = "";
+		unset_post("username");
+		unset_post("password");
 		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
 			if (!len_between($_POST["username"], 3, 10))
-				$text = "Username has a bad format";
+				$text = "Username has a bad format.";
 			else if (!len_between($_POST["password"], 3, 10))
-				$text = "Password has a bad format";
+				$text = "Password has a bad format.";
 			else if (!only_alpha($_POST["username"]))
-				$text = "Username has a bad format";
+				$text = "Username has a bad format.";
 			else if (!only_alpha_num($_POST["password"]))
-				$text = "Password has a bad format";
+				$text = "Password has a bad format.";
 			else
 			{
 				$conn = mysqli_connect("localhost", "luis", "", "db_climb");
@@ -46,17 +48,17 @@
 					echo "</script>";
 				}
 				else
-					$text = "Username and/or password do not exist";
+					$text = "Username and/or password do not exist.";
 			}
 		}
 		else
 		{
 			if (!isset($_POST["username"]) && !isset($_POST["password"]))
-				$text = "Username and password are required";
+				$text = "Username and password are required.";
 			else if (!isset($_POST["username"]))
-				$text = "Username is required";
+				$text = "Username is required.";
 			else if (!isset($_POST["password"]))
-				$text = "Password is required";
+				$text = "Password is required.";
 		}
 		if ($text != "")
 		{

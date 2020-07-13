@@ -28,7 +28,7 @@
 		if (empty($_POST['_date']))
 		{
 			echo '<script language="javascript">';
-			echo "alert('Date is required')";
+			echo "alert('Date is required.')";
 			echo '</script>';
 		}
 		else

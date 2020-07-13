@@ -20,7 +20,7 @@
 		if ($row_count[0] == '0')
 		{
 			echo '<script language="javascript">';
-			echo "alert('No routes available for this gym')";
+			echo "alert('No routes available for this gym.')";
 			echo '</script>';
 		}
 		else 

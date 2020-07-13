@@ -11,23 +11,25 @@
 		$relocate = 0;
 		$text = "";
 		$testing = 1;
+		unset_post("username");
+		unset_post("password");
 		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
 			if (!len_between($_POST["username"], 3, 10))
-				$text = "Username must be between 3 and 10 characters long";
+				$text = "Username must be between 3 and 10 characters long.";
 			else if (!len_between($_POST["password"], 3, 10))
-				$text = "Password must be between 3 and 10 characters long";
+				$text = "Password must be between 3 and 10 characters long.";
 			else if (!only_alpha($_POST["username"]))
-				$text = "Username can contain only letters";
+				$text = "Username can contain only letters.";
 			else if (!only_alpha_num($_POST["password"]))
-				$text = "Password can contain only letters and numbers";
+				$text = "Password can contain only letters and numbers.";
 			else
 			{
 				$conn = mysqli_connect("localhost", "luis", "", "db_climb");	
 				$q_username = mysqli_query($conn, "SELECT COUNT(*) FROM users WHERE username = '$_POST[username]'");
 				$row_username = mysqli_fetch_array($q_username);
 				if ($row_username[0] == '0' && $testing)
-					$text = "User created";
+					$text = "User created.";
 				else if ($row_username[0] == '0')
 				{
 					$relocate = 1;
@@ -38,19 +40,19 @@
 					setcookie("userId", $row_userid[0]);
 					setcookie("userName", $_POST["username"]);
 					setcookie("token", $token);
-					$text = "User created";
+					$text = "User created.";
 				}
 				else
-					$text = "Username already exists";
+					$text = "Username already exists.";
 				mysqli_close($conn);
 			}
 		}
 		else if (!isset($_POST["username"]) && !isset($_POST["password"]))
-			$text = "Username and password are required";
+			$text = "Username and password are required.";
 		else if (!isset($_POST["username"]))
-			$text = "Username is required";
+			$text = "Username is required.";
 		else if (!isset($_POST["password"]))
-			$text = "Password is required";
+			$text = "Password is required.";
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";
 		if ($relocate)
