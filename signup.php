@@ -56,7 +56,7 @@
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";
 		if ($relocate)
-			echo "window.location.href = 'history.php';";
+			echo "window.location.href = 'style/history.php';";
 		echo "</script>";
 	}
 ?>

@@ -61,7 +61,7 @@
 <html>
 <head>
 	<title>Routes</title>
-	<link rel="stylesheet" type="text/css" href="routes.css">	
+	<link rel="stylesheet" type="text/css" href="style/routes.css">	
 </head>
 
 <body>
@@ -103,8 +103,8 @@
 						<td>'.$row_table[2].'</td>
 						<td>'.$row_table[3].'</td>
 						<td>'.$row_table[4].'</td>
-						<td><input id="actbutt" src='.$color_button.' onclick="actFunction('.$row_table[0].', '.$row_table[5].')" type="image"></input></td>
-						<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
+						<td><input id="actbutt" src=img/'.$color_button.' onclick="actFunction('.$row_table[0].', '.$row_table[5].')" type="image"></input></td>
+						<td><input id="rembutt" src="img/trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 					</tr>';
 			}
 			echo '</table>';

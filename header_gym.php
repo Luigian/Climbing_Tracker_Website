@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="header_gym.css">
+	<link rel="stylesheet" type="text/css" href="style/header_gym.css">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 	<div class="header-container">
 		<div class="logo">
 			<a href="home.php">
-				<img id="header_logo" src="logo_1.png" alt="Panic.bear">
+				<img id="header_logo" src="img/logo_1.png" alt="Panic.bear">
 			</a>
 		</div>
 		<div class="navi">
@@ -22,7 +22,7 @@
 				<a id="dashboard" href="dashboard.php">DASHBOARD</a>
 			</div>
 			<div class="in-dropdown">
-				<img class="dropbtn" src="cashew_icon_black.png">
+				<img class="dropbtn" src="img/cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a class="inmenu" id="climber" href="history.php">MY CLIMBS</a>
 					<a class="inmenu" id="logoutbutt" href="home.php" onclick="logoutFunction()">LOGOUT</a>

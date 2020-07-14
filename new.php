@@ -36,7 +36,7 @@
 <html>
 <head>
 	<title>New</title>
-	<link rel="stylesheet" type="text/css" href="new.css">
+	<link rel="stylesheet" type="text/css" href="style/new.css">
 </head>
 
 <body>

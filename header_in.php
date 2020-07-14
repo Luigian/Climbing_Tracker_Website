@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="header_in.css">
+	<link rel="stylesheet" type="text/css" href="style/header_in.css">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 	<div class="header-container">
 		<div class="logo">
 			<a href="home.php">
-				<img id="header_logo" src="logo_1.png" alt="Panic.bear">
+				<img id="header_logo" src="img/logo_1.png" alt="Panic.bear">
 			</a>
 		</div>
 		<div class="navi">
@@ -27,7 +27,7 @@
 				<a id="analytics" href="analytics.php">ANALYTICS</a>
 			</div>
 			<div class="in-dropdown">
-				<img class="dropbtn" src="cashew_icon_black.png">
+				<img class="dropbtn" src="img/cashew_icon_black.png">
 				<div class="dropdown-content">
 					<?php
 						if (isset($_COOKIE["gymAdmId"]))

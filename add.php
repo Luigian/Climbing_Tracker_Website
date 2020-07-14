@@ -48,7 +48,7 @@
 <html>
 <head>
 	<title>Add</title>
-	<link rel="stylesheet" type="text/css" href="add.css">
+	<link rel="stylesheet" type="text/css" href="style/add.css">
 </head>
 
 <body>

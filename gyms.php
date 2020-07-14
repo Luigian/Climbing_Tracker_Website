@@ -39,7 +39,7 @@
 <html>
 <head>
 	<title>Gyms</title>
-	<link rel="stylesheet" type="text/css" href="gyms.css">
+	<link rel="stylesheet" type="text/css" href="style/gyms.css">
 </head>
 
 <body>

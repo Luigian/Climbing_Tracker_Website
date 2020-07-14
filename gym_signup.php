@@ -70,7 +70,7 @@
 <html>
 <head>
 	<title>Gym Sign Up</title>
-	<link rel="stylesheet" type="text/css" href="gym_signup.css">
+	<link rel="stylesheet" type="text/css" href="style/gym_signup.css">
 </head>
 
 <body>

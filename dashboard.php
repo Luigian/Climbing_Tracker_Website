@@ -26,7 +26,7 @@
 <html>
 <head>
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="dashboard.css">
+	<link rel="stylesheet" type="text/css" href="style/dashboard.css">
 </head>
 
 <body>

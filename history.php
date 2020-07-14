@@ -29,7 +29,7 @@
 <html>
 <head>
 	<title>History</title>
-	<link rel="stylesheet" type="text/css" href="history.css">	
+	<link rel="stylesheet" type="text/css" href="style/history.css">	
 </head>
 
 <body>
@@ -65,7 +65,7 @@
 						<td>'.$row_route_info[0].' '.$row_route_info[1].'</td>
 						<td>'.$row_table[3].'</td>
 						<td>'.$row_attempt[0].'</td>
-						<td><input id="rembutt" src="trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
+						<td><input id="rembutt" src="img/trash.png" onclick="remFunction('.$row_table[0].')" type="image"></input></td>
 					</tr>';
 			}
 			echo '</table>';

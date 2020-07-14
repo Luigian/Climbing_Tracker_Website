@@ -22,7 +22,7 @@
 <html>
 <head>
 	<title>Analytics</title>
-	<link rel="stylesheet" type="text/css" href="analytics.css">
+	<link rel="stylesheet" type="text/css" href="style/analytics.css">
 </head>
 
 <body>

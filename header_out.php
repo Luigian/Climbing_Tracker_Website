@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="header_out.css">
+	<link rel="stylesheet" type="text/css" href="style/header_out.css">
 </head>
 
 <body>
@@ -9,12 +9,12 @@
 	<div class="header-container">
 		<div class="logo">
 			<a href="home.php">
-				<img id="header_logo" src="logo_1.png" alt="Panic.bear">
+				<img id="header_logo" src="img/logo_1.png" alt="Panic.bear">
 			</a>
 		</div>
 		<div class="navi">
 			<div class="out-dropdown">
-				<img class="dropbtn" src="cashew_icon_black.png">
+				<img class="dropbtn" src="img/cashew_icon_black.png">
 				<div class="dropdown-content">
 					<a class="inmenu" href="login.php">LOGIN</a>
 					<a class="inmenu" href="signup.php">SIGN UP</a>

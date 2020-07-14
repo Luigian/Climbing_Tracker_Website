@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="footer.css">
+	<link rel="stylesheet" type="text/css" href="style/footer.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 		<div class="foot-container">
 			<?php
 				echo "<i class='text'>".$userName."</i>";
-				echo "<img id='cashew_white' src='cashew_icon_white.png' alt='cashew_white'>";
+				echo "<img id='cashew_white' src='img/cashew_icon_white.png' alt='cashew_white'>";
 				echo "<i class='text'>Panic Bear</i>";
 			?>
 		</div>

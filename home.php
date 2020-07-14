@@ -45,13 +45,13 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="home.css">
+	<link rel="stylesheet" type="text/css" href="style/home.css">
 </head>
 
 <body>
 	<div class="home-container">
 		<div class="photo">
-			<img id="pic" src="betamonkeys.jpeg" alt="betamonkeys"/>
+			<img id="pic" src="img/betamonkeys.jpeg" alt="betamonkeys"/>
 		</div>
 	</div>
 </body>
