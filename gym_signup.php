@@ -1,6 +1,6 @@
 <?php
-	require_once("authentication.php");
-	require_once("validation.php");
+	require_once("service/authentication.php");
+	require_once("service/validation.php");
 	if (!user_authentication())
 	{
 		logout();

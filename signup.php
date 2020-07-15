@@ -1,6 +1,6 @@
 <?php
-	require_once("authentication.php");
-	require_once("validation.php");
+	require_once("service/authentication.php");
+	require_once("service/validation.php");
 	if (user_authentication())
 		relocate("home.php");
 	
@@ -64,7 +64,7 @@
 <html>
 <head>
 	<title>Sign Up</title>
-	<link rel="stylesheet" type="text/css" href="signup.css">
+	<link rel="stylesheet" type="text/css" href="style/signup.css">
 </head>
 
 <body>
