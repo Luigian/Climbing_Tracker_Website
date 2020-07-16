@@ -3,6 +3,7 @@
 
 <html>
 <head>
+	<link rel="shortcut icon" href="img/cashew_favicon.png" type="image/png"/>
 	<link rel="stylesheet" type="text/css" href="style/header_gym.css">
 </head>
 
