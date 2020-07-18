@@ -1,0 +1,60 @@
+Cross-site scripting (XSS) hacking ---------------------------------------------------------------------
+
+test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E
+
+MYSQL --------------------------------------------------------------------------------------------------
+for ERROR 2002 solution, run:
+$sudo service mysql stop
+$sudo service mysql start
+
+"cd /" and localize:
+/var/run/mysqld/mysqld.sock
+
+db_climb localization
+/var/lib/mysql/db_climb
+
+BACKUP
+sudo mysqldump -u [user("root")] -p [database_name] > [filename].sql
+RESTORE
+Create an empty new database with the same name.
+mysql -u [user] -p [database_name] < [filename].sql
+
+mysql
+SHOW DATABASES
+USE db_climb
+SHOW TABLES
+DESCRIBE climbs
+SELECT * FROM climbs
+
+Select -------------------------------------------------------------------------------------------------
+SELECT COUNT(*) FROM tb_luis WHERE route_id = 10
+SELECT COUNT(DISTINCT routeid) FROM tb_luis WHERE grade = '5.9' AND status = 'top'
+SELECT * FROM tb_julian ORDER BY climb_date, sequence
+SELECT grade FROM tb_route WHERE route_id = 10
+SELECT routeid, status FROM tb_luis WHERE grade = '5.9'
+
+Joins --------------------------------------------------------------------------------------------------
+SELECT COUNT(*) FROM climbs LEFT JOIN users ON users.id = climbs.userId WHERE users.username = "julian"
+SELECT tb_julian.grade, tb_route.color, tb_julian.attempt from tb_julian LEFT JOIN tb_route ON tb_route.route_id = tb_julian.route_id where tb_route.active = 1 AND tb_julian.attempt = 1
+
+Add data -----------------------------------------------------------------------------------------------
+INSERT INTO tb_luis VALUES ('2020-02-20', '001', '5.8', '1', 'top')
+INSERT INTO tb_route VALUES ('1', '5.10a', 'orange', '1', '2020-02-02')
+INSERT INTO tb_route (grade, color, line, setting_date, active) VALUES ('5.11d', 'orange', '1', '2020-02-28', '1')
+UPDATE tb_julian SET attempt = 3 WHERE climb_id = 35
+
+Delete data --------------------------------------------------------------------------------------------
+DELETE FROM tb_luis WHERE RouteID = 1
+
+Create table -------------------------------------------------------------------------------------------
+CREATE TABLE tb_julian (climb_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, climb_date DATE, route_id INT, grade VARCHAR(5), attempt INT, status VARCHAR(5), sequence INT)
+CREATE TABLE tb_route (route_id INT, grade VARCHAR(5), color VARCHAR(10), line INT, setting DATE)
+
+Edit table ---------------------------------------------------------------------------------------------
+ALTER TABLE tb_route RENAME TO routes
+ALTER TABLE tb_route CHANGE route_id id INT AUTO_INCREMENT
+ALTER TABLE tb_luis ADD climb_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL
+
+FINDING THE ROUTES THAT I DIDNT CLIMB YET ==============================================================
+select * from tb_julian LEFT JOIN tb_route ON tb_route.route_id=tb_julian.route_id where tb_route.active = 1 AND tb_julian.attempt = 1
+select * from tb_route LEFT JOIN tb_julian ON tb_julian.route_id = tb_route.route_id where tb_julian.climb_id is NULL AND tb_route.active = 1

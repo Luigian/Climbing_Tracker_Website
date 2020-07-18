@@ -1,0 +1,14 @@
+Wildcard Ideas
+
+- routes-climbed tracker (data set)
+- food-eated tracker
+- split bill
+- workout tracker
+- expense tracker
+- image generator from photo
+- photo mosaic
+- text portrait
+- quotes app
+- chatbot
+- climbing competition app
+- human genome (string of 6 billion chars)
