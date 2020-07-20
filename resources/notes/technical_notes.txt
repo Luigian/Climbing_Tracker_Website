@@ -10,6 +10,7 @@ $sudo service mysql start
 "cd /" and localize:
 /var/run/mysqld/mysqld.sock
 
+--------------------------------------------------------------------------------------------------------
 db_climb localization
 /var/lib/mysql/db_climb
 
@@ -19,6 +20,16 @@ RESTORE
 Create an empty new database with the same name.
 mysql -u [user] -p [database_name] < [filename].sql
 
+SAVE DATABASE TO CSV FILE (find the secure_file_priv path and use it to save the csv, then move the csv from there):
+mysql> SHOW VARIABLES LIKE 'secure_file_priv';
++------------------+-----------------------+
+| Variable_name    | Value                 |
++------------------+-----------------------+
+| secure_file_priv | /var/lib/mysql-files/ |
++------------------+-----------------------+
+mysql> SELECT * FROM users INTO OUTFILE '/var/lib/mysql-files/users.csv' FIELDS ENCLOSED BY '"' TERMINATED BY ',' ESCAPED BY '"' LINES TERMINATED BY '\r\n';
+
+--------------------------------------------------------------------------------------------------------
 mysql
 SHOW DATABASES
 USE db_climb
