@@ -10,7 +10,7 @@
 	{
 		$relocate = 0;
 		$text = "";
-		$testing = 1;
+		$testing = 0;
 		unset_post("username");
 		unset_post("password");
 		if (isset($_POST["username"]) && isset($_POST["password"]))
@@ -56,7 +56,7 @@
 		echo "<script type='text/javascript'>";
 		echo "alert('$text');";
 		if ($relocate)
-			echo "window.location.href = 'style/history.php';";
+			echo "window.location.href = 'history.php';";
 		echo "</script>";
 	}
 ?>

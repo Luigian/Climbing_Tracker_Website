@@ -16,7 +16,7 @@
 	{
 		$relocate = 0;
 		$text = "";
-		$testing = 1;
+		$testing = 0;
 		unset_post("gymname");
 		unset_post("gymlocation");
 		if (isset($_POST["gymname"]) && isset($_POST["gymlocation"]))
