@@ -1,6 +1,6 @@
 <img src="resources/images/php_banner.png" width="1200">
 
-# Php_Piscine - Web Bootcamp at 42 School 
+# Climbing Tracker Website 
 
 ## Summary
 
