@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a website designed for the Climbing Wall Industry. Gyms can publish their route offer and their customers can track their progress while climbing on these routes.
+This is a website designed for the Climbing Wall Industry. Gyms can publish their route offer and their customers can track their progress climbing on these routes.
 
 * Home
 * Login
