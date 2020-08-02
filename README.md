@@ -8,9 +8,7 @@ This is a website designed for the Climbing Wall Industry. Gyms can publish thei
 
 ## Highlights
 
-* Analytics page
-
-Most of the climb tracking applications available offer statistics focused only on the efficacy which has to do on whether or not the routes were ascended, but not about how much waste, effort, or time it take to ascent the routes.
+* Analytics page: The majority of the climbing tracker applications that exists offer statistics focused only on the efficacy, which has to do on whether or not the routes were ascended, but they don't give you any insight about the efficiency, which is how much waste, effort, or time it took to ascend them. To be able to really see your progress it's necessary to consider not only how many routes you successfully climbed in a given period of time, and what grade of difficulty were they, but also the number of attempts occurred in the process to accomplish them, which are the uncompleted ascents caused by a fall. This website calculates the climber's efficiency on every grade he has tracked by looking at the relation between successful ascents and the unsuccessful ones.
 
 * Dashboard page
 
