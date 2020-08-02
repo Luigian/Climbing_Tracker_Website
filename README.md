@@ -2,114 +2,112 @@
 
 # Climbing Tracker Website 
 
-## Summary
+## Description
 
-2 weeks immersive in JavaScript, CSS, HTML, PHP and SQL. Network and system administration.
+This is a website designed for the Climbing Wall Industry. Gyms can publish their route offer and their customers can track their progress while climbing on these routes.
 
-### Day 00
-HTML and CSS
+## Highlights
 
-This day was about learning how to create elements in HTML and give style with CSS to fictional web pages with re-directional links, tables, images, shrink responsiveness and drop down menus.  
+* Analytics page
+* Dashboard page
+
+## Pages and Implementations
+
+### Climber
+
+* Gyms -
+* Add -
+* History -
+* Analytics -
+
+### Gym Admin
+
+* Gym Signup -
+* New -
+* Routes -
+* Dashboard -
+
+### User 
+
+* Home - Main page with access to  
+* Signup -
+* Login - username and password are required to validate them and the 
+* Logout -
+
+## Screen Captions
 
 <img src="resources/images/basics.png" width="150"><img src="resources/images/mendeleiev.png" width="150"><img src="resources/images/doft.png" width="150"><img src="resources/images/responsive.png" width="150"><img src="resources/images/menu.png" width="150">
 
-<img src="resources/images/php_banner.png" width="1200">
+## Logbook
 
-# Php_Piscine - Web Bootcamp at 42 School 
+I recommend to take a look to this videos from CS50:
 
-## Summary
+* [Computational Complexity][computational complexity]
+* [Selection Sort][selection sort]
+* [Bubble Sort][bubble sort]
+* [Insertion Sort][insertion sort]
+* [Merge Sort][merge sort]
+* [Algorithms Summary][algorithms summary]
+* [Stacks][stacks]
+* [Tries][tries]
 
-2 weeks immersive in JavaScript, CSS, HTML, PHP and SQL. Network and system administration.
+## Installation
+At the root of this repository:
 
-### Day 00
-HTML and CSS
+`cd push_swap` | Go to the compilation directory.
 
-This day was about learning how to create elements in HTML and give style with CSS to fictional web pages with re-directional links, tables, images, shrink responsiveness and drop down menus.  
+`make` | Compiles and creates two programs: `push_swap` and `checker`.
 
-<img src="resources/images/basics.png" width="150"><img src="resources/images/mendeleiev.png" width="150"><img src="resources/images/doft.png" width="150"><img src="resources/images/responsive.png" width="150"><img src="resources/images/menu.png" width="150">
+## Usage
+`./push_swap [integers array]` | Prints the solution.
 
-### Day 01
-PHP
+`./checker [integers array]` | Reads the solution from the standard input, and prints "OK" or "KO".
 
-From writing the classic "hello world", in this day we started to getting familiar with the PHP syntax by coding some programs to manipulate integers and strings. 
+The `integers array` can be:
+- Multiple ints as arguments (3 2 1 0).
+- One single char string argument ("3 2 1 0").
+- A combination of both (3 "2 1" 0).
 
-<img src="resources/images/hw.png" width="250">
+## Optional flags
+`./push_swap -w [integers array]` | Prints the solution in a file.
 
-### Day 02
-PHP
+`./checker -r [integers array]` | Reads the solution from a file.
 
-A funny mystery story led us through various exercises to discover a little bit more about php's libraries and helpfull functions to access local and external data.
+`./checker -v [integers array]` | Reads the solution from the standard input and display, at every time, a visual representation of the stacks current status.
 
-<img src="resources/images/another_world.png" width="250">
+## Input & Output
+<img src="resources/images/ps_inout_01.png" width="1000">
+<img src="resources/images/ps_inout_02.png" width="1000">
+<img src="resources/images/ps_inout_03.png" width="1000">
+<img src="resources/images/ps_inout_04.png" width="1000">
+<img src="resources/images/ps_inout_05.png" width="1000">
+<img src="resources/images/ps_inout_06.png" width="1000">
+<img src="resources/images/ps_inout_07.png" width="1000">
+<img src="resources/images/ps_inout_08.png" width="1000">
+<img src="resources/images/ps_inout_09.png" width="1000">
+<img src="resources/images/ps_inout_10.png" width="1000">
+<img src="resources/images/ps_inout_11.png" width="1000">
+<img src="resources/images/ps_inout_12.png" width="1000">
+<img src="resources/images/ps_inout_13.png" width="1000">
+<img src="resources/images/ps_inout_14.png" width="1000">
+<img src="resources/images/ps_inout_15.png" width="1000">
 
-### Day 03
-PHP - MAMP
-
-After installing our web server with the 42 PAMP tool, or starting the development server (localhost), we wrote php codes to recover users and passwords, save and delete cookies, read and display images in the browser window and validate member access to web pages.
-
-<img src="resources/images/get.png" width="250">
-
-### Day 04
-PHP - MAMP
-
-In this day we created different pages to manage a user session. The exercises were about creating an account, login (authorization via a self-build function), changing the password, and be able to save in a file the users data to create a basic multi-user chat page.
-
-<img src="resources/images/create.png" width="250">
-
-### Day 05
-SQL
-
-Is the start of the second week and now we were writing more than twenty different commands to work with databases using SQL language. The exercises covered creation of databases and tables, inserting, updating, and selection of data. By combining some functions we were able to display specific and requiered information from a films database.
-
-<img src="resources/images/vincent.png" width="250">
-
-### Day 06
-PHP - OOP
-
-This day we learned about how to implement object-oriented programming (OOP) in PHP. The excercises guided us to create a small program to display 3D graphics. Each class covered one graphic aspect: color, dots, lines, matrixes, camera and texture. We learned about attributes and methods (static, dynamic, public and private), instances and proper class documentation.
-
-<img src="resources/images/matrix_1.png" width="250">
-
-### Day 07
-PHP - OOP
-
-A day dedicated to Game of Thrones, allowed us to better understand the logic of object-oriented programming, particularly inheritance (parent and child classes), abstract classes, abstract methods and interfaces, in a really fun way.
-
-<img src="resources/images/house.png" width="250">
-
-### Day 08
-Awesome Starships Battles I
-
-This day we covered the utilisation of traits (inheritance but in an horizontal point of view), final classes, exceptions (handling errors), reflection classes and reflection objects (recover and manipulate the data inside). The exercise goal was to create a game called "Awesome Starships Battles", a 2 players game which goal is to control a fleet of spaceships and eliminate the adversary fleet first. The composition of this game was very convenient to put togheter PHP-OOP, HTML and CSS.
-
-<img src="resources/images/starships.png" width="240">
-
-### Day 09
-JavaScript and JQuery
-
-The las day of the piscine was dedicated to learn the syntax and functions of JavaScript, and throught DOM (Document Object Modeling) we created interactive web pages setting mouse and keyboard events to affect the appearence of HTML elements. Finally we get involved with the JQuery library and AJAX to update parts of a web page without reloading the whole page (asynchronous execution).
-
-<kbd><img src="resources/images/balloon.png" width="100"></kbd><kbd><img src="resources/images/calc.png" width="200"></kbd><kbd><img src="resources/images/todo.png" width="200"></kbd>
-
-### Rush 00
-E-commerce
-
-After the first week of the piscine, we had to -in a weekend– create a mini e-commerce online shop. This should cover products and users management with a well organized data base. Our e-commerce should allow a user to register, connect, add articles in his basket and validate his order. Once validated, the order must be visible from an administration section.
-
-<kbd><img src="resources/images/commerce_1.png" width="150"></kbd><kbd><img src="resources/images/commerce_2.png" width="150"></kbd>
-
-### Rush 01
-Awesome Starships Battles II
-
-This is an ambitious project that aims to gather all the tools learned during this boot-camp. This second rush was about remasterizing the game created at day 08, and adding account management, users ranking, chat panel, simultaneously games, scripted games and other cool features alike. 
+## Final Thoughts
+This project was a good opportunity to put in practice different data structures as: stacks, hash tables and tries. Additionally, I really enjoyed taking the moment to thing outside the box and looking for optimization and creative solutions.
 
 ## Credits
-[*Luis Sanchez*](https://www.linkedin.com/in/luis-sanchez-13bb3b189/)
-2019. Freemont, CA
+[*Luis Sanchez*][linkedin] 2019, [42 Silicon Valley][42].
 
-## About 42 School
-[42][42] is a free, non profit, project-based, peer-to-peer learning coding school. It originated in France and now has over 20 campuses all over the world. More information can be found [here][42]
+[computational complexity]: https://www.youtube.com/watch?v=YoZPTyGL2IQ
+[selection sort]: https://www.youtube.com/watch?v=3hH8kTHFw2A
+[bubble sort]: https://www.youtube.com/watch?v=RT-hUXUWQ2I
+[insertion sort]: https://www.youtube.com/watch?v=O0VbBkUvriI
+[merge sort]: https://www.youtube.com/watch?v=Ns7tGNbtvV4
+[algorithms summary]: https://www.youtube.com/watch?v=ktWL3nN38ZA
+[stacks]: https://www.youtube.com/watch?v=hVsNqhEthOk
+[tries]: https://www.youtube.com/watch?v=MC-iQHFdEDI
 
+[linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
 [42]: http://42.us.org "42 USA"
-[pdf]:  "Pdf"
+
 
