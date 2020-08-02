@@ -1,0 +1,35 @@
+Efficacy is a noun and is defined as the power or capacity to produce a desired effect. The word efficacy has to do with the ability or capacity to do something, but not about how something is done.
+
+Efficiency is also a noun and is defined as the quality or property of being efficient. Efficient means acting or producing with a minimum or waste, expense, or unnecessary effort.
+
+While efficacy has to do with whether or not something is able to be done at all, efficiency has to do with how something is done and whether or not it is done without much waste, effort, or time.
+
+record: 
+routes sended
+
+efficacy:    
+Send 0-10% of V7
+
+efficiency:
+ability to onsight/flash new climbs and number of attempts
+
+How climbers use to track their progress:
+-	myclimb.com
+-	trackyourclimb.com
+-	Google spreadsheets
+-	Mobile notes
+-	On paper
+
+Top rope: To belay from a fixed anchor point above the climb.
+
+Ascent: climb from the ground to the top with no falls and no additional help.
+
+Redpoint: ascent, while lead climbing, after having practiced the route beforehand (either by hangdogging or top roping).
+
+Flash: ascent on the first attempt with receiving beta.
+
+On-sight: ascent on the first ascent with no prior practice or beta.
+
+Attempt: uncompleted ascent caused by a fall or use of additional help.
+
+Repeat: ascent on a route that has been previously redpointed, flashed or on-sighted.
