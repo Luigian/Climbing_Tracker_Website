@@ -9,6 +9,9 @@ This is a website designed for the Climbing Wall Industry. Gyms can publish thei
 ## Highlights
 
 * Analytics page
+
+Most of the climb tracking applications available offer statistics focused only on the efficacy which has to do on whether or not the routes were ascended, but not about how much waste, effort, or time it take to ascent the routes.
+
 * Dashboard page
 
 ## Pages and Implementations
