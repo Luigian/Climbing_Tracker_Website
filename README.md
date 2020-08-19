@@ -1,6 +1,9 @@
+#Panic Bear
+## A climbing tracker website 
+
 <img src="resources/images/php_banner.png" width="1200">
 
-# Climbing Tracker Website 
+
 
 ## Description
 
