@@ -8,9 +8,9 @@ In sport climbing, tracking the **efficacy** has to do on whether or not a route
 
 This website calculates the climber's efficiency on every grade he has tracked by looking at the relation between successful ascents and the unsuccessful ones.
 
-After creating an account, the user can register his climbs. After that, he can access to the record of all the climbs he has done in the past. Also, the user can access to an analytics chart, this contains the result of some calculations focused on understanding his performance in the different difficulty levels he has tried on the walls.    
+After creating an account, the user can register his climbs, access to his climbing record and see some statistics in order to understand his performance in the different difficulty levels he has tried on the walls. 
 
-Gym managers can also create an account and register their climbing gyms. The gym manager can register and update the routes the gym have. This allow the users to add these routes to their record after. Gym managers can access to the history of all the routes they have setted in their gyms, and to some analytics that could lead to better distribute and plan their routesetting.
+Gym managers can also create an account and upload the routes they have in their gyms (this allow the users to add these same routes to their record after). Gym managers can also access to the history of their routes and see some statistics that could help to better distribute and plan their routesetting.
 
 ## Implementation
 
