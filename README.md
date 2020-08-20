@@ -1,23 +1,27 @@
 # Panic_Bear
+
 ## A climbing tracker website 
 
 <img src="resources/images/panic_bear_banner.jpg" width="1000">
 
+In sport climbing, tracking the **efficacy** has to do on whether or not a route was ascended from the ground to the top, with no falls and no additional help. But in order to really evaluate the climber's progress it's necessary to consider the **efficiency** too, which is how many attempts, or unsuccessful ascents, occurred in the process.
+
+This website calculates the climber's efficiency on every grade he has tracked by looking at the relation between successful ascents and the unsuccessful ones.
+
+After creating an account, the user can register his climbs. After that, he can access to the record of all the climbs he has done in the past. Also, the user can access to an analytics chart, this contains the result of some calculations focused on understanding his performance in the different difficulty levels he has tried on the walls.    
+
+Gym managers can also create an account and register their climbing gyms. The gym manager can register and update the routes the gym have. This allow the users to add these routes to their record after. Gym managers can access to the history of all the routes they have setted in their gyms, and to some analytics that could lead to better distribute and plan their routesetting.
+
+## Implementation
+
+Relational Database explanation
 
 
-## Description
+### Recording the climbs
 
-This is a website designed for the Climbing Wall Industry. Gyms can publish their route offer and their customers can track their progress while climbing on these routes.
+### Generating the statistics
 
-## Highlights
-
-* Analytics page: The majority of the climbing tracker applications that exists offer statistics focused only on the efficacy, which has to do on whether or not the routes were ascended, but they don't give you any insight about the efficiency, which is how much waste, effort, or time it took to ascend them. To be able to really see your progress it's necessary to consider not only how many routes you successfully climbed in a given period of time, and what grade of difficulty were they, but also the number of attempts occurred in the process to accomplish them, which are the uncompleted ascents caused by a fall. This website calculates the climber's efficiency on every grade he has tracked by looking at the relation between successful ascents and the unsuccessful ones.
-
-* Dashboard page
-
-## Pages and Implementations
-
-### Climber
+### The tools for routesetting
 
 * Gyms -
 * Add -
@@ -37,10 +41,6 @@ This is a website designed for the Climbing Wall Industry. Gyms can publish thei
 * Signup -
 * Login - username and password are required to validate them and the 
 * Logout -
-
-## Screen Captions
-
-<img src="resources/images/basics.png" width="150"><img src="resources/images/mendeleiev.png" width="150"><img src="resources/images/doft.png" width="150"><img src="resources/images/responsive.png" width="150"><img src="resources/images/menu.png" width="150">
 
 ## Logbook
 
@@ -78,23 +78,6 @@ The `integers array` can be:
 `./checker -r [integers array]` | Reads the solution from a file.
 
 `./checker -v [integers array]` | Reads the solution from the standard input and display, at every time, a visual representation of the stacks current status.
-
-## Input & Output
-<img src="resources/images/ps_inout_01.png" width="1000">
-<img src="resources/images/ps_inout_02.png" width="1000">
-<img src="resources/images/ps_inout_03.png" width="1000">
-<img src="resources/images/ps_inout_04.png" width="1000">
-<img src="resources/images/ps_inout_05.png" width="1000">
-<img src="resources/images/ps_inout_06.png" width="1000">
-<img src="resources/images/ps_inout_07.png" width="1000">
-<img src="resources/images/ps_inout_08.png" width="1000">
-<img src="resources/images/ps_inout_09.png" width="1000">
-<img src="resources/images/ps_inout_10.png" width="1000">
-<img src="resources/images/ps_inout_11.png" width="1000">
-<img src="resources/images/ps_inout_12.png" width="1000">
-<img src="resources/images/ps_inout_13.png" width="1000">
-<img src="resources/images/ps_inout_14.png" width="1000">
-<img src="resources/images/ps_inout_15.png" width="1000">
 
 ## Final Thoughts
 This project was a good opportunity to put in practice different data structures as: stacks, hash tables and tries. Additionally, I really enjoyed taking the moment to thing outside the box and looking for optimization and creative solutions.
