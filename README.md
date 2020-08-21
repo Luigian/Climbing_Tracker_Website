@@ -16,7 +16,7 @@ Gym managers can also create an account and upload the routes they have in their
 
 This website uses a relational database managment system to organizes the data into four tables: `users`, `gyms`, `routes` and `climbs`.
 
-Each table is composed of columns and rows. The rows represent instances or records of the table, and the columns represent values attributed to that instance. Each row in a table has its own unique primary key. These primary keys within a database are used to define the relationships among the tables.
+Each table is composed of columns and rows. The rows represent instances or records of the table, and the columns represent values attributed to that instance. Each row in a table has its own unique primary key. These primary keys within the database are used to define the relationships among the tables.
 
 ### Establishing the basis of interaction between tables
 
@@ -25,43 +25,7 @@ Each table is composed of columns and rows. The rows represent instances or reco
 * `gyms` and `routes` posses a **one to many** relation, meaning that a gym can register many routes, but a route can only belong to one gym.
 * `climbs` and `routes` possess a **many to one** relation, meaning that each climb can only be done to one route, and a route can be climbed many times. 
 
-### Recording the climbs
-
 ### Generating the statistics
-
-### The tools for routesetting
-
-* Gyms -
-* Add -
-* History -
-* Analytics -
-
-### Gym Admin
-
-* Gym Signup -
-* New -
-* Routes -
-* Dashboard -
-
-### User 
-
-* Home - Main page with access to  
-* Signup -
-* Login - username and password are required to validate them and the 
-* Logout -
-
-## Logbook
-
-I recommend to take a look to this videos from CS50:
-
-* [Computational Complexity][computational complexity]
-* [Selection Sort][selection sort]
-* [Bubble Sort][bubble sort]
-* [Insertion Sort][insertion sort]
-* [Merge Sort][merge sort]
-* [Algorithms Summary][algorithms summary]
-* [Stacks][stacks]
-* [Tries][tries]
 
 ## Installation
 At the root of this repository:
@@ -75,34 +39,9 @@ At the root of this repository:
 
 `./checker [integers array]` | Reads the solution from the standard input, and prints "OK" or "KO".
 
-The `integers array` can be:
-- Multiple ints as arguments (3 2 1 0).
-- One single char string argument ("3 2 1 0").
-- A combination of both (3 "2 1" 0).
-
-## Optional flags
-`./push_swap -w [integers array]` | Prints the solution in a file.
-
-`./checker -r [integers array]` | Reads the solution from a file.
-
-`./checker -v [integers array]` | Reads the solution from the standard input and display, at every time, a visual representation of the stacks current status.
-
-## Final Thoughts
-This project was a good opportunity to put in practice different data structures as: stacks, hash tables and tries. Additionally, I really enjoyed taking the moment to thing outside the box and looking for optimization and creative solutions.
-
 ## Credits
-[*Luis Sanchez*][linkedin] 2019, [42 Silicon Valley][42].
-
-[computational complexity]: https://www.youtube.com/watch?v=YoZPTyGL2IQ
-[selection sort]: https://www.youtube.com/watch?v=3hH8kTHFw2A
-[bubble sort]: https://www.youtube.com/watch?v=RT-hUXUWQ2I
-[insertion sort]: https://www.youtube.com/watch?v=O0VbBkUvriI
-[merge sort]: https://www.youtube.com/watch?v=Ns7tGNbtvV4
-[algorithms summary]: https://www.youtube.com/watch?v=ktWL3nN38ZA
-[stacks]: https://www.youtube.com/watch?v=hVsNqhEthOk
-[tries]: https://www.youtube.com/watch?v=MC-iQHFdEDI
+[*Luis Sanchez*][linkedin] 2020
 
 [linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
-[42]: http://42.us.org "42 USA"
 
 
