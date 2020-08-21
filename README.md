@@ -2,7 +2,7 @@
 
 ## A climbing tracker website 
 
-<img src="resources/images/panic_bear_banner.jpg" width="1000">
+<img src="resources/images/panic_bear_banner_1.jpg" width="1000">
 
 In sport climbing, tracking the **efficacy** has to do on whether or not a route was ascended from the ground to the top, with no falls and no additional help. But in order to really evaluate the climber's progress it's necessary to consider the **efficiency** too, which is how many attempts, or unsuccessful ascents, occurred in the process.
 
