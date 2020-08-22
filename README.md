@@ -14,7 +14,7 @@ Gym managers can also create an account and upload the routes they have in their
 
 ## Implementation
 
-This website uses a relational database managment system to organizes the data into four tables: `users`, `gyms`, `routes` and `climbs`.
+This website uses a relational database managment system (RDBMS) to organizes the data into four tables: `users`, `gyms`, `routes` and `climbs`.
 
 Each table is composed of columns and rows. The rows represent instances or records of the table, and the columns represent values attributed to that instance. Each row in a table has its own unique primary key. These primary keys within the database are used to define the relationships among the tables. A foreign key is a field in a relational table that matches the primary key column of another table. It relates the two keys.
 
@@ -34,15 +34,21 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 * The efficiency for a climbing grade is calculated by taking the number of successful attemps to indistinct routes of the same grade and dividing it by the number of successful or unsuccessful attempts to indistinct routes of this same grade.
 
-query, sql, join
-dt = mysqli_query($conn, "SELECT COUNT(DISTINCT climbs.routeId) FROM climbs LEFT JOIN routes ON routes.id = climbs.routeId WHERE climbs.userId = '$_COOKIE[userId]' AND routes.grade = '$x' AND climbs.status = 'Top'");
+* For querying this information, this website uses SQL (Structured Query Language). The join operation allow us to connect two separate tables by their common attributes and create another table which combines the information we need from both tables.
 
 ## Installation
-At the root of this repository:
 
-`cd push_swap` | Go to the compilation directory.
+**To install/restore the database:**
 
-`make` | Compiles and creates two programs: `push_swap` and `checker`.
+* `sudo service mysql restart`, then `mysql`, and then `CREATE DATABASE db_climb;` 
+
+* In another terminal window, go to `resources/db/` and type: `mysql -u [user] -p db_climb < db_climb.sql`
+
+**To start the development server and open the website:**
+
+* Go inside the `panic_bear` directory and type: `php -S localhost:8080`
+
+* In another terminal window, go to the root of the repo and type: `open http://localhost:8080/panic_bear/home.php`
 
 ## Usage
 `./push_swap [integers array]` | Prints the solution.
