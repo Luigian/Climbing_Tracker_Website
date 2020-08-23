@@ -42,11 +42,11 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 * `sudo service mysql restart`, then `mysql`, and then `CREATE DATABASE db_climb;` 
 
-* In `resources/db/`: `mysql -u [user] -p db_climb < db_climb.sql`
+* Inside `resources/db/`: `mysql -u [user] -p db_climb < db_climb.sql`
 
 **To start the development server and open the website:**
 
-* Inside the `panic_bear` directory: `php -S localhost:8080`
+* Inside `panic_bear/`: `php -S localhost:8080`
 
 * In another terminal window, at the root of the repo: `open http://localhost:8080/panic_bear/home.php`
 
