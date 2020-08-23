@@ -10,7 +10,7 @@ A climbing grade is a number intended to describe concisely the difficulty of cl
 
 After creating an account the user can register his climbs, access to his climbing record and see some statistics in order to understand his performance in the different grades he has climbed on different climbing gyms. 
 
-Gym managers can also create an account and upload the routes they have in their gyms (this allow the users to add these same routes to their climbing record). Gym managers can access to their routes history and see some statistics that could help them to better distribute and plan their routesetting.
+Gym managers can also create an account and upload the routes they have in their gyms (this allow the users to add these same routes to their climbing record). Gym managers can access to their route's history and see some statistics that could help them to better distribute and plan their routesetting.
 
 ## Implementation
 
