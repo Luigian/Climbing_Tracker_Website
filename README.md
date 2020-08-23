@@ -14,7 +14,7 @@ Gym managers can also create an account and upload the routes they have in their
 
 ## Implementation
 
-This website uses a relational database managment system (RDBMS) to organizes the data into four tables: `users`, `gyms`, `routes` and `climbs`.
+This website uses a relational database management system (RDBMS) to organizes the data into four tables: `users`, `gyms`, `routes` and `climbs`.
 
 Each table is composed of columns and rows. The rows represent instances or records of the table, and the columns represent values attributed to that instance. Each row in a table has its own unique primary key. These primary keys within the database are used to define the relationships among the tables. A foreign key is a field in a relational table that matches the primary key column of another table. It relates the two keys.
 
@@ -32,7 +32,7 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 * The efficacy for a climbing grade is calculated by taking the number of distinct routes of the same grade with at least one successful attempt and dividing it by the number of distinct routes of this same grade with at least one successful or unsuccessful attempt.
 
-* The efficiency for a climbing grade is calculated by taking the number of successful attemps to indistinct routes of the same grade and dividing it by the number of successful or unsuccessful attempts to indistinct routes of this same grade.
+* The efficiency for a climbing grade is calculated by taking the number of successful attempts to indistinct routes of the same grade and dividing it by the number of successful or unsuccessful attempts to indistinct routes of this same grade.
 
 * For querying this information, this website uses SQL (Structured Query Language). The join operation allow us to connect two separate tables by their common attributes and create another table which combines the information we need from both tables.
 
@@ -46,7 +46,7 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 **To start the development server and open the website:**
 
-* Inside of the `panic_bear` directory: `php -S localhost:8080`
+* Inside the `panic_bear` directory: `php -S localhost:8080`
 
 * In another terminal window, at the root of the repo: `open http://localhost:8080/panic_bear/home.php`
 
