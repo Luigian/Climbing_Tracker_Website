@@ -42,7 +42,7 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 * `sudo service mysql restart`, then `mysql`, and then `CREATE DATABASE db_climb;` 
 
-* In another terminal window, in `resources/db/`: `mysql -u [user] -p db_climb < db_climb.sql`
+* In `resources/db/`: `mysql -u [user] -p db_climb < db_climb.sql`
 
 **To start the development server and open the website:**
 
@@ -51,13 +51,12 @@ Each table is composed of columns and rows. The rows represent instances or reco
 * In another terminal window, at the root of the repo: `open http://localhost:8080/panic_bear/home.php`
 
 ## Usage
-`./push_swap [integers array]` | Prints the solution.
-
-`./checker [integers array]` | Reads the solution from the standard input, and prints "OK" or "KO".
+[*Panic Bear screencast*][screencast]
 
 ## Credits
 [*Luis Sanchez*][linkedin] 2020
 
+[screencast]: 
 [linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
 
 
