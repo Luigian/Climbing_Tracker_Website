@@ -56,7 +56,7 @@ Each table is composed of columns and rows. The rows represent instances or reco
 ## Credits
 [*Luis Sanchez*][linkedin] 2020
 
-[screencast]: http://localhost:8080/analytics.php
+[screencast]: https://drive.google.com/file/d/1Fk_KjavPrXAcTI_Cl226GcoXiK-gg6Pk/view
 [linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
 
 
