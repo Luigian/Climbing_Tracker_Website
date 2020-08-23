@@ -4,7 +4,7 @@
 
 <img src="resources/images/panic_bear_banner_1.jpg" width="1000">
 
-In sport climbing, tracking the **efficacy** has to do on whether or not a route was ascended from the ground to the top, with no falls and no additional help. But in order to better evaluate the climber's progress it's necessary to consider the **efficiency** too, which is how many attempts, or unsuccessful ascents, occurred in the process.
+In sport climbing, tracking the **efficacy** has to do on whether or not a route was ascended from the ground to the top, with no falls and no additional help. But in order to better evaluate the climber's progress it's necessary to consider the **efficiency** too, which is how many unsuccessful attempts occurred in the process.
 
 A climbing grade is a number intended to describe concisely the difficulty of climbing a determinate route. This website calculates the climber's efficacy and efficiency at the different grades he has climbed.  
 
