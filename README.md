@@ -51,12 +51,12 @@ Each table is composed of columns and rows. The rows represent instances or reco
 * In another terminal window, at the root of the repo: `open http://localhost:8080/panic_bear/home.php`
 
 ## Usage
-[*Panic Bear screencast*][screencast]
+[Panic Bear screencast][screencast]
 
 ## Credits
 [*Luis Sanchez*][linkedin] 2020
 
-[screencast]: 
+[screencast]: http://localhost:8080/analytics.php
 [linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
 
 
