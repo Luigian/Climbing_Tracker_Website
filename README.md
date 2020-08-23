@@ -22,11 +22,11 @@ Each table is composed of columns and rows. The rows represent instances or reco
 
 * `users` and `gyms` posses a **one-to-one** relation, meaning that each user can only register one gym, and each gym can only have one manager. For this, each record in the `gyms` table have an attribute to store a primary key of the `users` table as a foreign key.
 
-* `users` and `climbs` posses a **one-to-many** relation, meaning that a user can register multiple climbs, but a climb can only belong to one user. For this, each record in the `climbs` table have an attribute to store a primary key of the `users` table as a foreign key.
+* `users` and `climbs` posses a **one-to-many** relation, meaning that an user can register multiple climbs, but a climb can only belong to one user. For this, each record in the `climbs` table have an attribute to store a primary key of the `users` table as a foreign key.
 
 * `gyms` and `routes` posses a **one-to-many** relation, meaning that a gym can register many routes, but a route can only belong to one gym. For this, each record in the `routes` table have an attribute to store a primary key of the `gyms` table as a foreign key.
 
-* `climbs` and `routes` possess a **many-to-one** relation, meaning that each climb can only be done to one route, and a route can be climbed many times. For this, each record in the `climbs` table have an attribute to store a primary key of the `routes` table as a foreign key. 
+* `climbs` and `routes` posses a **many-to-one** relation, meaning that each climb can only be done to one route, and a route can be climbed many times. For this, each record in the `climbs` table have an attribute to store a primary key of the `routes` table as a foreign key. 
 
 ### Generating the statistics
 
